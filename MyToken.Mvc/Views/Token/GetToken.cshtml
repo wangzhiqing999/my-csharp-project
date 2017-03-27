@@ -1,0 +1,70 @@
+﻿@model MyToken.Model.TokenData
+
+@{
+    ViewBag.Title = "GetToken";
+}
+
+<h2>GetToken</h2>
+
+<fieldset>
+    <legend>TokenData</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TokenTypeCode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TokenTypeCode)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserData)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserData)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ExpiredTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExpiredTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsUseable)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsUseable)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.AccessCount)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AccessCount)
+    </div>
+</fieldset>
+
+
+<hr/>
+
+<h3>再次获取</h3>
+
+@using (Html.BeginForm(actionName: "GetToken", controllerName: "Token", method: FormMethod.Post))
+{
+
+    @Html.TextBox(name: "id", value: Model.TokenID)
+
+    <input type="submit" value="GetToken" />
+}
+
+
+
+<a href="/Token">返回</a>

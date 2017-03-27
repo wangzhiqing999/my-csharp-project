@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+    
+    string token = ViewBag.Token;
+}
+
+<h2>Index</h2>
+
+
+
+<hr />
+
+<h4> 申请新Token </h4>
+
+
+@using (Html.BeginForm(actionName: "NewToken", controllerName: "Token", method: FormMethod.Post))
+{
+
+    <select id="typeCode" name="typeCode">
+        <option value="TEST_CASE_1">测试案例1</option>
+        <option value="TEST_CASE_2">测试案例2</option>
+        <option value="TEST_CASE_3">测试案例3</option>
+        <option value="TEST_CASE_4">测试案例4</option>
+        <option value="TEST_CASE_5">测试案例5</option>
+    </select>
+
+    <input type="submit" value="NewToken" />
+}
+
+
+
+
+<hr />
+
+<h4> 获取 token </h4>
+
+@using (Html.BeginForm(actionName: "GetToken", controllerName:"Token",  method : FormMethod.Post))
+{
+
+
+@Html.TextBox(name: "id", value: token)
+
+<input type="submit" value="GetToken" />
+
+}
+
