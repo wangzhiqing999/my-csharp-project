@@ -7,3 +7,11 @@ SELECT 'TEST_INT32',  	'简单测试Int32',  		'System.Int32'																UNION A
 SELECT 'TEST_OBJ',  	'简单测试自定义对象',  	'MySystemConfig.Service.Test.MyTestUser,MySystemConfig.Service.Test'
 GO
 
+
+
+INSERT INTO [dbo].[sc_system_config_type]
+           ([config_type_code]
+           ,[config_type_name]
+           ,[config_type_class_name])
+SELECT 'TEST_DICTIONARY_1',  	'简单测试Dictionary',  	'System.Collections.Generic.Dictionary`2[System.String,System.Object]'
+GO

@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
+using System.Collections.Generic;
+
 using MySystemConfig.Model;
 using MySystemConfig.Service;
 using MySystemConfig.ServiceImpl;
@@ -250,6 +252,91 @@ namespace MySystemConfig.Service.Test
         }
 
 
+
+
+
+        [TestMethod]
+        public void TestSerializableDictionary()
+        {
+
+            Dictionary<string, object> configValueObject1 = new Dictionary<string, object>();
+            configValueObject1.Add("Name", "张三");
+            configValueObject1.Add("Age", 25);
+            configValueObject1.Add("Address", "北京");
+            
+            Dictionary<string, object> configValueObject2 = new Dictionary<string, object>();
+            configValueObject2.Add("Name", "李四");
+            configValueObject2.Add("Age", 30);
+            configValueObject2.Add("Address", "上海");
+
+
+            SystemConfigValue configValue1 = new SystemConfigValue()
+            {
+                // 类型代码.
+                ConfigTypeCode = "TEST_DICTIONARY_1",
+                // 配置代码
+                ConfigCode = "TEST1",
+                // 配置名称.
+                ConfigName = "测试项目1",
+                // 配置数值.
+                ConfigValueObject = configValueObject1,
+            };
+            SystemConfigValue configValue2 = new SystemConfigValue()
+            {
+                // 类型代码.
+                ConfigTypeCode = "TEST_DICTIONARY_1",
+                // 配置代码
+                ConfigCode = "TEST2",
+                // 配置名称.
+                ConfigName = "测试项目2",
+                // 配置数值.
+                ConfigValueObject = configValueObject2,
+            };
+
+
+            // 先更新.
+            string resultMsg = null;
+            bool result = this.systemConfigService.UpdateSystemConfigValue(configValue1, ref resultMsg);
+            Assert.IsTrue(result);
+
+            result = this.systemConfigService.UpdateSystemConfigValue(configValue2, ref resultMsg);
+            Assert.IsTrue(result);
+
+
+
+            // 后查询.
+            var dataList = this.systemConfigService.GetSystemConfigValueByType("TEST_DICTIONARY_1");
+
+            // 结果数据非空.
+            Assert.IsNotNull(dataList);
+
+            // 行数为2.
+            Assert.AreEqual(2, dataList.Count);
+
+
+            Dictionary<string, object> configData1 = dataList[0].ConfigValueObject as Dictionary<string, object>;
+            Dictionary<string, object> configData2 = dataList[1].ConfigValueObject as Dictionary<string, object>;
+
+            // 明细数据非空.
+            Assert.IsNotNull(configData1);
+            Assert.IsNotNull(configData2);
+
+
+
+
+            Assert.AreEqual("张三", configData1["Name"]);
+            Assert.AreEqual("25", configData1["Age"].ToString());
+            Assert.AreEqual("北京", configData1["Address"]);
+
+            Assert.AreEqual("李四", configData2["Name"]);
+            Assert.AreEqual("30", configData2["Age"].ToString());
+            Assert.AreEqual("上海", configData2["Address"]);
+
+            // 注意： 由于是 Dictionary<string, object>
+            // Assert.AreEqual(30, configData2["Age"]); 
+            // 将会失败.
+            // 原因是 configData2["Age"] 的数据类型是 Int64.
+        }
 
 
 
