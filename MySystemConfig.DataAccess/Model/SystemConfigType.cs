@@ -59,6 +59,13 @@ namespace MySystemConfig.Model
 
 
 
+        /// <summary>
+        /// 简单的 Key-Value 关系. Key 为 String， Value 为 Object.
+        /// </summary>
+        public const string SimpleDictionary = "System.Collections.Generic.Dictionary`2[System.String,System.Object]";
+
+
+
 
 
 

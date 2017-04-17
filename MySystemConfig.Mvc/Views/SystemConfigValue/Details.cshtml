@@ -1,0 +1,79 @@
+﻿@model MySystemConfig.Model.SystemConfigValue
+
+@{
+    ViewBag.Title = "Details";
+    
+    MySystemConfig.Model.SystemConfigType sct = ViewBag.SystemConfigType;
+    List<MySystemConfig.Model.SystemConfigProperty> scp = ViewBag.SystemConfigPropertys;        
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SystemConfigValue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfigTypeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfigTypeCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfigCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfigCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfigName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfigName)
+        </dd>
+
+
+
+
+
+@if (sct.ConfigClassName == MySystemConfig.Model.SystemConfigType.SimpleDictionary)
+{
+    System.Collections.Generic.Dictionary<string, object> detailData = Model.ConfigValueObject as System.Collections.Generic.Dictionary<string, object>;
+
+    foreach (var prop in scp)
+    {
+
+        <dt>
+            @prop.PropertyDesc
+        </dt>
+
+        <dd>
+            @detailData[prop.PropertyName]
+        </dd>
+    }
+}
+else
+{
+    <dt>
+        @Html.DisplayNameFor(model => model.ConfigValue)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.ConfigValue)
+    </dd>
+}
+
+
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { configTypeCode = Model.ConfigTypeCode, configCode = Model.ConfigCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

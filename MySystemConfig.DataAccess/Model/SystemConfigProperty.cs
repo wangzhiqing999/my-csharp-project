@@ -77,6 +77,16 @@ namespace MySystemConfig.Model
         [StringLength(64)]
         public string PropertyDesc { set; get; }
 
+
+
+        /// <summary>
+        /// 显示顺序.
+        /// </summary>
+        [DataMember]
+        [Column("display_order")]
+        [Display(Name = "显示顺序")]
+        public int DisplayOrder { set; get; }
+
     }
 
 

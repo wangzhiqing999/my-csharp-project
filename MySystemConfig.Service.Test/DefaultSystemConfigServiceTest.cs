@@ -263,11 +263,13 @@ namespace MySystemConfig.Service.Test
             configValueObject1.Add("Name", "张三");
             configValueObject1.Add("Age", 25);
             configValueObject1.Add("Address", "北京");
+            configValueObject1.Add("IsEmployee", true);
             
             Dictionary<string, object> configValueObject2 = new Dictionary<string, object>();
             configValueObject2.Add("Name", "李四");
             configValueObject2.Add("Age", 30);
             configValueObject2.Add("Address", "上海");
+            configValueObject2.Add("IsEmployee", false);
 
 
             SystemConfigValue configValue1 = new SystemConfigValue()
@@ -327,10 +329,12 @@ namespace MySystemConfig.Service.Test
             Assert.AreEqual("张三", configData1["Name"]);
             Assert.AreEqual("25", configData1["Age"].ToString());
             Assert.AreEqual("北京", configData1["Address"]);
+            Assert.AreEqual(true, configData1["IsEmployee"]);
 
             Assert.AreEqual("李四", configData2["Name"]);
             Assert.AreEqual("30", configData2["Age"].ToString());
             Assert.AreEqual("上海", configData2["Address"]);
+            Assert.AreEqual(false, configData2["IsEmployee"]);
 
             // 注意： 由于是 Dictionary<string, object>
             // Assert.AreEqual(30, configData2["Age"]); 

@@ -39,6 +39,28 @@ namespace MySystemConfig.ServiceImpl
         }
 
 
+        /// <summary>
+        /// 取得配置类型
+        /// </summary>
+        /// <param name="configTypeCode"></param>
+        /// <returns></returns>
+        public SystemConfigType GetSystemConfigType(string configTypeCode)
+        {
+            using (MySystemConfigContext context = new MySystemConfigContext())
+            {
+
+                var result = context.SystemConfigTypes.Find(configTypeCode);
+
+                return result;
+            }
+        }
+
+
+
+
+
+
+
 
         /// <summary>
         /// 取得指定类型的 系统配置属性.
@@ -53,6 +75,8 @@ namespace MySystemConfig.ServiceImpl
                     from data in context.SystemConfigPropertys
                     where
                         data.ConfigTypeCode == configTypeCode
+                    orderby
+                        data.DisplayOrder
                     select
                         data;
 
@@ -126,7 +150,49 @@ namespace MySystemConfig.ServiceImpl
         }
 
 
+        /// <summary>
+        /// 取得系统配置数值
+        /// </summary>
+        /// <param name="configTypeCode"></param>
+        /// <param name="configCode"></param>
+        /// <returns></returns>
+        public SystemConfigValue GetSystemConfigValue(string configTypeCode, string configCode)
+        {
+            using (MySystemConfigContext context = new MySystemConfigContext())
+            {
+                SystemConfigValue result = context.SystemConfigValues.Find(configTypeCode, configCode);
+                if (result == null)
+                {
+                    return result;
+                }
 
+                // 配置的数据类型.
+                Type configType = null;
+                try
+                {
+                    configType = Type.GetType(result.SystemConfigTypeData.ConfigClassName);
+                }
+                catch (Exception)
+                {
+                    configType = null;
+                }
+
+
+                // Json 反序列化.
+                if (configType != null)
+                {
+                    // 指定了数据类型.
+                    result.ConfigValueObject = JsonConvert.DeserializeObject(result.ConfigValue, configType);
+                }
+                else
+                {
+                    // 未指定数据类型.
+                    result.ConfigValueObject = JsonConvert.DeserializeObject(result.ConfigValue);
+                }
+
+                return result;
+            }
+        }
 
 
         /// <summary>
@@ -183,6 +249,10 @@ namespace MySystemConfig.ServiceImpl
                 return true;
             }
         }
+
+
+
+
 
 
 

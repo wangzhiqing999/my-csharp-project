@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MySystemConfig.Model.SystemConfigValue>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigTypeCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConfigValue)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfigTypeCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfigCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfigName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConfigValue)
+        </td>
+
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { configTypeCode = item.ConfigTypeCode, configCode = item.ConfigCode }) |
+
+            @Html.ActionLink("Details", "Details", new { configTypeCode = item.ConfigTypeCode, configCode = item.ConfigCode }) |
+
+            
+            
+            @Html.ActionLink("GetConfigList", "GetConfigList", new { configTypeCode = item.ConfigTypeCode}) |
+            @Html.ActionLink("GetConfig", "GetConfig", new { configTypeCode = item.ConfigTypeCode, configCode = item.ConfigCode }) 
+               
+        </td>
+    </tr>
+}
+
+</table>
