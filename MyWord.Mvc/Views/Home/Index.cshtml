@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h2> 测试关键字检查. </h2>
+
+        <p>
+            <textarea id="inputSource" placeholder="在这里输入文本内容"></textarea>            
+        </p>
+
+        <p>
+            检查结果：<span id="hasKeywordResult"></span>
+            <br/>
+            替换结果：<span id="replaceResult"></span>
+        </p>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <h2> 测试关键字检查 -- 服务端. </h2>
+        <input id="serverCheck" type="button" value="服务端处理" />
+    </div>
+
+    <div class="col-md-6">
+        <h2> 测试关键字检查 -- 客户端. </h2>
+        <input id="clientCheck" type="button" value="客户端处理" />
+    </div>
+</div>
+
+
+
+@section scripts
+{
+
+<script src="~/Scripts/myKeywordService.js"></script>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        // 加载本地的关键字.
+        myKeywordService.localAddKeywords();
+
+
+        // 服务端检查.
+        $("#serverCheck").click(function () {
+            var text = $("#inputSource").val();
+
+            myKeywordService.remoteHasKeyword(text, showHasKeywordResult);
+            myKeywordService.remoteReplace(text, showReplaceResult);
+        });
+
+
+        // 客户端检查.
+        $("#clientCheck").click(function () {
+
+            var text = $("#inputSource").val();
+            var result1 = myKeywordService.localHasKeyword(text);
+            showHasKeywordResult(result1);
+
+            var result2 = myKeywordService.localReplace(text);
+            showReplaceResult(result2);
+        });
+    });
+
+
+    function showHasKeywordResult(data) {
+        $("#hasKeywordResult").html(data);
+    }
+
+    function showReplaceResult(data) {
+        $("#replaceResult").html(data);
+    }
+
+</script>
+
+}
