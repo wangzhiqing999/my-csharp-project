@@ -1,4 +1,7 @@
-﻿var myKeywordService = {
+﻿"use strict";
+
+
+var myKeywordService = {
 
     // 关键字.
     localKeywords : [],
@@ -15,26 +18,26 @@
                 "id": 0
             },
             function (data) {
-                localKeywords = new Array();
-                localKeywordReg = new Array();
+                myKeywordService.localKeywords = new Array();
+                myKeywordService.localKeywordReg = new Array();
 
                 for (var i = 0; i < data.length; i++) {
 
-                    localKeywords.push(data[i]);
+                    myKeywordService.localKeywords.push(data[i]);
 
                     var reg = new RegExp(data[i], "g");
-                    localKeywordReg.push(reg);
+                    myKeywordService.localKeywordReg.push(reg);
                 }
 
-                localKeywordCount = localKeywords.length;
+                myKeywordService.localKeywordCount = myKeywordService.localKeywords.length;
             });
     },
 
 
     // 本机判断，是否有关键字.
     localHasKeyword: function (text) {
-        for (var i = 0; i < localKeywordCount; i++) {
-            if (text.indexOf(localKeywords[i]) >= 0) {
+        for (var i = 0; i < this.localKeywordCount; i++) {
+            if (text.indexOf(this.localKeywords[i]) >= 0) {
                 return true;
             }
         }
@@ -43,9 +46,9 @@
     // 本机替换关键字.
     localReplace: function (text) {
         var result = text;
-        for (var i = 0; i < localKeywordCount; i++) {
-            if (result.indexOf(localKeywords[i]) >= 0) {
-                result = result.replace(localKeywordReg[i], '*');
+        for (var i = 0; i < this.localKeywordCount; i++) {
+            if (result.indexOf(this.localKeywords[i]) >= 0) {
+                result = result.replace(this.localKeywordReg[i], '*');
             }
         }
         return result;
