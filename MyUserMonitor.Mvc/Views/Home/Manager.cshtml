@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Manager";
+}
+
+<h2>Manager</h2>
+
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>分组</th>
+                <th>用户数</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:userSummaryData">
+            <tr>
+                <td data-bind="text: GroupCode"></td>
+                <td data-bind="text: UserCount"></td>
+
+                <td><a class="btn btn-xs btn-primary" data-bind="click:$parent.updateUserList" href="javascript:void(0)">用户列表</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>分组</th>
+                <th>用户名</th>
+                <th>进入时间</th>
+                <th>最后访问时间</th>
+                <th>访问次数</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach:userListData">
+            <tr>
+                <td data-bind="text: GroupCode"></td>
+                <td data-bind="text: UserName"></td>
+                <td data-bind="text: EnterTime"></td>
+                <td data-bind="text: LastAccessTime"></td>
+                <td data-bind="text: AccessCount"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+<script src="~/Scripts/myUserMonitorManager.js"></script>
+
+<script type="text/javascript">
+
+    var appViewModel = {
+
+        // 用户汇总数据.
+        userSummaryData: ko.observableArray(),
+
+        // 用户列表数据.
+        userListData: ko.observableArray(),
+
+        // 获取全部数据.
+        getUserSummaryData: function () {
+            myUserMonitorManager.userSummary(appViewModel.getUserSummaryDataFinish);
+        },
+
+        getUserSummaryDataFinish: function (result) {
+            if (result.ResultCode == 0) {
+                // 先清空数据.
+                appViewModel.userSummaryData.removeAll();
+                // 遍历新增数据.
+                $.each(result.ResultData, function (key, val) {
+                    console.log("one line :", key, val);
+                    appViewModel.userSummaryData.push(val);
+                });
+
+                setTimeout("appViewModel.getUserSummaryData()", 10000);
+            }
+        },
+
+
+        updateUserList: function () {
+            var groupCode = this.GroupCode;
+            myUserMonitorManager.userList(groupCode, appViewModel.updateUserListFinish);
+        },
+
+        updateUserListFinish: function (result) {
+            if (result.ResultCode == 0) {
+                // 先清空数据.
+                appViewModel.userListData.removeAll();
+                // 遍历新增数据.
+                $.each(result.ResultData, function (key, val) {
+                    console.log("one line :", key, val);
+                    appViewModel.userListData.push(val);
+                });
+            }
+        }
+
+    };
+
+
+    $(document).ready(function () {
+
+        appViewModel.getUserSummaryData();
+
+        ko.applyBindings(appViewModel);
+
+    });
+
+</script>
+
+
+}

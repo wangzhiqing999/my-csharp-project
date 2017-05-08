@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+
+<table>
+    <tr>
+        <td>分组代码</td>
+        <td>
+            <select id="groupCode">
+                <option value="GROUP1">分组1</option>
+                <option value="GROUP2">分组2</option>
+                <option value="GROUP3">分组3</option>
+            </select>
+        </td>
+    </tr>
+
+    <tr>
+        <td>用户名</td>
+        <td>
+            <input type="text" id="userName" />
+        </td>
+    </tr>
+
+
+    <tr>
+        <td colspan="2">
+            <input id="btnStart" type="button" value="开始处理" onclick="doStart()" />
+        </td>
+    </tr>
+
+</table>
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+<script src="~/Scripts/myUserMonitorService.js"></script>
+
+<script>
+    function doStart() {
+        var code = $("#groupCode").val();
+        var name = $("#userName").val();
+        myUserMonitorService.start(code, name, 10);
+    }
+</script>
+}
