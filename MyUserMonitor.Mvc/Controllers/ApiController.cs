@@ -111,6 +111,11 @@ namespace MyUserMonitor.Mvc.Controllers
 
 
 
+        /// <summary>
+        /// 用户列表.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public JsonResult UserList(string id)
         {
             try
@@ -154,6 +159,40 @@ namespace MyUserMonitor.Mvc.Controllers
             }
 
         }
+
+
+
+
+
+        /// <summary>
+        /// 配置超时.
+        /// </summary>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public JsonResult ConfigTimeout(int second)
+        {
+            try
+            {
+                // 设置超时.
+                this.userMonitorService.Timeout = second;
+
+                // 返回.
+                return Json(successResult, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+
+                var errorResult = new
+                {
+                    ResultCode = -1,
+                    ResultMessage = ex.Message
+                };
+
+                // 返回.
+                return Json(errorResult, JsonRequestBehavior.AllowGet);
+            }
+        }
+
 
     }
 }

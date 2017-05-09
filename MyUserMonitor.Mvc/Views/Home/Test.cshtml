@@ -28,7 +28,7 @@
 
     <tr>
         <td colspan="2">
-            <input id="btnStart" type="button" value="开始处理" onclick="doStart()" />
+            <input id="btnStart" type="button" value="开始处理" onclick="doStart()"  />
         </td>
     </tr>
 
@@ -48,6 +48,8 @@
         var code = $("#groupCode").val();
         var name = $("#userName").val();
         myUserMonitorService.start(code, name, 10);
+
+        $("#btnStart").attr("disabled", "disabled");
     }
 </script>
 }

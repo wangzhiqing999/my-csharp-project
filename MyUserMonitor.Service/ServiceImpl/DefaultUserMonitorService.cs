@@ -89,6 +89,11 @@ namespace MyUserMonitor.ServiceImpl
         public int Timeout {
             set
             {
+                if (value <= 0) { 
+                    // 忽略非法参数.
+                    return;
+                }
+
                 timeout = value;
             }
             get
@@ -100,9 +105,9 @@ namespace MyUserMonitor.ServiceImpl
 
 
         /// <summary>
-        /// 是否保存日志到数据库.
+        /// 保存处理.
         /// </summary>
-        public bool IsSaveLogToDatabase { set; get; }
+        public IUserAccessInfoWriter UserAccessInfoWriter { set; get; }
 
 
 
@@ -115,20 +120,24 @@ namespace MyUserMonitor.ServiceImpl
         public void UserAccess(string groupCode, string userName)
         {
 
-            var query =
-                from data in this.userAccessDataList
-                where
-                    data.GroupCode == groupCode
-                    && data.UserName == userName
-                select
-                    data;
+            UserAccessInfo userAccessInfo;
 
-            var userAccessInfo = query.FirstOrDefault();
-
-            if (userAccessInfo == null)
+            lock (this.userAccessDataList)
             {
-                lock (this.userAccessDataList)
+
+                var query =
+                    from data in this.userAccessDataList
+                    where
+                        data.GroupCode == groupCode
+                        && data.UserName == userName
+                    select
+                        data;
+
+                userAccessInfo = query.FirstOrDefault();
+
+                if (userAccessInfo == null)
                 {
+
                     // 首次访问.
                     userAccessInfo = new UserAccessInfo()
                     {
@@ -139,7 +148,12 @@ namespace MyUserMonitor.ServiceImpl
                     };
 
                     this.userAccessDataList.Add(userAccessInfo);
+
+
+                    // 通知 其他等待的线程
+                    Monitor.Pulse(this.userAccessDataList);
                 }
+
             }
 
             // 共通处理.
@@ -210,19 +224,34 @@ namespace MyUserMonitor.ServiceImpl
             {
                 try
                 {
-                    // 查询超时的数据.
-                    var removeQuery =
-                            from data in this.userAccessDataList
-                            where
-                                data.LastAccessTime.AddSeconds(this.timeout) < DateTime.Now
-                            select
-                                data;
-                    var removeList = removeQuery.ToList();
+
+                    List<UserAccessInfo> removeList;
+
+
+                    lock (this.userAccessDataList)
+                    {
+                        if (this.userAccessDataList.Count == 0)
+                        {
+                            // 无数据的情况下.
+                            // 等待通知.
+                            Monitor.Wait(this.userAccessDataList);
+                        }
+
+                        // 查询超时的数据.
+                        var removeQuery =
+                                from data in this.userAccessDataList
+                                where
+                                    data.LastAccessTime.AddSeconds(this.timeout) < DateTime.Now
+                                select
+                                    data;
+                        removeList = removeQuery.ToList();
+                    }
 
 
                     // 从列表中删除.
                     if (removeList.Count > 0)
                     {
+
                         lock (this.userAccessDataList)
                         {
                             foreach (var item in removeList)
@@ -231,24 +260,12 @@ namespace MyUserMonitor.ServiceImpl
                             }
                         }
 
-
-                        if (this.IsSaveLogToDatabase)
+                        if (this.UserAccessInfoWriter != null)
                         {
-                            // 超时的数据，存储到数据库.
-                            using (MyUserMonitorContext context = new MyUserMonitorContext())
-                            {
-                                foreach (var item in removeList)
-                                {
-                                    context.UserAccessInfos.Add(item);
-                                }
-                                context.SaveChanges();
-                            }
+                            // 超时的数据，存储.
+                            this.UserAccessInfoWriter.SaveUserAccessInfoList(removeList);
                         }
-
                     }
-
-                    
-
                     
                 }
                 catch (Exception ex)
@@ -257,7 +274,7 @@ namespace MyUserMonitor.ServiceImpl
                 }
 
 
-                Thread.Sleep(this.timeout);
+                Thread.Sleep(1000);
             }
         }
 
