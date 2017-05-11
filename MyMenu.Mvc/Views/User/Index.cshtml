@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MyMenu.Model.Menu>
+
+<style>
+
+    .myRootMenu li {
+        float:left;
+        list-style: none;
+        margin: 10px 20px 10px 20px;
+    }
+
+    .mySubMenu li {
+        float: none;
+        list-style: none;
+        margin: 10px 20px 10px 20px;
+    }
+</style>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <ul class="myRootMenu col-md-12">
+@foreach (var rootItem in Model)
+{
+        <li>
+            <a href="@rootItem.MenuExpand" class="btn btn-primary" role="button">@rootItem.MenuText </a>
+
+            <ul class="mySubMenu">
+@foreach (var subItem in rootItem.MenuSubMenuList)
+{
+                <li>
+                    <a href="@subItem.MenuExpand" class="btn btn-primary" role="button">@subItem.MenuText </a>
+                </li>
+}
+            </ul>
+        </li>
+}
+    </ul>
+</div>
+

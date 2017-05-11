@@ -1,6 +1,14 @@
 # my-csharp-project
 
 
+### MyMenu
+菜单管理的代码.
+
+
+### MySystemConfig
+存储系统配置的代码.
+
+
 ### MySystemConfig
 存储系统配置的代码.
 

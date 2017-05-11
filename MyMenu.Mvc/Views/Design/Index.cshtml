@@ -1,0 +1,446 @@
+﻿
+<style>
+
+    .myRootMenu {
+        border-style:solid;
+    }
+    .myRootMenu li{
+        /* float:left;  */
+        list-style:none;
+        border-style:solid;
+        margin : 10px 20px 10px 20px;
+    }
+
+
+    .mySubMenu {
+        border-style:solid;
+    }
+
+    .mySubMenu li{
+        float:none;
+        list-style:none;
+        border-style:solid;
+        margin : 10px 20px 10px 20px;
+    }
+</style>
+
+
+
+
+
+<h2>Index</h2>
+
+<div class="row">
+    <ul class="myRootMenu col-md-12" data-bind="foreach: rootMenu">
+        <li data-bind="attr: {menuCode: menuCode}">
+            <button type="button" class="btn btn-primary" data-bind="text: menuText"></button>
+            &nbsp;
+            <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.editMenu">编辑</a>
+            <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.addMenu">新增同级菜单</a>
+            <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.removeMenu">删除</a>
+            <ul class="mySubMenu" data-bind="foreach: subMenu">
+                <li data-bind="attr: {menuCode: menuCode}">
+                    <button type="button" class="btn btn-primary" data-bind="text: menuText"></button>
+                    &nbsp;
+                    <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.editMenu">编辑</a>
+                    <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.addMenu">新增同级菜单</a>
+                    <a href="#" data-bind="visible: $root.dragsortMode() === false, click: $root.removeMenu">删除</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+
+<hr/>
+
+<p>
+    <button type="button" class="btn btn-primary" data-bind="disable: dragsortMode, click: initDragsort">开始调整位置</button>
+    <button type="button" class="btn btn-primary" data-bind="enable: dragsortMode, click: destroyDragsort">结束调整位置</button>
+</p>
+
+
+
+<div id="editMenuDialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">编辑菜单</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    菜单代码 <span data-bind="text: editMenuCode"></span>
+                </p>
+                <input type="hidden" data-bind="value: editParentMenuCode" />
+                <input type="hidden" data-bind="value: editDisplayIndex" />
+                <p> 菜单文本 <input type="text" data-bind="value: editMenuText" /> </p>
+                <p>
+                    菜单描述
+                    <textarea data-bind="textInput: editMenuDesc"></textarea>
+                </p>
+                <p> 扩展信息 <input type="text" data-bind="value: editMenuExpand" /> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-bind="click: updateMenu">保存数据</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+
+<div id="newMenuDialog" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">新增菜单</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    菜单代码 <input type="text" data-bind="value: editMenuCode" />
+                </p>
+                <input type="hidden" data-bind="value: editParentMenuCode" />
+                <input type="hidden" data-bind="value: editDisplayIndex" />
+                <p> 菜单文本 <input type="text" data-bind="value: editMenuText" /> </p>
+                <p>
+                    菜单描述
+                    <textarea data-bind="textInput: editMenuDesc"></textarea>
+                </p>
+                <p> 扩展信息 <input type="text" data-bind="value: editMenuExpand" /> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-bind="click: insertMenu">保存数据</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+
+
+@section scripts
+{
+<script src="~/Scripts/knockout-3.4.2.debug.js"></script>
+<script src="~/Scripts/jquery.dragsort-0.5.2.js"></script>
+<script src="~/Scripts/myMenuService.js"></script>
+
+
+<script type="text/javascript">
+
+
+    var appViewModel = {
+
+        // 菜单根节点.
+        rootMenu: ko.observableArray(),
+
+        // 拖动模式.
+        dragsortMode: ko.observable(false),
+
+
+        // 编辑信息.
+        editMenuCode: ko.observable(),
+        editParentMenuCode: ko.observable(),
+        editDisplayIndex: ko.observable(),
+        editMenuText: ko.observable(),
+        editMenuDesc: ko.observable(),
+        editMenuExpand: ko.observable(),
+
+
+        // 重新加载菜单.
+        reloadMenu: function () {
+            myMenuService.getRootMenu(appViewModel.getRootMenuFinish);
+        },
+
+        // 加载根节点数据处理完毕.
+        getRootMenuFinish: function (result) {
+            // 先清空数据.
+            appViewModel.rootMenu.removeAll();
+            // 遍历新增数据.
+            $.each(result, function (key, val) {
+                val.subMenu = ko.observableArray();
+                appViewModel.rootMenu.push(val);
+            });
+            appViewModel.loadAllSubMenu();
+        },
+
+        // 加载所有的子菜单.
+        loadAllSubMenu: function () {
+            for (var i = 0; i < appViewModel.rootMenu().length; i++) {
+                var x = appViewModel.rootMenu()[i];
+                this.loadSubMenu(x.menuCode);
+            }
+        },
+
+        // 加载指定的子菜单.
+        loadSubMenu: function (code) {
+            myMenuService.getSubMenu(code, appViewModel.getSubMenuFinish);
+        },
+
+        // 加载子菜单完毕.
+        getSubMenuFinish: function (code, result) {
+            // 从根节点列表，查询 父菜单.
+            var parentMenu = null;
+            for (var i = 0; i < appViewModel.rootMenu().length; i++) {
+                var x = appViewModel.rootMenu()[i];
+                if (x.menuCode == code) {
+                    parentMenu = x;
+                    break;
+                }
+            }
+            if (parentMenu != null) {
+                // 先清空数据.
+                parentMenu.subMenu.removeAll();
+                // 遍历新增数据.
+                $.each(result, function (key, val) {
+                    parentMenu.subMenu.push(val);
+                });
+            }
+        },
+
+        // 进入拖动模式.
+        initDragsort: function () {
+
+            // 进入拖动模式.
+            this.dragsortMode(true);
+
+            // 主菜单拖动
+            $(".myRootMenu").dragsort({
+                // 拖动的对象.
+                dragSelector: "li",
+                // 拖动结束的回调事件.
+                dragEnd: function () {
+                    // 当前拖动的对象.
+                    var menu = $(this);
+                    var menuCode = menu.attr("menuCode");
+                    // 移动到哪一个菜单之后
+                    var prevMenu = menu.prev();
+                    var prevMenuCode = prevMenu.attr("menuCode");
+                    if (typeof (prevMenuCode) == "undefined") {
+                        prevMenuCode = null;
+                    }
+                    myMenuService.moveMenuTo(menuCode, null, prevMenuCode, appViewModel.moveMenuToFinish);
+                },
+                // 不允许拖出范围.
+                dragBetween: false,
+                placeHolderTemplate: "<li>移动到这里...</li>"
+            });
+
+            // 子菜单拖动.
+            $(".mySubMenu").dragsort({
+                // 拖动的对象.
+                dragSelector: "li",
+                // 拖动结束的回调事件.
+                dragEnd: function () {
+                    // 当前拖动的对象.
+                    var menu = $(this);
+                    var menuCode = menu.attr("menuCode");
+                    // 移动到哪一个菜单下面.
+                    var pMenu = menu.parent().parent();
+                    var pMenuCode = pMenu.attr("menuCode");
+                    // 移动到哪一个菜单之后
+                    var prevMenu = menu.prev();
+                    var prevMenuCode = prevMenu.attr("menuCode");
+                    if (typeof (prevMenuCode) == "undefined") {
+                        prevMenuCode = null;
+                    }
+                    myMenuService.moveMenuTo(menuCode, pMenuCode, prevMenuCode, appViewModel.moveMenuToFinish);
+                },
+                // 允许拖出范围.
+                dragBetween: true,
+                placeHolderTemplate: "<li>移动到这里...</li>"
+            });
+        },
+
+        // 离开拖动模式.
+        destroyDragsort: function () {
+
+            // 离开拖动模式.
+            this.dragsortMode(false);
+
+            $(".myRootMenu").dragsort("destroy");
+            $(".mySubMenu").dragsort("destroy");
+        },
+
+
+        // 移动处理完毕.
+        moveMenuToFinish: function (result) {
+            if (result.resultCode != 0) {
+                alert(result.resultMessage);
+            }
+        },
+
+
+        // 编辑菜单.
+        editMenu: function () {
+            console.log("editMenu start.", this);
+
+            // 菜单代码.
+            appViewModel.editMenuCode(this.menuCode);
+            // 菜单父代码.
+            appViewModel.editParentMenuCode(this.parentMenuCode);
+            // 显示顺序.
+            appViewModel.editDisplayIndex(this.displayIndex);
+            // 菜单文本.
+            appViewModel.editMenuText(this.menuText);
+            // 菜单备注.
+            appViewModel.editMenuDesc(this.menuDesc);
+            // 菜单扩展信息.
+            appViewModel.editMenuExpand(this.menuExpand);
+
+            $("#editMenuDialog").modal('show');
+        },
+
+
+        // 更新菜单.
+        updateMenu: function() {
+
+            myMenuService.updateMenu(
+                appViewModel.editMenuCode(),
+                appViewModel.editParentMenuCode(),
+                appViewModel.editDisplayIndex(),
+                appViewModel.editMenuText(),
+                appViewModel.editMenuDesc(),
+                appViewModel.editMenuExpand(),
+                appViewModel.updateMenuFinish
+                );
+
+        },
+
+        // 更新菜单完毕.
+        updateMenuFinish: function (result) {
+            if (result.resultCode != 0) {
+                alert(result.resultMessage);
+                return;
+            }
+            $("#editMenuDialog").modal('hide');
+
+            if (appViewModel.editParentMenuCode() == "" || appViewModel.editParentMenuCode() == null) {
+                // 修改的是根节点.
+                // 重新加载菜单.
+                appViewModel.reloadMenu();
+            } else {
+                // 修改的是子节点.
+                appViewModel.loadSubMenu(appViewModel.editParentMenuCode());
+            }
+        },
+
+
+
+        // 新增菜单.
+        addMenu: function () {
+            console.log("addMenu start.", this);
+
+            // 菜单代码.
+            appViewModel.editMenuCode("");
+            // 菜单父代码.
+            appViewModel.editParentMenuCode(this.parentMenuCode);
+            // 显示顺序.
+            appViewModel.editDisplayIndex(this.displayIndex + 1);
+            // 菜单文本.
+            appViewModel.editMenuText("");
+            // 菜单备注.
+            appViewModel.editMenuDesc("");
+            // 菜单扩展信息.
+            appViewModel.editMenuExpand("");
+
+            $("#newMenuDialog").modal('show');
+        },
+
+
+        // 插入菜单.
+        insertMenu: function () {
+
+            myMenuService.insertMenu(
+                appViewModel.editMenuCode(),
+                appViewModel.editParentMenuCode(),
+                appViewModel.editDisplayIndex(),
+                appViewModel.editMenuText(),
+                appViewModel.editMenuDesc(),
+                appViewModel.editMenuExpand(),
+                appViewModel.insertMenuFinish
+                );
+        },
+
+
+        // 插入菜单完毕.
+        insertMenuFinish: function (result) {
+            if (result.resultCode != 0) {
+                alert(result.resultMessage);
+                return;
+            }
+            $("#newMenuDialog").modal('hide');
+
+            if (appViewModel.editParentMenuCode() == "" || appViewModel.editParentMenuCode() == null) {
+                // 修改的是根节点.
+                // 重新加载菜单.
+                appViewModel.reloadMenu();
+            } else {
+                // 修改的是子节点.
+                appViewModel.loadSubMenu(appViewModel.editParentMenuCode());
+            }
+        },
+
+
+
+        // 删除菜单.
+        removeMenu: function(){
+            console.log("removeMenu start.", this);
+
+            // 菜单父代码.
+            appViewModel.editParentMenuCode(this.parentMenuCode);
+
+            var msg = "真的确定要删除吗？\n\n请确认！"; 
+            if (confirm(msg) == true) {
+                myMenuService.deleteMenu(this.menuCode, appViewModel.deleteMenuFinish);
+            }
+        },
+
+
+        // 删除菜单完毕.
+        deleteMenuFinish: function (result) {
+            if (result.resultCode != 0) {
+                alert(result.resultMessage);
+                return;
+            }
+
+            if (appViewModel.editParentMenuCode() == "" || appViewModel.editParentMenuCode() == null) {
+                // 修改的是根节点.
+                // 重新加载菜单.
+                appViewModel.reloadMenu();
+            } else {
+                // 修改的是子节点.
+                appViewModel.loadSubMenu(appViewModel.editParentMenuCode());
+            }
+        }
+    }
+
+
+
+    $(document).ready(function () {
+
+        // 重新加载菜单.
+        appViewModel.reloadMenu();
+
+        // 画面数据绑定.
+        ko.applyBindings(appViewModel);
+
+        $(".myRootMenu li").click(function () {
+            console.log("Menu Press！",  $(this).text());
+        });
+
+        
+
+    });
+
+
+
+
+</script>
+
+}
