@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MyWeb.Model.Menu>
+
+@foreach (var item in Model) {
+    <li>
+        <a href="@item.GetHtmlMenuHref()" target="@item.MenuTarget"> @item.MenuText </a>
+    </li>
+}

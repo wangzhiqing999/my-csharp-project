@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MyWeb.Model.Page>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+@foreach (var item in Model)
+{
+
+    <div id="@(item.PageCode)"> </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#@(item.PageCode)").load("@(item.PagePath)");
+        });
+    </script>
+
+}
