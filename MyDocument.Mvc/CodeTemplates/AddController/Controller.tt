@@ -1,0 +1,307 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#
+MvcTextTemplateHost mvcHost = (MvcTextTemplateHost)(Host);
+
+string modelName = mvcHost.ControllerName.Substring(0, mvcHost.ControllerName.Length - 10);
+
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+using log4net;
+
+using MyFramework.Util;
+
+using MyDocument.Model;
+using MyDocument.DataAccess;
+
+using MyDocument.Mvc.Common;
+
+
+namespace <#= mvcHost.Namespace #>
+{
+    public class <#= mvcHost.ControllerName #> : Controller
+    {
+
+        /// <summary>
+        /// 日志处理类.
+        /// </summary>
+        private static ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/
+
+        public ActionResult Index(
+			int? pageNo,
+            int? pageSize)
+        {
+			List<<#= modelName #>>  dataList = null;
+
+			using (MyDocumentContext context = new MyDocumentContext())
+            {
+                var query =
+                    from data in context.<#= modelName #>s
+                    select data;
+
+
+
+                // 初始化翻页.
+                PageInfo pgInfo = new PageInfo(
+                    pageSize: pageSize, 
+                    pageNo: pageNo, 
+                    rowCount: query.Count());
+
+                ViewBag.PageInfo = pgInfo;
+
+
+				query = query.OrderBy(p => p.SystemCode)
+                    .Skip(pgInfo.SkipValue)
+                    .Take(pgInfo.PageSize);     
+
+				// 查询数据.
+                dataList = query.ToList();
+			}
+
+			// 显示画面.
+            return View(dataList);
+        }
+
+<#
+if(mvcHost.AddActionMethods) {
+#>
+
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Details/5
+
+        public ActionResult Details(string id, string returnQueryString)
+        {
+            <#= modelName #> data = null;
+            using (MyDocumentContext context = new MyDocumentContext())
+            {
+                data = context.<#= modelName #>s.Find(id);
+            }
+			if (data == null)
+            {
+                return HttpNotFound();
+            }
+
+			// 设置返回的 RouteValueDictionary
+            ViewBag.ReturnQueryRouteValue = ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString);
+
+            return View(data);
+        }
+
+
+
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Create
+
+        public ActionResult Create(string returnQueryString)
+        {
+            // 设置返回的 RouteValueDictionary
+            ViewBag.ReturnQueryRouteValue = ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString);
+
+            return View();
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Create
+
+        [HttpPost]
+        public ActionResult Create(<#= modelName #> data, string returnQueryString)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // 假如数据检查无误.
+                    // 将数据加入结果列表.
+                    using (MyDocumentContext context = new MyDocumentContext())
+                    {
+                        <#= modelName #> old<#= modelName #> =
+                            context.<#= modelName #>s.Find(data.SystemCode);
+                        if (old<#= modelName #> != null)
+                        {
+                            ViewBag.Message = "代码已存在！";
+                            return View();
+                        }
+
+
+                        DataRecorder.BeforeInsertOperation(Session, data);
+                        context.<#= modelName #>s.Add(data);
+                        context.SaveChanges();
+                    }
+
+                    return RedirectToAction(
+                        "Index", 
+                        ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString));
+				}
+                else
+                {
+                    // 假如数据检查有误， 那么返回原有的画面，让用户继续修改.
+                    return View(data);
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message, ex);
+				ViewBag.Message = "服务器忙.请稍候在尝试执行本操作。";
+                return View(data);
+            }
+        }
+
+
+
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Edit/5
+
+        public ActionResult Edit(string id, string returnQueryString)
+        {
+            <#= modelName #> data = null;
+
+            using (MyDocumentContext context = new MyDocumentContext())
+            {
+                data = context.<#= modelName #>s.Find(id);
+            }
+            if (data == null)
+            {
+                return HttpNotFound();
+            }
+
+			// 设置返回的 RouteValueDictionary
+            ViewBag.ReturnQueryRouteValue = ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString);
+
+            return View(data);
+        }
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Edit/5
+
+        [HttpPost]
+        public ActionResult Edit(<#= modelName #> data, string returnQueryString)
+        {
+            try
+            {
+				if (ModelState.IsValid)
+                {
+                    // 假如数据检查无误.
+                    // 更新数据.
+
+                    using (MyDocumentContext context = new MyDocumentContext())
+                    {
+                        <#= modelName #> old<#= modelName #> =
+                            context.<#= modelName #>s.Find(data.SystemCode);
+                        if (old<#= modelName #> == null)
+                        {
+                            ViewBag.Message = "数据不存在！";
+                            return View(data);
+                        }
+
+                        DataRecorder.BeforeUpdateOperation(Session, data);
+
+
+                        // 先从上下文中的旧实体获取跟踪
+                        DbEntityEntry entry = context.Entry(old<#= modelName #>);
+
+                        // 把新值设置到旧实体上
+                        entry.CurrentValues.SetValues(data);  
+                        
+                        // 物理保存.
+                        context.SaveChanges();
+                    }
+
+                    return RedirectToAction(
+                        "Index",
+                        ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString));
+                }
+                else
+                {
+                    // 假如数据检查有误， 那么返回原有的画面，让用户继续修改.
+                    return View(data);
+                }
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message, ex);
+				ViewBag.Message = "服务器忙.请稍候在尝试执行本操作。";
+                return View(data);
+            }
+        }
+
+
+        //
+        // GET: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Delete/5
+
+        public ActionResult Delete(string id, string returnQueryString)
+        {
+            <#= modelName #> data = null;
+
+            using (MyDocumentContext context = new MyDocumentContext())
+            {
+                data = context.<#= modelName #>s.Find(id);
+            }
+
+            if (data == null)
+            {
+                return HttpNotFound();
+            }
+
+			// 设置返回的 RouteValueDictionary
+            ViewBag.ReturnQueryRouteValue = ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString);
+
+            return View(data);
+        }
+
+
+
+        //
+        // POST: <#= (!String.IsNullOrEmpty(mvcHost.AreaName)) ? ("/" + mvcHost.AreaName) : String.Empty #>/<#= mvcHost.ControllerRootName #>/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(string id, string returnQueryString)
+        {
+			<#= modelName #> data = null;
+
+			try
+            {
+                using (MyDocumentContext context = new MyDocumentContext())
+                {
+                    data = context.<#= modelName #>s.Find(id);
+
+                    if (data == null)
+                    {
+                        return HttpNotFound();
+                    }
+
+                    context.<#= modelName #>s.Remove(data);
+
+                    context.SaveChanges();
+                }
+
+
+                return RedirectToAction(
+                        "Index",
+                        ReturnQueryRouteValueBuilder.GetReturnQueryRouteValue(returnQueryString));
+            }
+            catch(Exception ex)
+            {
+                logger.Error(ex.Message, ex);
+                ViewBag.Message = "服务器忙.请稍候在尝试执行本操作。";
+                return View(data);
+            }
+        }
+<#
+}
+#>
+    }
+}

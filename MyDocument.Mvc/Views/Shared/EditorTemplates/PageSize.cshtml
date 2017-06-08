@@ -1,0 +1,24 @@
+﻿@{
+
+    string ddlName = "ddlPageSize";
+    string defaultValue = "10";
+
+    if (!String.IsNullOrEmpty(Request["pageSize"]))
+    {
+        defaultValue = Request["pageSize"];
+    }
+
+
+    List<MyFramework.Util.SelectOption> dataList = new List<MyFramework.Util.SelectOption>();
+
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页10行", Value = "10" });
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页20行", Value = "20" });
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页40行", Value = "40" });
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页60行", Value = "60" });
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页80行", Value = "80" });
+    dataList.Add(new MyFramework.Util.SelectOption() { Text = "每页100行", Value = "100" });
+
+
+    SelectList myList = new SelectList(dataList, "Value", "Text", defaultValue);
+}
+@Html.DropDownList(ddlName, myList, "")

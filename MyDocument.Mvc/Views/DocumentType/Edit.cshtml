@@ -1,0 +1,149 @@
+﻿@model MyDocument.Model.DocumentType
+
+@{
+    ViewBag.Title = "编辑文档类型";
+}
+
+<h2> 编辑 </h2>
+
+@using (Html.BeginForm("Edit",  "DocumentType", FormMethod.Post,
+    new { role = "form", @class = "form-horizontal", enctype = "multipart/form-data" })) 
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <legend>文档类型</legend>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocumentTypeCode, null, new { @class = "col-sm-2 control-label" })
+			<div class="col-sm-6">
+                <label class="control-label">
+                    @Html.DisplayFor(model => model.DocumentTypeCode)
+                </label>
+                @Html.HiddenFor(model => model.DocumentTypeCode)
+			</div>			
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DocumentTypeName, null, new { @class = "col-sm-2 control-label" })
+
+			<div class="col-sm-6">
+            @Html.EditorFor(model => model.DocumentTypeName, "MyTextBox")
+			</div>
+
+			<div class="col-sm-3">
+				@Html.ValidationMessageFor(model => model.DocumentTypeName)
+			</div>
+        </div>
+
+
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DocumentTypeLogo, null, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-6">
+            @Html.HiddenFor(model => model.DocumentTypeLogo)
+
+            @if (!String.IsNullOrEmpty(Model.DocumentTypeLogo))
+            {
+                <img alt="@Model.DocumentTypeName" src="~/upload/Logo/@(Model.DocumentTypeLogo)" />
+            }
+
+            <input id="logoFile" name="logoFile" type="file" />
+        </div>
+
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(model => model.DocumentTypeLogo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DocumentTypeDesc, null, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-6">
+            @Html.EditorFor(model => model.DocumentTypeDesc, "MyTextBox")
+        </div>
+
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(model => model.DocumentTypeDesc)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DocumentTypeText, null, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-6">
+            @Html.EditorFor(model => model.DocumentTypeText, "MyTextBox")
+        </div>
+
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(model => model.DocumentTypeText)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DisplayIndex, null, new { @class = "col-sm-2 control-label" })
+
+        <div class="col-sm-6">
+            @Html.EditorFor(model => model.DisplayIndex, "MyTextBox")
+        </div>
+
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(model => model.DisplayIndex)
+        </div>
+    </div>
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-9">                
+                @Html.EditorFor(model => model.IsActive)
+                @Html.LabelFor(model => model.IsActive)
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.CreateUser)
+        @Html.HiddenFor(model => model.CreateTime)
+        @Html.HiddenFor(model => model.LastUpdateUser)
+        @Html.HiddenFor(model => model.LastUpdateTime)
+        <div class="form-group form-group-sm">
+            <div class="col-sm-offset-2 col-sm-9">
+                <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-file"></span>
+                    保存
+                </button>
+            </div>
+        </div>
+
+
+    <div class="form-group form-group-sm">
+        <div class="col-sm-offset-2 col-sm-9 form-message">
+                @ViewBag.Message
+        </div>
+    </div>
+
+
+    @Html.Hidden("returnQueryString", Request["returnQueryString"])
+    
+
+}
+
+
+
+
+<div>
+    <a href="@Url.Action("Index", ViewBag.ReturnQueryRouteValue)" class="btn btn-default">
+        <span class='glyphicon glyphicon-list-alt'></span>
+        返回列表
+    </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

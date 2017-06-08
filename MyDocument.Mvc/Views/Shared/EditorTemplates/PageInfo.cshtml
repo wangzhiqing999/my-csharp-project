@@ -1,0 +1,105 @@
+﻿@model  MyFramework.Util.PageInfo
+
+
+<label>共 @(Model.RowCount) 行</label>
+
+@if (Model != null && Model.PageCount > 1)
+{
+<ul class="pagination" >
+
+
+
+
+    
+    @if (Model.PageIndex == 1)
+    {
+        // 上一页
+        <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
+    }
+    else
+    { 
+        <li><a href="#" class="PageInfo" title="@(Model.PageIndex-1)">&laquo;</a></li>
+    }
+
+
+
+
+
+    
+    
+    @if (Model.PageIndex == 1)
+    {
+        // 第一页必显示
+        <li class="active"><a href="javascript:void(0)"> 1 <span class="sr-only">(current)</span> </a> </li>
+    }
+    else
+    {
+        <li><a href="#" class="PageInfo"  title="1"> 1 </a></li>
+    }
+
+
+
+@{
+    // 开始页
+    int startPage = Math.Max(2, (Model.PageIndex - 4));
+    // 结束页
+    int finishPage = Math.Min(Model.PageCount - 1, startPage + 8);
+}
+
+
+    @if (startPage > 2)
+    {
+        <li> <a href="javascript:void(0)"> ... </a> </li>
+    }
+
+
+
+    
+    @for (int i = startPage; i <= finishPage; i++)
+    {
+        if (i == Model.PageIndex)
+        {
+            <li class="active"><a href="javascript:void(0)"> @i <span class="sr-only">(current)</span> </a> </li>
+        }
+        else
+        {
+            <li><a href="#" class="PageInfo"  title="@i"> @i </a></li>
+        }
+
+    }
+
+
+
+    @if (finishPage < Model.PageCount - 1)
+    {
+         <li> <a href="javascript:void(0)"> ... </a> </li>
+    }
+
+
+
+
+    @if (Model.PageIndex == Model.PageCount)
+    {
+        // 最后一页必显示
+        <li class="active"><a href="javascript:void(0)"> @Model.PageCount <span class="sr-only">(current)</span> </a> </li>
+    }
+    else
+    {
+        <li><a href="#" class="PageInfo"  title="@Model.PageCount"> @Model.PageCount </a></li>
+    }
+
+
+
+    
+    @if (Model.PageIndex == Model.PageCount)
+    {
+        // 下一页
+        <li class="disabled"><a href="javascript:void(0)">&raquo;</a></li>
+    }
+    else
+    {
+        <li><a href="#" class="PageInfo" title="@(Model.PageIndex+1)">&raquo;</a></li>
+    }
+
+</ul>
+}

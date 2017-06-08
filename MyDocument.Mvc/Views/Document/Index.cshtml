@@ -1,0 +1,166 @@
+﻿@model IEnumerable<MyDocument.Model.Document>
+
+@{
+    ViewBag.Title = "一览";
+}
+
+
+
+
+<h2> 一览 </h2>
+
+<div>
+
+
+    <a href="@Url.Action("Create", new { returnQueryString = Request.QueryString })" class="btn btn-default">
+        <span class='glyphicon glyphicon-plus'></span>
+        创建
+    </a>
+
+
+	<hr/>
+
+
+
+
+    @using (Html.BeginForm("Index", "Document", FormMethod.Get,
+         new { role = "form", @class = "form-horizontal" }))
+{
+
+    <div class="form-group form-group-sm">
+        <label for="searchDocumentTypeCode" class="col-sm-2 control-label"> @Html.DisplayNameFor(model => model.DocumentTypeCode)</label>
+        <div class="col-sm-6">
+            @Html.TextBox("searchDocumentTypeCode", null, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        <div class="col-sm-offset-2 col-sm-9">
+            <button id="btnQuery" type="submit" class="btn btn-default" >
+                <span class="glyphicon glyphicon-search"></span> 
+                查询
+            </button>
+        </div>
+    </div>
+
+	@Html.Hidden("pageNo");
+	@Html.Hidden("pageSize");
+
+}
+
+
+</div>
+
+
+<table   class="table  table-striped  table-condensed">
+    <tr>
+		<th>
+            @Html.DisplayNameFor(model => model.DocumentTypeCode)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.DocumentTitle)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.DocumentKeywords)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.DocumentDescription)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.DocumentFileName)
+        </th>
+		<th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th class="hidden-xs">
+            @Html.DisplayNameFor(model => model.CreateUser)
+        </th>
+        <th class="hidden-xs">
+            @Html.DisplayNameFor(model => model.CreateTime)
+        </th>
+        <th class="hidden-xs">
+            @Html.DisplayNameFor(model => model.LastUpdateUser)
+        </th>
+        <th class="hidden-xs">
+            @Html.DisplayNameFor(model => model.LastUpdateTime)
+        </th>
+        <th> 
+			@Html.Partial("~/Views/Shared/EditorTemplates/PageSize.cshtml")
+		</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+		<td>
+            @Html.DisplayFor(modelItem => item.DocumentTypeCode)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.DocumentTitle)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.DocumentKeywords)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.DocumentDescription)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.DocumentFileName)
+        </td>
+		<td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.CreateUser)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.CreateTime)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.LastUpdateUser)
+        </td>
+        <td class="hidden-xs">
+            @Html.DisplayFor(modelItem => item.LastUpdateTime)
+        </td>
+        <td>
+              
+                    <a href="@Url.Action("Edit", new { returnQueryString = Request.QueryString, id = item.DocumentID })" class="btn btn-default btn-sm">
+                        <span class='glyphicon glyphicon-pencil'></span>
+                        编辑
+                    </a>
+               
+
+
+           
+                    <a href="@Url.Action("Details", new { returnQueryString = Request.QueryString, id = item.DocumentID })" class="btn btn-default btn-sm">
+                        <span class='glyphicon glyphicon-th-list'></span>
+                        明细
+                    </a>
+              
+
+
+               
+                    <a href="@Url.Action("Delete", new { returnQueryString = Request.QueryString, id = item.DocumentID })" class="btn btn-default btn-sm">
+                        <span class='glyphicon glyphicon-remove'></span>
+                        删除
+                    </a>
+                
+
+        </td>
+
+
+
+
+
+    </tr>
+}
+
+</table>
+
+@Html.Partial("~/Views/Shared/EditorTemplates/PageInfo.cshtml", (MyFramework.Util.PageInfo)ViewBag.PageInfo)
+
+
+@section Scripts {
+    <script src="~/Scripts/myindex.js?version=1.0"></script>
+}
+
+

@@ -1,0 +1,133 @@
+﻿@model MyDocument.Model.Document
+
+@{
+    ViewBag.Title = "删除Delete";
+}
+
+<h2>删除</h2>
+
+<h3>确定要删除下面的数据?</h3>
+
+
+    <legend>Document</legend>
+
+<table class="table table-bordered">
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentTypeCode) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentTypeCode) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentTitle) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentTitle) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentKeywords) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentKeywords) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentDescription) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentDescription) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentFileName) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentFileName) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.Status) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.Status) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.IsActive) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.IsActive) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.CreateUser) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.CreateUser) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.CreateTime) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.CreateTime) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.LastUpdateUser) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.LastUpdateUser) 
+		</td>
+    </tr>
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.LastUpdateTime) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.LastUpdateTime) 
+		</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+		<button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-trash"></span>
+            确定删除
+        </button>  
+		|
+        <a href="@Url.Action("Index", ViewBag.ReturnQueryRouteValue)" class="btn btn-default">
+            <span class='glyphicon glyphicon-list-alt'></span>
+            返回列表
+        </a>
+    </p>
+
+	@Html.Hidden("returnQueryString", Request["returnQueryString"])
+
+}

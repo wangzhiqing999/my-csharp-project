@@ -1,0 +1,252 @@
+﻿@model MyDocument.Model.Document
+
+@{
+    ViewBag.Title = "Details明细";
+}
+
+
+
+        <style type="text/css" media="screen"> 
+			html, body	{ height:100%; }
+			body { margin:0; padding:0; overflow:auto; }   
+			#flashContent { display:none; }
+        </style> 
+
+        <script src="~/js/swfobject/swfobject.js" type="text/javascript"></script>
+        <script src="~/js/flexpaper_flash.js" type="text/javascript"></script>
+		
+
+
+		<script type="text/javascript"> 
+            
+            var swfVersionStr = "10.0.0";
+            var xiSwfUrlStr = "playerProductInstall.swf";
+            
+            var flashvars = { 
+                  SwfFile : escape("/Upload/Swf/@(Model.DocumentSwfFileName)"),
+				  Scale : 0.6, 
+				  ZoomTransition : "easeOut",
+				  ZoomTime : 0.5,
+  				  ZoomInterval : 0.1,
+  				  FitPageOnLoad : false,
+  				  FitWidthOnLoad : true,
+  				  PrintEnabled : true,
+  				  FullScreenAsMaxWindow : false,
+  				  ProgressiveLoading : true,
+  				  
+  				  PrintToolsVisible : true,
+  				  ViewModeToolsVisible : true,
+  				  ZoomToolsVisible : true,
+  				  FullScreenVisible : true,
+  				  NavToolsVisible : true,
+  				  CursorToolsVisible : true,
+  				  SearchToolsVisible : true
+  				  
+  				  // localeChain: "en_US"
+				  };
+				  
+			 var params = {
+				
+			    }
+            params.quality = "high";
+            params.bgcolor = "#ffffff";
+            params.allowscriptaccess = "sameDomain";
+            params.allowfullscreen = "true";
+            var attributes = {};
+            attributes.id = "FlexPaperViewer";
+            attributes.name = "FlexPaperViewer";
+            swfobject.embedSWF(
+                "@Href("~/")FlexPaperViewer.swf", "flashContent", 
+                "650", "500",
+                swfVersionStr, xiSwfUrlStr, 
+                flashvars, params, attributes);
+			swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+        </script> 
+
+
+
+
+<h2> 明细 </h2>
+
+
+
+    <legend>Document</legend>
+
+
+<table class="table table-bordered">
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentTypeCode) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentTypeCode) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentTitle) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentTitle) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentKeywords) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentKeywords) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentDescription) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentDescription) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.DocumentFileName) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.DocumentFileName) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label">
+            @Html.DisplayNameFor(model => model.DocumentContent)
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.DocumentContent)
+        </td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label">
+            @Html.DisplayNameFor(model => model.DocumentLogo)
+        </td>
+        <td class="display-field">
+            @Html.DisplayFor(model => model.DocumentLogo)
+
+            @if (!String.IsNullOrEmpty(Model.DocumentLogo))
+            {
+                <br/>
+                <img alt="@Model.DocumentLogo" src="~/upload/Logo/@(Model.DocumentLogo)" />
+            }
+        </td>
+    </tr>
+
+
+
+    <tr>
+    <td colspan="2">
+
+    
+	        <div id="flashContent"> 
+	        	<p> 
+		        	To view this page ensure that Adobe Flash Player version 
+					10.0.0 or greater is installed. 
+				</p> 
+				<script type="text/javascript">
+				    var pageHost = ((document.location.protocol == "https:") ? "https://" : "http://");
+				    document.write("<a href='http://www.adobe.com/go/getflashplayer'><img src='"
+									+ pageHost + "www.adobe.com/images/shared/download_buttons/get_flash_player.gif' alt='Get Adobe Flash player' /></a>"); 
+				</script> 
+	        </div>
+	        <div id="errNoDocument" style="padding-top:10px;">
+	        	Can't see the document? Running FlexPaper from your local directory? Make sure you have added FlexPaper as trusted. You can do that at <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04a.html#119065">Adobe's website</a>.  
+	        </div> 
+    
+
+    
+    </td>
+
+    </tr>
+
+
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.IsActive) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.IsActive) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.CreateUser) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.CreateUser) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.CreateTime) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.CreateTime) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.LastUpdateUser) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.LastUpdateUser) 
+		</td>
+    </tr>
+
+
+    <tr>
+        <td class="display-label"> 
+			@Html.DisplayNameFor(model => model.LastUpdateTime) 
+		</td>
+        <td class="display-field"> 
+			@Html.DisplayFor(model => model.LastUpdateTime) 
+		</td>
+    </tr>
+
+</table>
+
+
+
+
+
+<p>
+
+
+    <a href="@Url.Action("Edit", new {  id=Model.DocumentID , returnQueryString = Request["returnQueryString"] })" class="btn btn-default">
+        <span class='glyphicon glyphicon-pencil'></span>
+        编辑
+    </a>
+
+
+
+    <a href="@Url.Action("Index", ViewBag.ReturnQueryRouteValue)" class="btn btn-default">
+        <span class='glyphicon glyphicon-list-alt'></span>
+        返回列表
+    </a>
+</p>
