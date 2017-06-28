@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfAreaInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <AreaInfo>
+    <AreaCode>1392</AreaCode>
+    <ParentAreaCode>9130</ParentAreaCode>
+    <AreaName>康保县</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>1393</AreaCode>
+    <ParentAreaCode>9130</ParentAreaCode>
+    <AreaName>沽源县</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>1394</AreaCode>
+    <ParentAreaCode>9130</ParentAreaCode>
+    <AreaName>尚义县</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>1395</AreaCode>
+    <ParentAreaCode>9130</ParentAreaCode>
+    <AreaName>蔚县</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>1396</AreaCode>
+    <ParentAreaCode>9130</ParentAreaCode>
+    <AreaName>阳原县</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>9110</AreaCode>
+    <AreaName>北京市</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>9120</AreaCode>
+    <AreaName>天津市</AreaName>
+  </AreaInfo>
+  <AreaInfo>
+    <AreaCode>9130</AreaCode>
+    <AreaName>河北省</AreaName>
+  </AreaInfo>
+</ArrayOfAreaInfo>
