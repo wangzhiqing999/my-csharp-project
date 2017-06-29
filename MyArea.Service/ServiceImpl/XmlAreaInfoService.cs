@@ -92,6 +92,33 @@ namespace MyArea.ServiceImpl
         }
 
 
+
+
+
+
+
+
+        /// <summary>
+        /// 获取全部的区域列表.
+        /// </summary>
+        /// <returns></returns>
+        public List<AreaInfo> GetAllAreaInfoList()
+        {
+            var query =
+                from e in this.contacts.Elements("AreaInfo")
+                select new AreaInfo()
+                {
+                    AreaCode = e.Element("AreaCode").Value,
+                    ParentAreaCode = e.Element("ParentAreaCode") == null ? null : e.Element("ParentAreaCode").Value,
+                    AreaName = e.Element("AreaName").Value,
+                };
+
+            var resultList = query.ToList();
+            return resultList;
+        }
+
+
+
     }
 
 

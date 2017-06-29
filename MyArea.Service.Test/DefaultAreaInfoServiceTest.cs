@@ -16,7 +16,16 @@ namespace MyArea.Service.Test
         /// <summary>
         /// 测试的服务.
         /// </summary>
-        private IAreaInfoService areaInfoService = new DefaultAreaInfoService();
+        protected IAreaInfoService areaInfoService;
+
+
+
+
+        public DefaultAreaInfoServiceTest()
+        {
+            this.areaInfoService = new DefaultAreaInfoService();
+        }
+
 
 
 
@@ -39,7 +48,7 @@ namespace MyArea.Service.Test
         [TestMethod]
         public void TestGetSubAreaInfoList()
         {
-            var subAreaList = this.areaInfoService.GetSubAreaInfoList("9110");
+            var subAreaList = this.areaInfoService.GetSubAreaInfoList("9999");
             // 结果非空.
             Assert.IsNotNull(subAreaList);
             // 行数为0.
@@ -53,5 +62,21 @@ namespace MyArea.Service.Test
             Assert.IsTrue(subAreaList.Count > 0);
 
         }
+
+
+
+
+        [TestMethod]
+        public void TestGetAllAreaInfoList()
+        {
+            var allAreaList = this.areaInfoService.GetAllAreaInfoList();
+
+            // 结果非空.
+            Assert.IsNotNull(allAreaList);
+
+            // 行数大于0.
+            Assert.IsTrue(allAreaList.Count > 0);
+        }
+
     }
 }

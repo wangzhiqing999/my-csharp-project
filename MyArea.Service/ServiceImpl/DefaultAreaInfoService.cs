@@ -66,6 +66,23 @@ namespace MyArea.ServiceImpl
         }
 
 
+
+        /// <summary>
+        /// 获取全部的区域列表.
+        /// </summary>
+        /// <returns></returns>
+        public List<AreaInfo> GetAllAreaInfoList()
+        {
+            using (MyAreaContext context = new MyAreaContext())
+            {
+                var query =
+                    from data in context.AreaInfos
+                    select data;
+
+                var resultList = query.ToList();
+                return resultList;
+            }
+        }
     }
 
 

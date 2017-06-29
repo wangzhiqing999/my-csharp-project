@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+<table>
+    <tr>
+        <td> 省 </td>
+        <td> <select id="rootArea"></select> </td>
+    </tr>
+
+    <tr>
+        <td> 市 </td>
+        <td> <select id="subArea"></select> </td>
+    </tr>
+</table>
+
+
+
+
+
+@section scripts
+{
+<script src="~/Scripts/myAreaInfo.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        // 初始化省
+        myAreaInfo.debugMode = false;
+        myAreaInfo.initAreaSelect($("#rootArea"), $("#subArea"));
+
+    });
+
+</script>
+}

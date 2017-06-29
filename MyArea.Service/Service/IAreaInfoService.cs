@@ -33,6 +33,17 @@ namespace MyArea.Service
         /// <returns></returns>
         List<AreaInfo> GetSubAreaInfoList(string areaCode);
 
+
+
+
+        /// <summary>
+        /// 获取全部的区域列表.
+        /// </summary>
+        /// <returns></returns>
+        List<AreaInfo> GetAllAreaInfoList();
+
+
+
     }
 
 
