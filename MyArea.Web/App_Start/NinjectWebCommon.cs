@@ -71,8 +71,19 @@ namespace MyArea.Web.App_Start
             // 区域服务 - 使用 xml 实现.
             // 注意， 在这个时候， HttpContext.Current 为空.
             // 因此， 在这里使用 System.Web.HttpContext.Current.Server.MapPath 将发生问题.
-            string areaInfoFile = HostingEnvironment.MapPath("~/Info/AreaInfo.xml");
-            kernel.Bind<MyArea.Service.IAreaInfoService>().To<MyArea.ServiceImpl.XmlAreaInfoService>().WithConstructorArgument(areaInfoFile);
+            //string areaInfoFile = HostingEnvironment.MapPath("~/Info/AreaInfo.xml");
+            //kernel.Bind<MyArea.Service.IAreaInfoService>().To<MyArea.ServiceImpl.XmlAreaInfoService>().WithConstructorArgument(areaInfoFile);
+
+
+
+
+            // 使用 数据库 + 本地json 文件缓存.
+            string areaInfoCachePath = HostingEnvironment.MapPath("~/Info");
+            kernel.Bind<MyArea.Service.IAreaInfoService>()
+                .To<MyArea.ServiceImpl.LocalCahceAreaInfoService>()
+                .WithConstructorArgument("realAreaInfoService", new MyArea.ServiceImpl.DefaultAreaInfoService())
+                .WithConstructorArgument("localCachePath", areaInfoCachePath)
+                .WithConstructorArgument("localCacheUseAbleHours", 24);
 
         }
 
