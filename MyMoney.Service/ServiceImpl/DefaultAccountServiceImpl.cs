@@ -62,16 +62,18 @@ namespace MyMoney.ServiceImpl
 
 
 
+
         /// <summary>
-        /// 账户操作.
+        /// 账户操作
         /// </summary>
         /// <param name="accountID">账户代码</param>
         /// <param name="operationTypeCode">操作类型</param>
+        /// <param name="accountingDate">结算日期</param>
         /// <param name="money">操作金额</param>
         /// <param name="desc">操作描述</param>
         /// <param name="resultMsg"></param>
         /// <returns></returns>
-        public bool AccountOperation(long accountID, string operationTypeCode, decimal money, string desc, ref string resultMsg)
+        public bool AccountOperation(long accountID, string operationTypeCode, DateTime accountingDate, decimal money, string desc, ref string resultMsg)
         {
             try
             {
@@ -149,6 +151,10 @@ namespace MyMoney.ServiceImpl
                         AccountID = accountID,
                         // 账户操作类型.
                         OperationTypeCode = operationTypeCode,
+                        
+                        // 结算日期.
+                        AccountingDate = accountingDate,
+
                         // 操作时间.
                         OperationTime = DateTime.Now,
                         // 操作金额.
@@ -186,6 +192,31 @@ namespace MyMoney.ServiceImpl
 
 
 
+        /// <summary>
+        /// 当日账户操作.
+        /// </summary>
+        /// <param name="accountID">账户代码</param>
+        /// <param name="operationTypeCode">操作类型</param>
+        /// <param name="money">操作金额</param>
+        /// <param name="desc">操作描述</param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        public bool AccountOperation(long accountID, string operationTypeCode, decimal money, string desc, ref string resultMsg)
+        {
+            bool result = this.AccountOperation(
+                accountID: accountID,
+                operationTypeCode: operationTypeCode,
+                accountingDate : DateTime.Today,
+                money : money,
+                desc : desc,
+                resultMsg: ref resultMsg);
+
+            return result;
+        }
+
+
+
+
 
 
 
@@ -216,8 +247,8 @@ namespace MyMoney.ServiceImpl
                     from data in context.AccountOperationLogs
                     where
                         data.AccountID == accountID
-                        && data.OperationTime >= startDate
-                        && data.OperationTime < finishDateTime
+                        && data.AccountingDate >= startDate
+                        && data.AccountingDate < finishDateTime
                     select
                         data;
 

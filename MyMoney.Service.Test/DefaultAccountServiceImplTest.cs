@@ -24,7 +24,7 @@ namespace MyMoney.Service.Test
             string resultMsg = null;
 
             // 步骤1. 创建账户.
-            string userName = "TEST";
+            string userName = "TEST_001";
             long accountID = service.NewAccount(userName, ref resultMsg);
 
             // 账户ID 大于零 .
@@ -218,5 +218,127 @@ namespace MyMoney.Service.Test
             // 交易笔数.
             Assert.AreEqual(3, report.DealCount);
         }
+
+
+
+
+
+        [TestMethod]
+        public void TestCase2()
+        {
+            // 待测试的服务实现.
+            DefaultAccountServiceImpl service = new DefaultAccountServiceImpl();
+
+
+            string resultMsg = null;
+
+            // 步骤1. 创建账户.
+            string userName = "TEST_002";
+            long accountID = service.NewAccount(userName, ref resultMsg);
+
+
+            // 账户ID 大于零 .
+            Assert.IsTrue(accountID > 0);
+
+
+            // 步骤2. 测试多日的操作.
+            DateTime firstDate = DateTime.Today.AddDays(-10);
+            DateTime accountingDate = firstDate;
+
+
+            // 首日入金.
+            bool opResult = service.AccountOperation(
+                accountID: accountID,
+                operationTypeCode: "IN",
+                accountingDate : accountingDate,
+                money: 10000,
+                desc: "测试入金10000块.",
+                resultMsg: ref resultMsg);
+
+            // 结果应该是成功的.
+            Assert.IsTrue(opResult);
+
+
+
+            for (int i = 1; i < 10; i++)
+            {
+                accountingDate = accountingDate.AddDays(1);
+
+                // 后续 N 日， 每天买入部分.
+
+                opResult = service.AccountOperation(
+                    accountID: accountID,
+                    operationTypeCode: "BUY",
+                    accountingDate: accountingDate,
+                    money: -100 * i,
+                    desc: String.Format("测试买入，花费 {0} 块.", 100 * i),
+                    resultMsg: ref resultMsg);
+
+                // 结果应该是成功的.
+                Assert.IsTrue(opResult);
+            }
+
+
+            // 校验账户余额.
+            var getAccountResult = service.GetAccount(accountID);
+            // 结果非空.
+            Assert.IsNotNull(getAccountResult);
+            // 余额 = (10000 -100 -200 -300 -400 -500 -600 -700 -800 -900 = 5500
+            Assert.AreEqual(5500, getAccountResult.AccountBalance);
+
+
+
+
+            // 检查 操作日志.
+            var logList = service.GetAccountOperationLogList(accountID, firstDate, DateTime.Today);
+
+            // 日志列表非空.
+            Assert.IsNotNull(logList);
+            // 日志列表行数为 10.
+            Assert.AreEqual(10, logList.Count);
+
+
+            // 日志的首行非空.
+            Assert.IsNotNull(logList[0]);
+            // 日志的首行的 账户.
+            Assert.AreEqual(accountID, logList[0].AccountID);
+            // 日志首行的 操作类型.
+            Assert.AreEqual("IN", logList[0].OperationTypeCode);
+            // 日志首行的 金额.
+            Assert.AreEqual(10000, logList[0].OperationMoney);
+            // 日志首行的 操作前余额.
+            Assert.AreEqual(0, logList[0].BeforeAccountBalance);
+            // 日志首行的 操作后余额.
+            Assert.AreEqual(10000, logList[0].AfterAccountBalance);
+
+
+            // 临时余额.
+            decimal tmpBalance = 10000;
+
+            // 后续 9 行的日志.
+            for (int i = 1; i < 10; i++)
+            {
+                // 日志的第 N 行非空.
+                Assert.IsNotNull(logList[i]);
+                // 日志的第 N 行的 账户.
+                Assert.AreEqual(accountID, logList[i].AccountID);
+                // 日志的第 N 行的 操作类型.
+                Assert.AreEqual("BUY", logList[i].OperationTypeCode);
+                // 日志的第 N 行的 金额.
+                Assert.AreEqual(-100 * i, logList[i].OperationMoney);
+
+                // 日志的第 N 行的 操作前余额.
+                Assert.AreEqual(tmpBalance, logList[i].BeforeAccountBalance);
+
+                tmpBalance = tmpBalance - 100 * i;
+
+                // 日志的第 N 行的 操作后余额.
+                Assert.AreEqual(tmpBalance, logList[i].AfterAccountBalance);
+            }
+
+        }
+
+
+
     }
 }

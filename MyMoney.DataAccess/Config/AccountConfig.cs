@@ -40,6 +40,11 @@ namespace MyMoney.Config
                 // (因为删除 账户 的操作, 应该是不允许的)
                 .WillCascadeOnDelete(false);
 
+
+
+            // 时间戳
+            this.Property(s => s.RowVersion).IsRowVersion();
+
         }
     }
 }

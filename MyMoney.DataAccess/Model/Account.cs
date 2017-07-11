@@ -53,6 +53,15 @@ namespace MyMoney.Model
 
 
 
+        /// <summary>
+        /// 时间戳.
+        /// </summary>
+        [Timestamp]
+        [Column("row_version")]
+        public byte[] RowVersion { get; set; }
+
+
+
 
 
 

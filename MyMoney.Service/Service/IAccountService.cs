@@ -31,15 +31,31 @@ namespace MyMoney.Service
 
 
         /// <summary>
-        /// 账户操作.
+        /// 账户操作
         /// </summary>
         /// <param name="accountID">账户代码</param>
-        /// <param name="operationType">操作类型</param>
+        /// <param name="operationTypeCode">操作类型</param>
+        /// <param name="accountingDate">结算日期</param>
         /// <param name="money">操作金额</param>
         /// <param name="desc">操作描述</param>
         /// <param name="resultMsg"></param>
         /// <returns></returns>
-        bool AccountOperation(long accountID, string operationType, decimal money, string desc, ref string resultMsg);
+        bool AccountOperation(long accountID, string operationTypeCode, DateTime accountingDate, decimal money, string desc, ref string resultMsg);
+
+
+
+        /// <summary>
+        /// 当日账户操作.
+        /// </summary>
+        /// <param name="accountID">账户代码</param>
+        /// <param name="operationTypeCode">操作类型</param>
+        /// <param name="money">操作金额</param>
+        /// <param name="desc">操作描述</param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        bool AccountOperation(long accountID, string operationTypeCode, decimal money, string desc, ref string resultMsg);
+
+
 
 
 

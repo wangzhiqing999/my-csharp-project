@@ -83,6 +83,14 @@ namespace MyMoney.Model
 
 
 
+        /// <summary>
+        /// 结算日期
+        /// </summary>
+        [Column("accounting_date")]
+        [Display(Name = "结算日期")]
+        public DateTime AccountingDate {set; get;}
+
+
 
 
         /// <summary>
