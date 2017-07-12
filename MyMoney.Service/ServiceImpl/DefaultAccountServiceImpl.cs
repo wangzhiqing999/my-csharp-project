@@ -290,6 +290,16 @@ namespace MyMoney.ServiceImpl
                     }
 
 
+                    // 检查是否已经存在有 指定账户，当日的报表数据.
+                    var oldReportData = context.AccountDailyReports.SingleOrDefault(p => p.AccountID == accountID &&  p.ReportDate == reportDate);
+                    if (oldReportData != null)
+                    {
+                        // 数据已存在， 需要先删除.
+                        context.AccountDailyReports.Remove(oldReportData);
+                    }
+
+
+
 
                     // 新的报表数据.
                     AccountDailyReport newReport = new AccountDailyReport() {
@@ -306,6 +316,7 @@ namespace MyMoney.ServiceImpl
                         from data in context.AccountDailyReports
                         where
                             data.AccountID == accountID
+                            && data.ReportDate < reportDate
                         orderby
                             data.ReportDate descending
                         select
@@ -340,8 +351,8 @@ namespace MyMoney.ServiceImpl
                         from data in context.AccountOperationLogs
                         where
                             data.AccountID == accountID
-                            && data.OperationTime >= reportDate
-                            && data.OperationTime < reportFinishTime
+                            && data.AccountingDate >= reportDate
+                            && data.AccountingDate < reportFinishTime
                         orderby
                             data.OperationTime
                         select
