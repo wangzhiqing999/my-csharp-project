@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+<div id="ballot">
+    @Html.Action(actionName: "Detail", controllerName: "BallotMaster", routeValues: new { id = "STOCK" })
+</div>
+
+
+
+
+
+ @section Scripts {
+    
+
+<script type="text/javascript">
+
+    function DoBallot(vMasterID, vDetailID) {
+        $.ajax({
+            url: '@Url.Action(actionName:"DoBallot", controllerName:"UserBallot")',
+            type: "post",
+            data: "masterID=" + vMasterID + "&detailID=" + vDetailID,
+            success: function (data) {
+                ShowDoBallotResult(data);
+            },
+            error: function (msg) {
+                
+            }
+        })
+    }
+
+
+    function ShowDoBallotResult(vResultData) {
+        if (vResultData.Result == false) {
+            // 失败.
+            alert(vResultData.Message);
+            return;
+        }
+
+        // 成功的情况下，刷新.
+        $("#ballot").load('@Url.Action(actionName: "Detail", controllerName: "BallotMaster")', { id: 'STOCK' });
+    }
+
+
+
+</script>
+
+
+}
