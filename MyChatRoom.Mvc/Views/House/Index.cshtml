@@ -1,0 +1,65 @@
+﻿@model MyChatRoom.Model.ChatRoomHouse
+
+
+@section scripts {
+
+<script src="~/Scripts/jquery.signalR-2.2.2.js"></script>
+<script src="~/signalr/hubs"></script>
+
+<script src="~/script/MyChat.js?version=1.0"></script>
+
+
+
+<script>
+    $(function () {
+
+        // $.connection.hub.logging = true;
+
+        $.connection.hub.disconnected(function () {
+            console.log('### SignalR disconnected.')
+            // 断开之后， 延迟5秒. 重新连接.
+            setTimeout(function () {
+                $.connection.hub.start().done(function () {
+                    chat.server.inRoom("@(Model.HouseID)");
+                });
+            }, 5000);
+        });
+
+
+        $.connection.hub.start()
+            .done(function () {
+                chat.server.inRoom("@(Model.HouseID)");
+            })
+            .fail(function () {
+                alert("网络连接失败！");
+            });
+    });
+
+
+    function SendMessage(msg) {
+        var newMsgResult = chat.server.newMessage("@(Model.HouseID)", msg, null);
+    }
+
+
+    $('#sendmessage').click(function () {
+        var msgText = $('#message').val();
+        if (msgText != '') {
+            SendMessage(msgText);
+        }
+    });
+
+</script>
+
+
+}
+
+
+
+
+<div class="container">
+    <input type="text" id="message" />
+    <input type="button" id="sendmessage" value="Send" />
+
+
+    <ul id="ulMessage"></ul>
+</div>
