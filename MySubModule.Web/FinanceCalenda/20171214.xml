@@ -1,0 +1,859 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfFinanceData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T03:00:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>12月联邦基金利率目标上限(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>1.25</Previous>
+    <Predict>1.50</Predict>
+    <CurrentValue>1.5</CurrentValue>
+    <MoreUrl>/id/112015032410040953.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T03:00:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>12月联邦基金利率目标下限(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>1.00</Previous>
+    <Predict>1.25</Predict>
+    <CurrentValue>1.25</CurrentValue>
+    <MoreUrl>/id/112015032410040339.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T07:50:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>截至12月8日当周买进外国债券(亿日元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-2040</Previous>
+    <Predict />
+    <CurrentValue>-4876</CurrentValue>
+    <MoreUrl>/id/112015032410000268.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T07:50:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>截至12月8日当周买进外国股票(亿日元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>6039</Previous>
+    <Predict />
+    <CurrentValue>3764</CurrentValue>
+    <MoreUrl>/id/112015032410000269.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T07:50:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>截至12月8日当周外资买进日债(亿日元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>2218</Previous>
+    <Predict />
+    <CurrentValue>8442</CurrentValue>
+    <MoreUrl>/id/112015032410000270.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T07:50:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>截至12月8日当周外资买进日股(亿日元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-1668</Previous>
+    <Predict />
+    <CurrentValue>-848</CurrentValue>
+    <MoreUrl>/id/112015032410000271.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:01:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>截至11月三个月RICS房价指数(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1</Previous>
+    <Predict>0</Predict>
+    <CurrentValue>0</CurrentValue>
+    <MoreUrl>/id/112015032410000389.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>12月日经/Markit制造业PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>53.6</Previous>
+    <Predict />
+    <CurrentValue>54.2</CurrentValue>
+    <MoreUrl>/id/102015042210000113.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>澳大利亚</CountryName>
+    <Content>11月季调后失业率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>5.4</Previous>
+    <Predict>5.4</Predict>
+    <CurrentValue>5.4</CurrentValue>
+    <MoreUrl>/id/112015032410000022.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>澳大利亚</CountryName>
+    <Content>11月就业人口变动(万人)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.78</Previous>
+    <Predict>1.90</Predict>
+    <CurrentValue>6.16</CurrentValue>
+    <Profitable>澳元金银</Profitable>
+    <Unprofitable>美元</Unprofitable>
+    <MoreUrl>/id/112015032410000020.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>澳大利亚</CountryName>
+    <Content>11月全职就业人口变动(万人)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>3.10</Previous>
+    <Predict />
+    <CurrentValue>4.19</CurrentValue>
+    <MoreUrl>/id/112015032410000019.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>澳大利亚</CountryName>
+    <Content>11月兼职就业人口变动(万人)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-2.32</Previous>
+    <Predict />
+    <CurrentValue>1.97</CurrentValue>
+    <MoreUrl>/id/112015032410000018.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T08:30:00</FinanceDateTime>
+    <CountryName>澳大利亚</CountryName>
+    <Content>11月季调后就业参与率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>65.2</Previous>
+    <Predict>65.1</Predict>
+    <CurrentValue>65.5</CurrentValue>
+    <Profitable>美元</Profitable>
+    <Unprofitable>澳元金银</Unprofitable>
+    <MoreUrl>/id/112015032410000021.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月实际外商直接投资年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>5</Previous>
+    <Predict />
+    <CurrentValue>90.7</CurrentValue>
+    <MoreUrl>/id/112015032410020027.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月实际外商直接投资(亿人民币)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>601.2</Previous>
+    <Predict />
+    <CurrentValue>1249</CurrentValue>
+    <MoreUrl>/id/112015032410019335.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月实际外商直接投资年率-YTD(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.9</Previous>
+    <Predict />
+    <CurrentValue>9.8</CurrentValue>
+    <MoreUrl>/id/112015032410000068.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>1-11月城镇固定资产投资年率-YTD(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>7.3</Previous>
+    <Predict>7.2</Predict>
+    <CurrentValue>7.2</CurrentValue>
+    <MoreUrl>/id/112015032410000069.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月城镇固定资产投资月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.52</Previous>
+    <Predict />
+    <CurrentValue>0.53</CurrentValue>
+    <MoreUrl>/id/102015041510000075.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月社会消费品零售总额年率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>10.0</Previous>
+    <Predict>10.3</Predict>
+    <CurrentValue>10.2</CurrentValue>
+    <Profitable>美元</Profitable>
+    <Unprofitable>金银石油</Unprofitable>
+    <MoreUrl>/id/112015032410000079.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>1-11月社会消费品零售总额年率-YTD(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>10.3</Previous>
+    <Predict>10.3</Predict>
+    <CurrentValue>10.3</CurrentValue>
+    <MoreUrl>/id/112015032410000078.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月社会消费品零售总额月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.74</Previous>
+    <Predict />
+    <CurrentValue>0.83</CurrentValue>
+    <MoreUrl>/id/102015041510000076.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>1-11月规模以上工业增加值年率-YTD(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>6.7</Previous>
+    <Predict>6.6</Predict>
+    <CurrentValue>6.6</CurrentValue>
+    <MoreUrl>/id/112015032410000064.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月规模以上工业增加值年率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>6.2</Previous>
+    <Predict>6.1</Predict>
+    <CurrentValue>6.1</CurrentValue>
+    <MoreUrl>/id/112015032410000065.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T10:00:00</FinanceDateTime>
+    <CountryName>中国</CountryName>
+    <Content>11月规模以上工业增加值月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.5</Previous>
+    <Predict />
+    <CurrentValue>0.48</CurrentValue>
+    <MoreUrl>/id/102015041510000074.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T12:32:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>10月设备利用指数月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-1.55</Previous>
+    <Predict />
+    <CurrentValue>0.2</CurrentValue>
+    <MoreUrl>/id/112015032410000239.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T12:32:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>10月设备利用指数</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>101.8</Previous>
+    <Predict />
+    <CurrentValue>102</CurrentValue>
+    <MoreUrl>/id/102015041510000078.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T12:32:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>10月库存月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0</Previous>
+    <Predict />
+    <CurrentValue>3.2</CurrentValue>
+    <MoreUrl>/id/102015041510000077.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T12:32:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>10月季调后工业产出月率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.5</Previous>
+    <Predict />
+    <CurrentValue>0.5</CurrentValue>
+    <MoreUrl>/id/112015032410000248.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T12:32:00</FinanceDateTime>
+    <CountryName>日本</CountryName>
+    <Content>10月未季调工业产出年率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>5.9</Previous>
+    <Predict />
+    <CurrentValue>5.9</CurrentValue>
+    <MoreUrl>/id/112015032410000249.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T15:45:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>11月CPI年率终值(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>1.2</Previous>
+    <Predict>1.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000130.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T15:45:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>11月调和CPI月率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.1</Previous>
+    <Predict>0.1</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000127.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T15:45:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>11月CPI月率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.1</Previous>
+    <Predict>0.1</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000129.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T15:45:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>11月调和CPI年率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.3</Previous>
+    <Predict>1.3</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000128.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>12月Markit制造业PMI初值</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>57.7</Previous>
+    <Predict>57.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015050410000180.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>12月Markit综合PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>60.3</Previous>
+    <Predict>59.6</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000040.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>法国</CountryName>
+    <Content>12月Markit服务业PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>60.4</Previous>
+    <Predict>60.0</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000039.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>西班牙</CountryName>
+    <Content>11月CPI年率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.6</Previous>
+    <Predict>1.6</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016061410000302.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>西班牙</CountryName>
+    <Content>11月调和CPI年率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.7</Previous>
+    <Predict>1.7</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016061410000303.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>西班牙</CountryName>
+    <Content>11月调和CPI月率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.3</Previous>
+    <Predict>0.3</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016053010000261.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:00:00</FinanceDateTime>
+    <CountryName>西班牙</CountryName>
+    <Content>11月CPI月率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.4</Previous>
+    <Predict>0.4</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016053010000259.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:15:00</FinanceDateTime>
+    <CountryName>瑞士</CountryName>
+    <Content>11月生产者/进口物价指数年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.2</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000326.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:15:00</FinanceDateTime>
+    <CountryName>瑞士</CountryName>
+    <Content>11月生产者/进口物价指数月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.5</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000325.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>瑞士</CountryName>
+    <Content>12月央行活期存款利率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>-0.75</Previous>
+    <Predict>-0.75</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015061710000213.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>瑞士</CountryName>
+    <Content>12月央行3个月Libor目标下限(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-1.25</Previous>
+    <Predict>-1.25</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016031210000250.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>瑞士</CountryName>
+    <Content>12月央行3个月Libor目标上限(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-0.25</Previous>
+    <Predict>-0.25</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410040892.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>德国</CountryName>
+    <Content>12月Markit制造业PMI初值</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>62.5</Previous>
+    <Predict>62.0</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015050410000181.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>德国</CountryName>
+    <Content>12月Markit综合PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>57.3</Previous>
+    <Predict>57.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000042.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T16:30:00</FinanceDateTime>
+    <CountryName>德国</CountryName>
+    <Content>12月Markit服务业PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>54.3</Previous>
+    <Predict>54.6</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000041.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:00:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月Markit制造业PMI初值</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>60.1</Previous>
+    <Predict>59.7</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015050410000182.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:00:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月Markit服务业PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>56.2</Previous>
+    <Predict>56.0</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000043.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:00:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月Markit综合PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>57.5</Previous>
+    <Predict>57.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015040710000044.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:00:00</FinanceDateTime>
+    <CountryName>意大利</CountryName>
+    <Content>11月调和CPI年率终值(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>1.1</Previous>
+    <Predict>1.1</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000200.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:30:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>11月季调后零售销售月率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.3</Previous>
+    <Predict>0.4</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000387.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:30:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>11月季调后零售销售年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-0.3</Previous>
+    <Predict>0.3</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000388.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:30:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>11月季调后核心零售销售月率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.1</Previous>
+    <Predict>0.4</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000385.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T17:30:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>11月季调后核心零售销售年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>-0.3</Previous>
+    <Predict>0.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000386.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T18:00:00</FinanceDateTime>
+    <CountryName>希腊</CountryName>
+    <Content>第三季度季度失业率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>21.1</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410021457.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:00:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>12月央行基准利率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.5</Previous>
+    <Predict>0.5</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410040936.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:00:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>12月央行资产购买规模(亿英镑)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>4350</Previous>
+    <Predict>4350</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410040338.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:00:00</FinanceDateTime>
+    <CountryName>英国</CountryName>
+    <Content>12月央行企业债购买规模(亿英镑)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>100</Previous>
+    <Predict>100</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016121210000377.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:45:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月欧洲央行主要再融资利率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.0</Previous>
+    <Predict>0.0</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410041053.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:45:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月欧洲央行存款机制利率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>-0.4</Previous>
+    <Predict>-0.4</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410041051.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:45:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月欧洲央行资产购买规模(亿欧元)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>600</Previous>
+    <Predict>600</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016072110000315.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T20:45:00</FinanceDateTime>
+    <CountryName>欧元区</CountryName>
+    <Content>12月欧洲央行边际借贷利率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.25</Previous>
+    <Predict>0.25</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102016011510000230.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:00:00</FinanceDateTime>
+    <CountryName>俄罗斯</CountryName>
+    <Content>截至12月8日当周黄金与外汇储备(亿美元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>4306</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102017022410000392.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月零售销售月率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.2</Previous>
+    <Predict>0.3</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000308.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月核心零售销售(亿美元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>3846.34</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102015041410000063.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月核心零售销售月率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.1</Previous>
+    <Predict>0.6</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000309.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月零售销售(亿美元)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>4865.53</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102015041410000064.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>截至12月8日当周初请失业金人数(万)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>23.6</Previous>
+    <Predict>23.6</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000192.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>截至12月8日当周初请失业金人数四周均值(万)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>24.15</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410013900.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>截至12月2日当周续请失业金人数(万)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>190.8</Previous>
+    <Predict>190.0</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000193.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月进口物价指数月率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>0.2</Previous>
+    <Predict>0.7</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000189.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月出口物价指数月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.0</Previous>
+    <Predict>0.3</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015041010000055.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月出口物价指数年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>2.7</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102015041010000054.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>11月进口物价指数年率(%)</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>2.5</Previous>
+    <Predict>3.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000190.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>加拿大</CountryName>
+    <Content>10月新屋价格指数年率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>3.8</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000043.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T21:30:00</FinanceDateTime>
+    <CountryName>加拿大</CountryName>
+    <Content>10月新屋价格指数月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.2</Previous>
+    <Predict>0.2</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000042.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T22:00:00</FinanceDateTime>
+    <CountryName>加拿大</CountryName>
+    <Content>11月成屋销售月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.9</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/112015032410001937.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T22:45:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>12月Markit制造业PMI初值</Content>
+    <Weightiness>3</Weightiness>
+    <Previous>53.9</Previous>
+    <Predict>53.9</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015042310000124.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T22:45:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>12月Markit综合PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>54.5</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102015050510000189.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T22:45:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>12月Markit服务业PMI初值</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>54.5</Previous>
+    <Predict>54</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015050510000188.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T22:45:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>截至12月10日当周彭博消费者信心指数</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>52.3</Previous>
+    <Predict />
+    <CurrentValue />
+    <MoreUrl>/id/102016060310000290.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T23:00:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>10月营运库存月率(%)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>0.0</Previous>
+    <Predict>-0.1</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/112015032410000280.html</MoreUrl>
+  </FinanceData>
+  <FinanceData>
+    <FinanceDateTime>2017-12-14T23:30:00</FinanceDateTime>
+    <CountryName>美国</CountryName>
+    <Content>截至12月8日当周EIA天然气库存(亿立方英尺)</Content>
+    <Weightiness>0</Weightiness>
+    <Previous>20</Previous>
+    <Predict>-598</Predict>
+    <CurrentValue />
+    <MoreUrl>/id/102015032710000019.html</MoreUrl>
+  </FinanceData>
+</ArrayOfFinanceData>

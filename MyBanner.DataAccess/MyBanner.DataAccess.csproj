@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Config\BannerTypeConfig.cs" />
     <Compile Include="DataAccess\MyBannerContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Banner.cs" />
     <Compile Include="Model\BannerType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

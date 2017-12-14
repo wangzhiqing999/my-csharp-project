@@ -11,6 +11,8 @@ using MyBanner.Config;
 
 namespace MyBanner.DataAccess
 {
+
+    // PM> Enable-Migrations  -ProjectName MyBanner.DataAccess
     public class MyBannerContext : DbContext
     {
 

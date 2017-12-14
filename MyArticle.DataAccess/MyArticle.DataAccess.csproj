@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Config\ArticleCategoryConfig.cs" />
     <Compile Include="DataAccess\MyArticleContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Article.cs" />
     <Compile Include="Model\ArticleCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

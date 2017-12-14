@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using AutoMapper;
 
 using MyFramework.Util;
 
@@ -11,7 +12,7 @@ using MyArticle.Model;
 using MyArticle.DataAccess;
 
 using MyArticle.Service;
-
+using MyArticle.ServiceModel;
 
 
 namespace MyArticle.ServiceImpl
@@ -24,11 +25,22 @@ namespace MyArticle.ServiceImpl
     public class DefaultArticleService : IArticleService
     {
 
+
+        static DefaultArticleService()
+        {
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Article, ArticleDetailOutput>();
+            });
+        }
+
+
+
         /// <summary>
         /// 查询 有效的 分类列表.
         /// </summary>
         /// <returns></returns>
-        public List<ArticleCategory> GetActiveArticleCategoryList()
+        public List<ArticleCategoryOutput> GetActiveArticleCategoryList()
         {
             using (MyArticleContext context = new MyArticleContext())
             {
@@ -37,9 +49,13 @@ namespace MyArticle.ServiceImpl
                     where
                         // 数据有效.
                         data.Status == ArticleCategory.STATUS_IS_ACTIVE
-                    select data;
+                    select new ArticleCategoryOutput() {
+                        ArticleCategoryCode = data.ArticleCategoryCode,
+                        ArticleCategoryName = data.ArticleCategoryName
+                    };
 
-                return query.ToList();
+                List<ArticleCategoryOutput> resultList = query.ToList();
+                return resultList;
             }
         }
 
@@ -50,7 +66,7 @@ namespace MyArticle.ServiceImpl
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        public ArticleCategory GetActiveArticleCategory(string code)
+        public ArticleCategoryOutput GetActiveArticleCategory(string code)
         {
             using (MyArticleContext context = new MyArticleContext())
             {
@@ -61,7 +77,11 @@ namespace MyArticle.ServiceImpl
                         data.ArticleCategoryCode == code
                         // 数据有效.
                         && data.Status == ArticleCategory.STATUS_IS_ACTIVE
-                    select data;
+                    select new ArticleCategoryOutput()
+                    {
+                        ArticleCategoryCode = data.ArticleCategoryCode,
+                        ArticleCategoryName = data.ArticleCategoryName
+                    };
 
                 return query.FirstOrDefault();
             }
@@ -73,35 +93,39 @@ namespace MyArticle.ServiceImpl
         /// <summary>
         /// 查询文章.
         /// </summary>
-        /// <param name="categoryCode"></param>
-        /// <param name="pageNo"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="pgInfo"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        public List<Article> GetArticleList(
-            string categoryCode, string subTitle, ref PageInfo pgInfo, int pageNo = 1, int pageSize = 30)
+        public ArticleListOutput GetArticleList(GetArticleListInput input)
         {
-            // 预期结果.
-            List<Article> resultList = new List<Article>();
-
-
             using (MyArticleContext context = new MyArticleContext())
             {
                 var query =
                     from data in context.Articles.Include("ArticleCategory")
                     where
                         // 指定分类.
-                        data.ArticleCategoryCode == categoryCode
+                        data.ArticleCategoryCode == input.CategoryCode
                         // 数据有效.
                         && data.Status == Article.STATUS_IS_ACTIVE
                         // 今天不应显示  文章日期是明天或者更后的文章.
                         && data.ArticleDate <= DateTime.Now
-                    select data;
+                    select new ArticleOutput()
+                    {
+                        ArticleID = data.ArticleID,
+                        ArticleTitle = data.ArticleTitle,
+                        ArticleDate = data.ArticleDate,
+                        ShortArticleContent = data.ShortArticleContent
+                    };
+
+                if (!String.IsNullOrEmpty(input.Title))
+                {
+                    // 指定了标题.
+                    query = query.Where(p => p.ArticleTitle.Contains(input.Title));
+                }
 
                 // 初始化翻页.
-                pgInfo = new PageInfo(
-                    pageSize: pageSize,
-                    pageNo: pageNo,
+                PageInfo pgInfo = new PageInfo(
+                    pageSize: input.PageSize,
+                    pageNo: input.PageNo,
                     rowCount: query.Count());
 
                 query = query.OrderByDescending(p => p.ArticleDate)
@@ -109,11 +133,16 @@ namespace MyArticle.ServiceImpl
                     .Take(pgInfo.PageSize);
 
 
-                resultList = query.ToList();
-            }
+                ArticleListOutput result = new ArticleListOutput()
+                {
+                    PageIndex = pgInfo.PageIndex,
+                    PageSize = pgInfo.PageSize,
+                    RowCount = pgInfo.RowCount,
+                    ArticleList = query.ToList()
+                };
 
-
-            return resultList;
+                return result;
+            }            
         }
 
 
@@ -124,11 +153,17 @@ namespace MyArticle.ServiceImpl
         /// </summary>
         /// <param name="articleID"></param>
         /// <returns></returns>
-        public Article GetArticleByID(long articleID)
+        public ArticleDetailOutput GetArticleByID(long articleID)
         {
             using (MyArticleContext context = new MyArticleContext())
             {
-                Article result = context.Articles.Include("ArticleCategory").FirstOrDefault(p => p.ArticleID == articleID);
+                Article data = context.Articles.Include("ArticleCategory").FirstOrDefault(p => p.ArticleID == articleID);
+                if (data == null)
+                {
+                    return null;
+                }
+
+                ArticleDetailOutput result = Mapper.Map<Article, ArticleDetailOutput>(source: data);
                 return result;
             }
         }
