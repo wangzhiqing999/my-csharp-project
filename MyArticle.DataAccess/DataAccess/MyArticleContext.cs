@@ -11,6 +11,8 @@ using MyArticle.Config;
 
 namespace MyArticle.DataAccess
 {
+
+    // PM> Enable-Migrations  -ProjectName MyArticle.DataAccess
     public class MyArticleContext : DbContext
     {
 

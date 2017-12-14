@@ -24,7 +24,7 @@ namespace MyArticle.Model
     {
 
         /// <summary>
-        /// 文章分类ID.
+        /// 文章分类代码.
         /// </summary>
         [Column("article_category_code")]
         [Display(Name = "文章分类代码")]

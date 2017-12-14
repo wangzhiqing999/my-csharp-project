@@ -27,7 +27,6 @@ namespace MyArticle.Model
         /// <summary>
         /// 文章ID.
         /// </summary>
-
         [Column("article_id")]
         [Display(Name = "文章ID")]
         [Key]

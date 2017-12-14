@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using MyFramework.Util;
 
-using MyArticle.Model;
+using MyArticle.ServiceModel;
 
 
 namespace MyArticle.Service
@@ -22,7 +22,7 @@ namespace MyArticle.Service
         /// 查询 有效的 分类列表.
         /// </summary>
         /// <returns></returns>
-        List<ArticleCategory> GetActiveArticleCategoryList();
+        List<ArticleCategoryOutput> GetActiveArticleCategoryList();
 
 
 
@@ -32,7 +32,7 @@ namespace MyArticle.Service
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        ArticleCategory GetActiveArticleCategory(string code);
+        ArticleCategoryOutput GetActiveArticleCategory(string code);
 
 
 
@@ -40,12 +40,9 @@ namespace MyArticle.Service
         /// <summary>
         /// 查询文章.
         /// </summary>
-        /// <param name="categoryCode"></param>
-        /// <param name="pageNo"></param>
-        /// <param name="pageSize"></param>
-        /// <param name="pgInfo"></param>
+        /// <param name="input"></param>
         /// <returns></returns>
-        List<Article> GetArticleList(string categoryCode, string subTitle, ref PageInfo pgInfo, int pageNo = 1, int pageSize = 30);
+        ArticleListOutput GetArticleList(GetArticleListInput input);
 
 
 
@@ -55,7 +52,7 @@ namespace MyArticle.Service
         /// </summary>
         /// <param name="articleID"></param>
         /// <returns></returns>
-        Article GetArticleByID(long articleID);
+        ArticleDetailOutput GetArticleByID(long articleID);
         
 
     }
