@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据库文档</title>
+</head>
+<body>
+
+    
+    <h2>Index</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                表名
+            </th>
+            <th>
+                备注
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.TableName
+                </td>
+                <td>
+                    @item.TableComment
+                </td>
+                <td>
+                    <a href="@(item.TableName).html">明细</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

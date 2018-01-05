@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MyDatabaseDoc.Model.Column>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ColumnName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsNullable)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ColumnComment)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColumnName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsNullable)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ColumnComment)
+        </td>
+    </tr>
+}
+
+</table>
+
+
