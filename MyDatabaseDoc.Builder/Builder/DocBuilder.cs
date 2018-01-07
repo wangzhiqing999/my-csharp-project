@@ -23,7 +23,7 @@ namespace MyDatabaseDoc.Builder
         /// <summary>
         /// 数据库读取.
         /// </summary>
-        private IDatabaseReader databaseReader = new MySqlDatabaseReader();
+        private IDatabaseReader databaseReader = new DefaultDatabaseReader();
 
 
         /// <summary>

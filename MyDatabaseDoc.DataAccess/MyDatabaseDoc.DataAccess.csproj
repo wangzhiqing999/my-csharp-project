@@ -50,7 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\ColumnConfig.cs" />
+    <Compile Include="Config\TableConfig.cs" />
     <Compile Include="DataAccess\MyDatabaseDocContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Column.cs" />
     <Compile Include="Model\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

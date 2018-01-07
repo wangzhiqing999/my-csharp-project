@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MyDatabaseDoc.Model
 {
@@ -7,6 +8,7 @@ namespace MyDatabaseDoc.Model
     /// <summary>
     /// 表
     /// </summary>
+    [Table("db_doc_table")]
     public class Table
     {
 
@@ -14,6 +16,9 @@ namespace MyDatabaseDoc.Model
         /// 表名.
         /// </summary>
         [Display(Name = "表名")]
+        [Column("table_name")]
+        [StringLength(32)]
+        [Key]
         public string TableName { set; get; }
 
 
@@ -22,6 +27,7 @@ namespace MyDatabaseDoc.Model
         /// 备注
         /// </summary>
         [Display(Name = "备注")]
+        [Column("table_comment")]
         public string TableComment { set; get; }
 
 
