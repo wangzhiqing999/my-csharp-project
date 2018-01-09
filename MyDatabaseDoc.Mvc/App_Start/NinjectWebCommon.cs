@@ -62,7 +62,7 @@ namespace MyDatabaseDoc.Mvc.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             // 数据库信息读取.
-            kernel.Bind<MyDatabaseDoc.Service.IDatabaseReader>().To<MyDatabaseDoc.ServiceImpl.MySqlDatabaseReader>();
+            kernel.Bind<MyDatabaseDoc.Service.IDatabaseReader>().To<MyDatabaseDoc.ServiceImpl.DefaultDatabaseReader>();
         }        
     }
 }

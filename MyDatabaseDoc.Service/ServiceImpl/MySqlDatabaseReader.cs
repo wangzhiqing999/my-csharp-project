@@ -34,16 +34,20 @@ WHERE
 
 
         private const string getColumnSql = @"SELECT 
+  table_name AS `TableName`,
   column_name AS `ColumnName`, 
   data_type   AS `DataType`, 
   is_nullable AS `IsNullable`, 
-  column_comment  AS  `ColumnComment`
+  column_comment  AS  `ColumnComment`,
+  character_maximum_length  AS  `CharacterMaximumLength`,
+  numeric_precision  AS  `NumericPrecision`,
+  numeric_scale  AS  `NumericScale`,
+  ORDINAL_POSITION AS `ColumnIndex`
 FROM
   Information_schema.columns
 WHERE
   table_schema = database()
-  AND table_Name='{0}';
-
+  AND table_name='{0}'
 ";
 
         public List<Column> GetColumnList(string tableName)
@@ -55,6 +59,12 @@ WHERE
                 var query = context.Database.SqlQuery<Column>(sql);
                 return query.ToList();
             }
+        }
+
+
+        public Table GetTable(string tableName)
+        {
+            throw new NotImplementedException();
         }
     }
 }

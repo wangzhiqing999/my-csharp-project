@@ -26,7 +26,10 @@
             @Html.DisplayFor(modelItem => item.TableComment)
         </td>
         <td>
-            @Html.ActionLink("明细", "Details", new {  id=item.TableName })
+            <a href="@Url.Action("Details", new { id = item.TableName })" class="btn btn-default btn-sm">
+                <span class='glyphicon glyphicon-th-list'></span>
+                明细
+            </a>
         </td>
     </tr>
 }

@@ -49,5 +49,24 @@ namespace MyDatabaseDoc.ServiceImpl
         }
 
 
+
+
+        public Table GetTable(string tableName)
+        {
+            using (MyDatabaseDocContext context = new MyDatabaseDocContext())
+            {
+                var query =
+                    from data in context.Tables.Include("ColumnList")
+                    where
+                        data.TableName == tableName
+                    select data;
+
+                var result = query.FirstOrDefault();
+
+                return result;
+            }
+        }
+
+
     }
 }

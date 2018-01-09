@@ -27,5 +27,14 @@ namespace MyDatabaseDoc.Service
         /// <returns></returns>
         List<Column> GetColumnList(string tableName);
 
+
+
+        /// <summary>
+        /// 获取表.
+        /// </summary>
+        /// <param name="tableName"></param>
+        /// <returns></returns>
+        Table GetTable(string tableName);
+
     }
 }

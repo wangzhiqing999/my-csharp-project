@@ -31,8 +31,8 @@ namespace MyDatabaseDoc.Mvc.Controllers
 
         public ActionResult Details(string id)
         {
-            List<Column> columnList = this.databaseReader.GetColumnList(id);
-            return View(model: columnList);
+            Table table = this.databaseReader.GetTable(id);
+            return View(model: table);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace MyDatabaseDoc.Model
         /// </summary>
         [Display(Name = "表名")]
         [Column("table_name")]
-        [StringLength(32)]
+        [StringLength(64)]
         [Key]
         public string TableName { set; get; }
 

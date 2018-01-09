@@ -19,7 +19,7 @@ namespace MyDatabaseDoc.Model
         /// </summary>
         [Display(Name = "表名")]
         [Column("table_name")]
-        [StringLength(32)]
+        [StringLength(64)]
         public string TableName { set; get; }
 
 
@@ -40,7 +40,7 @@ namespace MyDatabaseDoc.Model
         /// </summary>
         [Display(Name = "列名")]
         [Column("column_name")]
-        [StringLength(32)]
+        [StringLength(64)]
         public string ColumnName { set; get; }
 
 
@@ -60,6 +60,33 @@ namespace MyDatabaseDoc.Model
         [Column("data_type")]
         [StringLength(32)]
         public string DataType { set; get; }
+
+
+
+        /// <summary>
+        /// 字符串长度
+        /// </summary>
+        [Display(Name = "字符串长度")]
+        [Column("character_maximum_length")]
+        public long? CharacterMaximumLength { set; get; }
+
+
+        
+        /// <summary>
+        /// 数字长度
+        /// </summary>
+        [Display(Name = "数字长度")]
+        [Column("numeric_precision")]
+        public long? NumericPrecision { set; get; }
+
+
+        /// <summary>
+        /// 小数位数
+        /// </summary>
+        [Display(Name = "小数位数")]
+        [Column("numeric_scale")]
+        public long? NumericScale { set; get; }
+
 
 
 

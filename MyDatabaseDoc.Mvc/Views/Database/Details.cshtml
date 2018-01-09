@@ -1,35 +1,63 @@
-﻿@model IEnumerable<MyDatabaseDoc.Model.Column>
+﻿@model MyDatabaseDoc.Model.Table
+
+@using System.Linq;
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.TableName;
 }
 
-<h2>Details</h2>
+
+<h2> @(Model.TableName) : @(Model.TableComment) </h2>
 
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ColumnName)
+            列名
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DataType)
+            数据类型
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsNullable)
+            字符串长度
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ColumnComment)
+            数字长度
+        </th>
+        <th>
+            小数位数
+        </th>
+        <th>
+            允许为空
+        </th>
+        <th>
+            备注
         </th>
     </tr>
-
-@foreach (var item in Model) {
+@{
+    var query =
+        from data in Model.ColumnList
+        orderby data.ColumnIndex
+        select data;
+        
+}
+@foreach (var item in query)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ColumnName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.DataType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CharacterMaximumLength)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumericPrecision)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumericScale)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.IsNullable)
@@ -43,3 +71,8 @@
 </table>
 
 
+
+<a href='@Url.Action(actionName:"Index")' class="btn btn-default">
+    <span class='glyphicon glyphicon-list-alt'></span>
+    返回列表
+</a>
