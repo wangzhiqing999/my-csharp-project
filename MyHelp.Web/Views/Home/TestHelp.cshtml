@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "TestHelp";
+}
+
+<h2>TestHelp</h2>
+
+
+<div id="HelpMaster">
+
+    <ul>
+        <li v-for="itemMain in dataList">
+
+            <div v-if="itemMain.isQ">
+                您需要了解的是...
+                <p v-for="item in itemMain.detail">
+                    <a v-on:click="showDetail(item.documentID)"> {{ item.documentTitle }} </a>
+                </p>
+            </div>
+            <div v-else>
+                <p>
+                    <h3> {{ itemMain.detail.documentTitle }}</h3> 
+                    {{ itemMain.detail.documentContent }}
+                </p>
+            </div>
+            
+
+        </li>
+    </ul>
+
+    <p>
+        <input v-model="userInput" placeholder="输入问题" />
+        <button v-on:click="doQuery">提问</button>
+    </p>
+
+</div>
+
+
+
+
+
+
+@section Scripts
+{
+
+<script src="~/Scripts/vue.js"></script>
+
+
+<script>
+    // 当前服务.
+    var appVue = new Vue({
+        el: "#HelpMaster",
+        data: {
+            // 数据列表.
+            dataList: [],
+
+            // 用户输入.
+            userInput: ""
+        },
+        created: function () {
+        },
+        methods: {
+            doQuery: function () {
+                var _self = this;
+                var url = "/api/MyHelp/QueryKeyword?input=" + _self.userInput;
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        var item = { isQ: true, detail: data };
+
+                        _self.dataList.push(item);
+                        _self.userInput = "";
+                    });
+            },
+            showDetail: function (id) {
+
+                console.log("showDetail start.", id);
+
+                var _self = this;
+                var url = "/api/MyHelp/GetHelpDoc?id=" + id;
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        var item = { isQ: false, detail: data };
+                        _self.dataList.push(item);
+                        _self.userInput = "";
+                    });
+            }
+        }
+    });
+</script>
+
+}
