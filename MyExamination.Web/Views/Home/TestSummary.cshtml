@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "TestSummary";
+    
+    long id = ViewBag.ID;
+    
+}
+
+<h2>TestSummary</h2>
+
+
+
+
+<div id="Master">
+    <table>
+        <tr>
+            <td>问题</td>
+            <td>选型</td>
+            <td>回答数</td>
+        </tr>
+        <tr v-for="(data, index) in dataList">
+            <td>
+                <span v-if="index == 0">
+                    {{ data.questionText  }}
+                </span>
+                <span v-else-if="data.questionID != dataList[index-1].questionID">
+                    {{ data.questionText  }}
+                </span>
+            </td>
+
+            <td>
+                {{ data.questionOptionText  }}
+            </td>
+
+            <td>
+                {{ data.userAnswerCount  }}
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+@section Scripts
+{
+
+
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+    // 当前服务.
+    var appVue = new Vue({
+        el: "#Master",
+        data: {
+            // 数据列表.
+            dataList: []
+        },
+        created: function () {
+            // ajax获取后台数据
+            this.loadData();
+        },
+        methods: {
+            // ajax 加载数据.
+            loadData: function () {
+                var _this = this;
+                var url = "/api/Examination/GetQuestionAnswerReportList?userID=1&examinationID=@(id)";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.dataList = data;
+                    });
+            }
+        }
+    });
+
+    </script>
+
+}

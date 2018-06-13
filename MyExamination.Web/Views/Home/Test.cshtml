@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+
+
+<div id="Master">
+    <ul>
+        <li v-for="(data, index) in dataList">
+
+            {{ data.examinationName }}  --- {{ data.examinationDesc }}
+            <a v-on:click="showExamination(data.examinationID)">  一次显示一题 </a>
+            &nbsp;&nbsp;&nbsp;
+            <a v-on:click="showExamination2(data.examinationID)">  一次显示全部  </a>
+            &nbsp;&nbsp;&nbsp;
+            <a v-on:click="showReport(data.examinationID)">  报表  </a>
+        </li>
+    </ul>
+</div>
+
+
+@section Scripts
+{
+
+
+<script src="~/Scripts/vue.js"></script>
+
+<script>
+
+    // 当前服务.
+    var appVue = new Vue({
+        el: "#Master",
+        data: {
+            // 数据列表.
+            dataList: []
+        },
+        created: function () {
+            // ajax获取后台数据
+            this.loadData();
+        },
+        methods: {
+            // ajax 加载数据.
+            loadData: function () {
+                var _this = this;
+                var url = "/api/Examination/GetMeExaminationList";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.dataList = data;
+                    });
+            },
+            showExamination: function (id) {
+                window.location.href = "/Home/TestDetail/" + id;
+            },
+            showExamination2: function (id) {
+                window.location.href = "/Home/TestDetail2/" + id;
+            },
+            showReport: function (id) {
+                window.location.href = "/Home/TestSummary/" + id;
+            }
+        }
+    });
+
+</script>
+
+}

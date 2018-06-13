@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "TestDetail2";
+
+    long id = ViewBag.ID;
+    
+}
+
+<h2>TestDetail2</h2>
+
+
+<div id="Master">
+
+    <h3> 用户考试号： {{ userExaminationID }} </h3>
+
+    <div v-for="(currentQuestion, index) in questionList">
+
+        <p> {{ currentQuestion.questionText }} </p>
+
+
+        <ul v-if="currentQuestion.questionType === 'OneOption'">
+            <li v-for="data in currentQuestion.questionOptionList">
+
+                <label class="toggle toggle-init toggle-orange">
+                    <input type="radio" v-model="answerList[index].oneOptionAnswer" v-bind:value="data.questionOptionID">
+                    <span class="toggle-icon"></span>
+                </label>
+
+                <span>{{data.questionOptionText}}</span>
+            </li>
+        </ul>
+        <ul v-if="currentQuestion.questionType === 'MulOption'">
+            <li v-for="data in currentQuestion.questionOptionList">
+
+                <label class="toggle toggle-init toggle-orange">
+                    <input type="checkbox" v-model="answerList[index].mulOptionAnswer" v-bind:value="data.questionOptionID">
+                    <span class="toggle-icon"></span>
+                </label>
+
+                <span>{{data.questionOptionText}}</span>
+            </li>
+        </ul>
+
+    </div>
+
+    <hr />
+
+    <div>
+        <a class="btn btn-default" v-on:click="submitAnswer()"> 提交回答 </a>
+    </div>
+
+
+</div>
+
+
+@section Scripts
+{
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+    // 当前服务.
+    var appVue = new Vue({
+        el: "#Master",
+        data: {
+            // 用户考试号.
+            userExaminationID: 0,
+
+            // 问题列表.
+            questionList: [],
+            // 回答列表.
+            answerList: [],
+        
+            // 问题总数.
+            questionCount: 0
+        },
+        created: function () {
+            // 开始考试.
+            this.startExamination();
+            // 加载试题数据.
+            this.loadQuestionData();
+        },
+        methods: {
+            // 开始考试.
+            startExamination: function () {
+                var _this = this;
+                var url = "/api/Examination/StartExamination?userID=1&examinationID=@(id)";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.userExaminationID = data;
+                    });
+            },
+            // 加载试题数据.
+            loadQuestionData: function () {
+                var _this = this;
+                var url = "/api/Examination/GetQuestionList?examinationID=@(id)";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.questionList = data;
+                        _this.questionCount = data.length;
+
+                        // 根据题目， 生成答案数据结构.
+                        for (var i = 0; i < _this.questionCount ; i++) {
+                            var answer = {
+                                // 问题ID.
+                                questionID: data[i].questionID,
+                                // 单选回答.
+                                oneOptionAnswer: "",
+                                // 多选回答.
+                                mulOptionAnswer: []
+                            };
+
+                            _this.answerList.push(answer);
+                        }
+                    });
+            },
+            submitAnswer: function () {
+                var _this = this;
+                var url = "/api/Examination/BatchSubmitUserAnswer";
+
+                $.post(
+                    url,
+                    {
+                        userExaminationID: _this.userExaminationID,
+                        userID: 1,
+                        questionAnswers: _this.answerList
+                    },
+                    function (data, status) {
+                        console.log(data);
+                        alert(data);
+                    });
+
+            }
+
+
+        }
+    });
+
+    </script>
+
+}

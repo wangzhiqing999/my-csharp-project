@@ -1,0 +1,195 @@
+﻿
+@{
+    ViewBag.Title = "TestDetail";
+
+    long id = ViewBag.ID;
+    
+}
+
+<h2>TestDetail</h2>
+
+
+<div id="Master">
+
+    <h3> 用户考试号： {{ userExaminationID }} </h3>
+
+    <div v-if="currentQuestion != null">
+
+        <p> {{ currentQuestion.questionText }} </p>
+
+
+        <ul v-if="currentQuestion.questionType === 'OneOption'">
+            <li v-for="data in currentQuestion.questionOptionList">
+                
+                <label class="toggle toggle-init toggle-orange">
+                    <input type="radio" v-model="currentAnswer.oneOptionAnswer" v-bind:value="data.questionOptionID">
+                    <span class="toggle-icon"></span>
+                </label>
+
+                <span>{{data.questionOptionText}}</span>
+            </li>
+        </ul>
+        <ul v-if="currentQuestion.questionType === 'MulOption'">
+            <li v-for="data in currentQuestion.questionOptionList">
+                
+                <label class="toggle toggle-init toggle-orange">
+                    <input type="checkbox" v-model="currentAnswer.mulOptionAnswer" v-bind:value="data.questionOptionID">
+                    <span class="toggle-icon"></span>
+                </label>
+
+                <span>{{data.questionOptionText}}</span>
+            </li>
+        </ul>
+
+    </div>
+
+    
+    <hr/>
+
+    <a class="btn btn-default" v-on:click="prevQuestion()" v-bind:disabled="questionIndex <= 0"> 上一题 </a>
+
+    <a class="btn btn-default" v-on:click="nextQuestion()" v-bind:disabled="questionIndex >= questionCount - 1"> 下一题 </a>
+
+    <hr />
+
+
+    <div>
+
+        <a v-for="(questionData, index) in questionList" class="btn btn-default" v-on:click="gotoQuestion(index)" v-bind:disabled="questionIndex === index">
+            {{ (index + 1) }}
+        </a>
+
+    </div>
+
+
+    <hr/>
+
+    <div>
+        <a class="btn btn-default" v-on:click="submitAnswer()"> 提交回答 </a>
+    </div>
+
+
+</div>
+
+
+@section Scripts
+{
+    <script src="~/Scripts/vue.js"></script>
+
+    <script>
+
+    // 当前服务.
+    var appVue = new Vue({
+        el: "#Master",
+        data: {
+            // 用户考试号.
+            userExaminationID: 0,
+
+            // 问题列表.
+            questionList: [],
+            // 回答列表.
+            answerList: [],
+
+            // 问题索引.
+            questionIndex: 0,
+            // 问题总数.
+            questionCount: 0,
+
+            // 当前问题.
+            currentQuestion: null,
+            // 当前回答.
+            currentAnswer: null
+        },
+        created: function () {
+            // 开始考试.
+            this.startExamination();
+            // 加载试题数据.
+            this.loadQuestionData();
+        },
+        methods: {
+            // 开始考试.
+            startExamination: function () {
+                var _this = this;
+                var url = "/api/Examination/StartExamination?userID=1&examinationID=@(id)";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.userExaminationID = data;
+                    });
+            },
+            // 加载试题数据.
+            loadQuestionData: function () {
+                var _this = this;
+                var url = "/api/Examination/GetQuestionList?examinationID=@(id)";
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log(data);
+                        _this.questionList = data;
+                        _this.questionCount = data.length;
+
+                        // 根据题目， 生成答案数据结构.
+                        for (var i = 0; i < _this.questionCount ; i++) {
+                            var answer = {
+                                // 问题ID.
+                                questionID: data[i].questionID,
+                                // 单选回答.
+                                oneOptionAnswer: "",
+                                // 多选回答.
+                                mulOptionAnswer: []
+                            };
+
+                            _this.answerList.push(answer);
+                        }
+
+                        // 跳转至第一题.
+                        _this.gotoQuestion(0);
+                    });
+            },
+            // 跳转到特定题目.
+            gotoQuestion: function (index) {
+                // 变更索引.
+                this.questionIndex = index;
+                // 当前问题.
+                this.currentQuestion = this.questionList[index];
+                // 当前回答.
+                this.currentAnswer = this.answerList[index];
+            },
+            // 上一题.
+            prevQuestion: function () {
+                if (this.questionIndex > 0) {
+                    this.gotoQuestion(this.questionIndex - 1);
+                }
+            },
+            // 下一题.
+            nextQuestion: function () {
+                if (this.questionIndex < this.questionCount - 1) {
+                    this.gotoQuestion(this.questionIndex + 1);
+                }
+            },
+            submitAnswer: function () {
+                var _this = this;
+                var url = "/api/Examination/BatchSubmitUserAnswer";
+
+                $.post(
+                    url,
+                    {
+                        userExaminationID: _this.userExaminationID,
+                        userID: 1,
+                        questionAnswers: _this.answerList
+                    },
+                    function (data, status) {
+                        console.log(data);
+                        alert(data);
+                    });
+
+            }
+
+
+        }
+    });
+
+    </script>
+
+}
