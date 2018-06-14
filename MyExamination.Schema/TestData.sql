@@ -19,9 +19,9 @@ SET IDENTITY_INSERT [me_examination] ON
 go
 
 INSERT INTO [me_examination](
-	[examination_id], [examination_name],[examination_desc]
+	[examination_id], [examination_name],[examination_desc],[pass_score]
 ) VALUES (
-	101, 'Oracle测试',  '测试用'
+	101, 'Oracle测试',  '测试用', 60
 )
 GO
 

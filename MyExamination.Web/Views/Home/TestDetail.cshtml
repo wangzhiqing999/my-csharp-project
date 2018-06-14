@@ -180,13 +180,26 @@
                         questionAnswers: _this.answerList
                     },
                     function (data, status) {
-                        console.log(data);
+                        console.log("BatchSubmitUserAnswer Result:", data);
                         alert(data);
+
+                        if (data == true) {
+                            _this.finishExamination();
+                        }
+
                     });
 
+            },
+            finishExamination: function () {
+                var _this = this;
+                var url = "/api/Examination/FinishExamination?userID=1&examinationID=@(id)&userExaminationID=" + _this.userExaminationID;
+
+                $.get(
+                    url,
+                    function (data, status) {
+                        console.log("FinishExamination Result:", data);
+                    });
             }
-
-
         }
     });
 

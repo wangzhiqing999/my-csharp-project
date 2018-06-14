@@ -575,7 +575,92 @@ namespace MyExamination.ServiceImpl
                     }
 
 
+
+
+
+                    // #####  计算成绩. #####
+
+                    // 先获取用户回答数据.
+                    var userAnswerQuery =
+                        from data in context.UserAnswers
+                        where
+                            data.UserExaminationID == userExaminationID
+                        select
+                            data;
+                    List<MeUserAnswer> userAnswerList = userAnswerQuery.ToList();
+
+
+                    // 获取试题与选项.
+                    var query =
+                        from data in context.Questions.Include("QuestionOptionList")
+                    where
+                        data.ExaminationID == examinationID
+                    select
+                       data;
+                    List<MeQuestion> questionList = query.ToList();
+
+
+                    // 总成绩.
+                    int totalPoint = 0;
+
+
+                    // 遍历每一题.
+                    foreach (var questionData in questionList)
+                    {
+                        // 正确答案.
+                        List<string> rightAnswerList = new List<string>();
+
+                        switch (questionData.QuestionType)
+                        {
+                            case MeQuestionType.OneOption:
+                                // 单选.
+                                var rigthData = questionData.QuestionOptionList.SingleOrDefault(p => p.IsRightOption);
+                                if (rigthData == null)
+                                {
+                                    logger.WarnFormat("题目答案出现异常， 第 {0} 题， 不存在正确的选择项目", questionData.QuestionID);
+                                } else {
+                                    rightAnswerList.Add(rigthData.QuestionOptionID.ToString());
+                                }
+                                break;
+
+                            case MeQuestionType.MulOption:
+                                // 多选.
+                                List<string> answerList = questionData.QuestionOptionList.Where(p => p.IsRightOption).Select(p => p.QuestionOptionID.ToString()).ToList();
+                                rightAnswerList.AddRange(answerList);
+                                break;
+                            default:
+                                // 未知.
+                                break;
+                        }
+
+                        
+                        // 获取用户输入.
+                        MeUserAnswer userAnswer = userAnswerList.SingleOrDefault(p=>p.UserExaminationID == userExaminationID && p.QuestionID == questionData.QuestionID);
+
+                        if (userAnswer == null)
+                        {
+                            logger.WarnFormat("回答出现一些问题， 第 {0} 题， 用户 {1} 没有做回答。", questionData.QuestionID, userID);
+                            // 用户未回答当前题目.
+                            continue;
+                        }
+
+                        if (CompareUserAnswer(rightAnswerList, userAnswer.UserAnswer))
+                        {
+                            // 回答正确时， 获得分数.
+                            userAnswer.AnswerPoint = questionData.QuestionPoint;
+
+                            // 累加总成绩.
+                            totalPoint += questionData.QuestionPoint;
+                        }
+
+                    }
+
+                    // 设置结束时间.
                     userExamination.ExaminationFinishTime = DateTime.Now;
+
+                    // 设置总成绩.
+                    userExamination.ExaminationPoint = totalPoint;
+
                     context.SaveChanges();
 
                     return true;
@@ -590,6 +675,30 @@ namespace MyExamination.ServiceImpl
 
 
 
+        private bool CompareUserAnswer(List<string> rightAnswerList, string userAnswer)
+        {
+            // 用户答案按 , 拆分.
+            string [] dataArray = userAnswer.Split(',');
+
+
+            if (dataArray.Length != rightAnswerList.Count)
+            {
+                // 用户答案 与 正确答案 数量不匹配.
+                return false;
+            }
+
+            foreach (var rightAnswer in rightAnswerList)
+            {
+                if (!dataArray.Contains(rightAnswer))
+                {
+                    // 存在有 正确的答案， 在用户的答案中， 未选择的情况.
+                    return false;
+                }
+            }
+
+            // 如果能执行到这里， 认为是正确选择的.
+            return true;
+        }
 
 
 

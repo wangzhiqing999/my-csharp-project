@@ -106,6 +106,17 @@ namespace MyExamination.Model
         public string UserAnswer { set; get; }
 
 
+
+        /// <summary>
+        /// 回答获得的分数
+        /// </summary>
+        [DataMember]
+        [Column("answer_point")]
+        [Display(Name = "回答获得的分数")]
+        public long AnswerPoint { set; get; }
+
+
+
     }
 
 }

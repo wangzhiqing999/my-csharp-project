@@ -61,6 +61,16 @@ namespace MyExamination.Model
 
 
 
+        /// <summary>
+        /// 通过分数.
+        /// </summary>
+        [DataMember]
+        [Column("pass_score")]
+        [Display(Name = "通过分数")]
+        public int PassScore { set; get; }
+
+
+
 
         /// <summary>
         /// 问题列表.

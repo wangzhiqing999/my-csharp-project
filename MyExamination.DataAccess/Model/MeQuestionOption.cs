@@ -72,16 +72,18 @@ namespace MyExamination.Model
 
         /// <summary>
         /// 是否是正确的选项.
+        /// 该属性仅仅适用于考试的模式下， 评测的模式下，忽略该属性.
         /// </summary>
         [DataMember]
         [Column("is_right_option")]
-        [Display(Name = "问题选项描述")]
+        [Display(Name = "是否是正确的选项")]
         [JsonIgnore]
         public bool IsRightOption { set; get; }
 
 
         /// <summary>
         /// 选项的分值.
+        /// 该属性仅仅适用于评测的模式下， 考试的模式下，忽略该属性.
         /// </summary>
         [DataMember]
         [Column("option_point")]
