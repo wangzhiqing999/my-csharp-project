@@ -1,0 +1,908 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtSource.Text" xml:space="preserve">
+    <value>&lt;ul&gt;
+&lt;li class="body_zb_li" id="newsid201807131316432460"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;13:16:43&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131316432460" target="_blank" href="/201807131316432460.shtml"&gt; 
+&lt;span&gt;
+贸易争端升温，瑞银调降MSCI亚洲指数目标位（不含日本）；&lt;br/&gt;① 瑞银将MSCI亚洲指数（不含日本）到2018年底的目标从790降至700，以反映美中贸易紧张局势升级，目前的指数水平反映全面爆发贸易战的几率为45%；’&lt;br/&gt;② 策略师Niall MacLeod等人在7月12日的报告中写道，瑞银现在把贸易紧张局势升级视为基线情境，预计未来12个月区域内的企业盈利仅增长2%；先前增长12%的基线预估成为新的“上行可能情况”；&lt;br/&gt;③ 如果出现“下行可能情况”，瑞银认为指数恐进一步下跌23%，盈利下降17%；&lt;br/&gt;④ 6月21日，瑞银称亚洲股市所体现爆发严重贸易战的可能性为20% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131316432460" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131316432460"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131315492035"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;13:15:49&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131315492035" target="_blank" href="/201807131315492035.shtml"&gt; 
+&lt;span&gt;
+汇丰上调美元汇率预测，美联储政策及新兴市场资金流动料提振美元；&lt;br/&gt;① 汇丰调高了对美元兑澳元、纽元和其他全球货币的预测。汇丰称，市场“未能预见”2018年初美元的反弹，目前仍普遍预期美元兑欧元、日元和英镑到年底将走弱；&lt;br/&gt;② 汇丰建议逢低买入美元。汇丰预计美元会继续上涨，因为市场坚持认为美联储不会按照点阵图中值规划的路径收紧政策--这给美元带来了不对称的上行风险；&lt;br/&gt;③ 同样重要的是，其他G-10央行推迟了自己的正常化进程；持续重新评估新兴市场风险溢价的适宜水平，也对美元的上涨构成支持；&lt;br/&gt;④ 汇丰将三季度澳元兑美元预测从0.73下调至0.72，四季度从0.72下调至0.70；三季度纽元兑美元预测从0.69下调至0.67，四季度从0.68下调至0.65 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131315492035" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131315492035"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131301092368"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;13:01:09&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131301092368" target="_blank" href="/201807131301092368.shtml"&gt; 
+&lt;span&gt;
+美元指数现报94.93，涨0.13%；欧元兑美元现报1.1657，跌0.13%；&lt;br/&gt;英镑兑美元现报1.3171，跌0.27%；美元兑日元现报112.67，涨0.11%；&lt;br/&gt;澳元兑美元现报0.7415，涨0.09%；纽元兑美元现报0.6770，跌0.18%；&lt;br/&gt;美元兑加元现报1.3166，涨0.09%；美元兑瑞郎现报1.0023，跌0.01% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131301092368" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131301092368"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131301092367"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;13:01:09&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131301092367" target="_blank" href="/201807131301092367.shtml"&gt; 
+&lt;span&gt;
+美原油现报70.37美元/桶，涨0.06%；布伦特原油现报74.26美元/桶，跌0.26%；&lt;br/&gt;美燃油现报2.1180美元/加仑，跌0.24%；美天然气现报2.798美元/百万英热单位(mmBtu)，涨0.03% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131301092367" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131301092367"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131301092365"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;13:01:09&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131301092365" target="_blank" href="/201807131301092365.shtml"&gt; 
+&lt;span&gt;
+现货黄金现报1244.82美元/盎司，跌0.21%；现货白银现报15.94美元/盎司，跌0.08%；&lt;br/&gt;COMEX黄金期货现报1244.80美元/盎司，跌0.14%；COMEX白银期货现报15.97美元/盎司，跌0.08% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131301092365" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131301092365"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131259422030"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:59:42&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131259422030" target="_blank" href="/201807131259422030.shtml"&gt; 
+&lt;span&gt;
+中信固收：央行等额续作MLF 利于呵护长期流动性环境；&lt;br/&gt;央行今日等额续作到期中期借贷便利（MLF）1885亿元，并暂停逆回购，实现200亿资金净回笼。对此，中信证券固定收益首席分析师明明认为，人民银行操作利在短期资金面，意在长期流动性环境。从数量方面看，在银行资金面整体偏松的环境下维持小额净回笼，维持银行体系流动性保持合理充裕。价格方面，维持3.3%的操作利率不变，表明央行维持长期利率平稳的态度，加强对长期利率的引导作用。 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131259422030" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131259422030"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131241512030"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:41:51&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131241512030" target="_blank" href="/201807131241512030.shtml"&gt; 
+&lt;span&gt;
+国土资源部：2017年全国油气开采投资同比增长22.2%；&lt;br/&gt;从国土资源部获悉，2017年国际油价稳步上升，油气行业逐渐回暖。全国油气资源勘查开采投资触底回升，实物工作量增长明显。油气开采呈现“油降气升”态势，2017年全国石油产量1.92亿吨，同比下降4.1%，全国天然气产量1330.07亿立方米，连续7年超过千亿方，同比增长8.0% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131241512030" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131241512030"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131233332034" type="10217"&gt;
+&lt;div class="zb_time"&gt;12:33:34&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131233332034" class="national_hj_flag  japan"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;日本 5月 设备利用指数终值&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('102015041510000078','2018-07-13','日本 5月 设备利用指数终值')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;104.20&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;113.90&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131233332034"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131233052037" type="10217"&gt;
+&lt;div class="zb_time"&gt;12:33:06&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131233052037" class="national_hj_flag  japan"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;日本 5月 库存月率终值&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('102015041510000077','2018-07-13','日本 5月 库存月率终值')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;0.60&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;0.60&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131233052037"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131231116215" type="118"&gt;
+&lt;div class="zb_time"&gt;12:31:11&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131231116215" class="national_hj_flag  japan"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;日本 5月 设备利用指数月率&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('112015032410000239','2018-07-13','日本 5月 设备利用指数月率')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;1.80%&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;-2.10%&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_1"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131231116215"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131230522147" type="118"&gt;
+&lt;div class="zb_time"&gt;12:30:52&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131230522147" class="national_hj_flag  japan"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;日本 5月 未季调工业产出年率终值&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('112015032410000249','2018-07-13','日本 5月 未季调工业产出年率终值')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;4.20%&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;4.20%&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131230522147"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131230338082" type="118"&gt;
+&lt;div class="zb_time"&gt;12:30:33&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131230338082" class="national_hj_flag  japan"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;日本 5月 季调后工业产出月率终值&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('112015032410000248','2018-07-13','日本 5月 季调后工业产出月率终值')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;-0.20%&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;-0.20%&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131230338082"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid"&gt;
+&lt;div class="zb_time"&gt;
+汇总快讯
+&lt;/div&gt;
+&lt;div class="zb_word"&gt;
+&lt;div class="list_font_pic "&gt;
+&lt;div class="collect_show"&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131220402380.shtml"&gt;
+摩根大通：尽管2018年第一季度全球原油需求有所增长，但我行预计2018和2019年原油增速将放缓&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:20:40&lt;/i&gt;
+&lt;/br&gt; &lt;a class="red_color_f" target="_blank" href="http://news.fx678.com/201807131220172380.shtml"&gt;
+摩根大通：将2018-19年油价预期上调至70美元/桶，将2020年预期上调至65美元/桶&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:20:17&lt;/i&gt;
+&lt;/br&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131216432380.shtml"&gt;
+摩根大通：中期基本面受抑，因全球原油成本曲线打压&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:16:43&lt;/i&gt;
+&lt;/br&gt; &lt;/div&gt;
+&lt;div class="collect_hide"&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131216272380.shtml"&gt;
+摩根大通：欧佩克实际产量带来的不确定性增加，目前的预算限制以及制裁影响意味着近期油价将上升&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:16:27&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131216162380.shtml"&gt;
+摩根大通：预计沙特产量将从2018年的1050万桶/日升至2020年的1150万桶/日&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:16:16&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131216062380.shtml"&gt;
+摩根大通：预计油价将因欧佩克闲置产能上升，以及短期内美国页岩油钻井遭受2018-2019年增速放缓而受限。&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;12:16:06&lt;/i&gt;
+&lt;/br&gt; &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="add_more"&gt;&lt;img src="/Public/images/add_more.png" alt=""/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131220402380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:20:40&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131220402380" target="_blank" href="/201807131220402380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：尽管2018年第一季度全球原油需求有所增长，但我行预计2018和2019年原油增速将放缓 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131220402380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131220402380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131220172380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:20:17&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131220172380" target="_blank" href="/201807131220172380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：将2018-19年油价预期上调至70美元/桶，将2020年预期上调至65美元/桶 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131220172380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131220172380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131216432380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:16:43&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131216432380" target="_blank" href="/201807131216432380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：中期基本面受抑，因全球原油成本曲线打压 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131216432380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131216432380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131216272380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:16:27&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131216272380" target="_blank" href="/201807131216272380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：欧佩克实际产量带来的不确定性增加，目前的预算限制以及制裁影响意味着近期油价将上升 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131216272380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131216272380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131216162380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:16:16&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131216162380" target="_blank" href="/201807131216162380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：预计沙特产量将从2018年的1050万桶/日升至2020年的1150万桶/日 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131216162380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131216162380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131216062380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:16:06&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131216062380" target="_blank" href="/201807131216062380.shtml"&gt; 
+&lt;span&gt;
+摩根大通：预计油价将因欧佩克闲置产能上升，以及短期内美国页岩油钻井遭受2018-2019年增速放缓而受限。 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131216062380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131216062380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131203302380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:03:30&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131203302380" target="_blank" href="/201807131203302380.shtml"&gt; 
+&lt;span&gt;
+汇丰银行：预计印度央行将在8月加息25个基点，接着在10月—12月再加息一次 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131203302380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131203302380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131201592380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:01:59&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131201592380" target="_blank" href="/201807131201592380.shtml"&gt; 
+&lt;span&gt;
+香港恒生指数上午收盘上涨0.6%，报28645.7 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131201592380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131201592380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131201012366"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:01:01&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131201012366" target="_blank" href="/201807131201012366.shtml"&gt; 
+&lt;span&gt;
+美原油现报70.31美元/桶，跌0.03%；布伦特原油现报74.16美元/桶，跌0.39%；&lt;br/&gt;美燃油现报2.1143美元/加仑，跌0.42% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131201012366" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131201012366"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131201012362"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:01:01&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131201012362" target="_blank" href="/201807131201012362.shtml"&gt; 
+&lt;span&gt;
+美元指数现报94.89，涨0.09%；欧元兑美元现报1.1662，跌0.09%；&lt;br/&gt;英镑兑美元现报1.3179，跌0.20%；美元兑日元现报112.65，涨0.09%；&lt;br/&gt;澳元兑美元现报0.7416，涨0.11%；纽元兑美元现报0.6775，跌0.10%；&lt;br/&gt;美元兑加元现报1.3163，涨0.07%；美元兑瑞郎现报1.0020，跌0.04% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131201012362" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131201012362"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131201012361"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;12:01:01&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131201012361" target="_blank" href="/201807131201012361.shtml"&gt; 
+&lt;span&gt;
+现货黄金现报1246.41美元/盎司，跌0.08%；现货白银现报15.96美元/盎司，涨0.08%；&lt;br/&gt;COMEX黄金期货现报1246.40美元/盎司，跌0.02%；COMEX白银期货现报15.98美元/盎司，涨0.05% &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131201012361" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131201012361"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid"&gt;
+&lt;div class="zb_time"&gt;
+汇总快讯
+&lt;/div&gt;
+&lt;div class="zb_word"&gt;
+&lt;div class="list_font_pic "&gt;
+&lt;div class="collect_show"&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131159172380.shtml"&gt;
+韩国总统文在寅：相信朝鲜最高领导人金正恩和美国总统特朗普将最终兑现“特金会”上的承诺&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:59:17&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131147092034.shtml"&gt;
+韩国总统文在寅：朝鲜领导人决心建设正常的国家，国际社会应为朝鲜提供机会&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:47:09&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131141142034.shtml"&gt;
+韩国总统文在寅：如果金正恩兑现自己的承诺，朝鲜就可以实现繁荣&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:41:14&lt;/i&gt;
+&lt;/br&gt; &lt;/div&gt;
+&lt;div class="collect_hide"&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131133042033.shtml"&gt;
+韩国总统文在寅：督促朝鲜和美国在朝鲜去核化问题上采取进一步行动&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:33:04&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131130372034.shtml"&gt;
+韩国总统文在寅：朝鲜实现无核化的道路并不轻松，金正恩带领朝鲜实现繁荣的道路也不轻松&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:30:37&lt;/i&gt;
+&lt;/br&gt; &lt;a target="_blank" href="http://news.fx678.com/201807131129322034.shtml"&gt;
+韩国总统文在寅：日本和朝鲜关系正常化将有助于实现朝鲜半岛的和平&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:29:32&lt;/i&gt;
+&lt;/br&gt; &lt;a class="red_color_f" target="_blank" href="http://news.fx678.com/201807131129162033.shtml"&gt;
+韩国总统文在寅：如果朝鲜实现彻底无核化，韩国将寻求和朝鲜建立经济共同体&amp;nbsp;
+&lt;/a&gt;
+&lt;i style="font-size:11px; color: #888888;font-weight:normal;"&gt;11:29:16&lt;/i&gt;
+&lt;/br&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="add_more"&gt;&lt;img src="/Public/images/add_more.png" alt=""/&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131159172380"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:59:17&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131159172380" target="_blank" href="/201807131159172380.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：相信朝鲜最高领导人金正恩和美国总统特朗普将最终兑现“特金会”上的承诺 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131159172380" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131159172380"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131149142034"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:49:16&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131149142034" target="_blank" href="/201807131149142034.shtml"&gt; 
+&lt;span&gt;
+日经225指数涨幅扩大至2%，创6月21日以来新高22637.74点 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131149142034" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131149142034"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131148081700"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:48:08&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131148081700" target="_blank" href="/201807131148081700.shtml"&gt; 
+&lt;span&gt;
+默克投资公司表示，尽管近期受美国经济强劲美联储持续加息影响，黄金价格表现不佳，但此后，随着美国经济进一步趋向过热，通胀风险抬头，黄金的抗通胀保值功能将重新得到审视和认可 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131148081700" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131148081700"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131147092034"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:47:09&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131147092034" target="_blank" href="/201807131147092034.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：朝鲜领导人决心建设正常的国家，国际社会应为朝鲜提供机会 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131147092034" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131147092034"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131143011700"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:43:01&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131143011700" target="_blank" href="/201807131143011700.shtml"&gt; 
+&lt;span&gt;
+BMI研究所将2018和2019年度的布伦特原油均价分别上修2美元，从73美元和78美元上调到75美元和80美元。该研究机构指出，小幅上调油价预期的原因在于市场供给端的不确定性状况目前来看高于此前预测 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131143011700" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131143011700"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131142002460"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:42:01&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131142002460" target="_blank" href="/201807131142002460.shtml"&gt; 
+&lt;span&gt;
+韩国央行料按兵不动，韩元或仍将延续跌势；&lt;br/&gt;① 美元兑韩元下跌0.3%至1124.70，周三一度劲升0.9%至1130.20，为去年10月以来的最高水平；&lt;br/&gt;② 新加坡Continuum Economics经济学家Darren Aw表示，鉴于本币走弱有助于对冲当前的出口风险，韩元的下跌对于韩国央行应该不是太过忧心的事情；&lt;br/&gt;③ 他称韩国央行周四决定将利率维持在1.5%的水平不变已在预料之中，整个上半年的低通胀水平以及中美贸易战引发的出口风险使得央行继续保持鸽派立场；&lt;br/&gt;④ 他称起初预计韩国央行会在四季度加息，但央行最新政策声明使得预期程度弱化，预计未来一个季度韩元料会维持在1120-1150兑换1美元的区间 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131142002460" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131142002460"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131117482220"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:41:50&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131117482220" target="_blank" href="http://news.fx678.com/201807131117482220.shtml"&gt;
+&lt;span&gt;
+美联储官员齐发声谈加息，要点一文打尽！ &lt;/span&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131117482220.shtml"&gt;&lt;img class="more_end2" src="/Public/images/more_ads2.png" align="absmiddle"&gt;&lt;/a&gt; 
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle" style="cursor: default;"&gt;&lt;img src="/Public/images/icon-pv.png" alt=""/&gt;&lt;span&gt;5685&lt;/span&gt;
+&lt;/li&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131117482220" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131117482220"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131141142034"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:41:14&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131141142034" target="_blank" href="/201807131141142034.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：如果金正恩兑现自己的承诺，朝鲜就可以实现繁荣 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131141142034" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131141142034"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131133042033"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:33:04&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131133042033" target="_blank" href="/201807131133042033.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：督促朝鲜和美国在朝鲜去核化问题上采取进一步行动 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131133042033" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131133042033"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131132472035"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:32:48&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131132472035" target="_blank" href="/201807131132472035.shtml"&gt; 
+&lt;span&gt;
+美元兑印度卢比跌至7月2日以来新低68.3400 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131132472035" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131132472035"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131131472240"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:31:47&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131131472240" target="_blank" href="/201807131131472240.shtml"&gt; 
+&lt;span&gt;
+上海黄金交易所黄金T+D 7月13日（周五）早盘收盘下跌0.18%报268.14元/克；&lt;br/&gt;上海黄金交易所白银T+D 7月13日（周五）早盘收盘上涨0.22%报3658.00元/千克 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131131472240" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131131472240"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131131272070"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:31:27&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131131272070" target="_blank" href="/201807131131272070.shtml"&gt; 
+&lt;span&gt;
+沪深两市周五早盘震荡，生物制品板块涨幅居前；&lt;br/&gt;上证指数周五早收盘下跌0.12%，下跌3.27点，报2834.39点；&lt;br/&gt;深证成指周五早收盘上涨0.68%，上涨63.50点，报9337.11点；&lt;br/&gt;沪深300股指周五早收盘上涨0.49%，上涨17.15点，报3498.21点；&lt;br/&gt;创业板指周五早收盘上涨0.54%，上涨8.65点，报1623.28点 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131131272070" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131131272070"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131130372034"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:30:37&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131130372034" target="_blank" href="/201807131130372034.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：朝鲜实现无核化的道路并不轻松，金正恩带领朝鲜实现繁荣的道路也不轻松 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131130372034" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131130372034"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131129322034"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:29:32&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic "&gt;
+&lt;a id="aid201807131129322034" target="_blank" href="/201807131129322034.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：日本和朝鲜关系正常化将有助于实现朝鲜半岛的和平 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131129322034" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131129322034"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131129162033"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:29:16&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131129162033" target="_blank" href="/201807131129162033.shtml"&gt; 
+&lt;span&gt;
+韩国总统文在寅：如果朝鲜实现彻底无核化，韩国将寻求和朝鲜建立经济共同体 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131129162033" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131129162033"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131119172381"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:20:06&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131119172381" target="_blank" href="http://news.fx678.com/201807131119172381.shtml"&gt;
+&lt;span&gt;
+黄金交易提醒：三大维度全面洞悉，当心金价真突破假跌漏 &lt;/span&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131119172381.shtml"&gt;&lt;img class="more_end2" src="/Public/images/more_ads2.png" align="absmiddle"&gt;&lt;/a&gt; 
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle" style="cursor: default;"&gt;&lt;img src="/Public/images/icon-pv.png" alt=""/&gt;&lt;span&gt;17638&lt;/span&gt;
+&lt;/li&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131119172381" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131119172381"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131119142035"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:19:15&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131119142035" target="_blank" href="/201807131119142035.shtml"&gt; 
+&lt;span&gt;
+中国对美贸易顺差289.7亿美元，达到纪录最高水平 &lt;/span&gt;
+&lt;/a&gt;
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131119142035" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131119142035"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131110042065"&gt;
+&lt;div class="zb_time"&gt;&lt;a&gt;11:17:17&lt;/a&gt;&lt;/div&gt;
+&lt;div class="zb_word"&gt; &lt;div class="list_font_pic red_color_f"&gt;
+&lt;a id="aid201807131110042065" target="_blank" href="http://news.fx678.com/201807131110042065.shtml"&gt;
+&lt;span&gt;
+7月13日现货黄金、白银、原油、外汇短线交易策略 &lt;/span&gt;
+&lt;/a&gt;
+&lt;a target="_blank" href="http://news.fx678.com/201807131110042065.shtml"&gt;&lt;img class="more_end2" src="/Public/images/more_ads2.png" align="absmiddle"&gt;&lt;/a&gt; 
+&lt;div class="comment-btn"&gt;
+&lt;ul class="clearfix"&gt;
+&lt;li class="handle" style="cursor: default;"&gt;&lt;img src="/Public/images/icon-pv.png" alt=""/&gt;&lt;span&gt;14569&lt;/span&gt;
+&lt;/li&gt;
+&lt;li class="handle"&gt;&lt;a href="/id/201807131110042065" target="_blank"&gt;&lt;img src="/Public/images/feedback.png" alt=""&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt; &lt;/div&gt;
+&lt;div class="comment" cid="201807131110042065"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131115382033" type="10217"&gt;
+&lt;div class="zb_time"&gt;11:15:38&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131115382033" class="national_hj_flag  china"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;中国 6月 进口总额-美元计价(亿美元)&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('112015032410014456','2018-07-13','中国 6月 进口总额-美元计价(亿美元)')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;1879.50&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;17513&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131115382033"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131115282033" type="10217"&gt;
+&lt;div class="zb_time"&gt;11:15:28&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131115282033" class="national_hj_flag  china"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;中国 6月 出口总额-美元计价(亿美元)&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('112015032410014457','2018-07-13','中国 6月 出口总额-美元计价(亿美元)')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;2128.70&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;21674&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_more zb_low"&gt;
+&lt;div class="zb_more_bg" id="anal201807131115282033"&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class="body_zb_li" id="newsid201807131115102033" type="10217"&gt;
+&lt;div class="zb_time"&gt;11:15:10&lt;/div&gt;
+&lt;div class="zb_flag"&gt;
+&lt;div id="gq201807131115102033" class="national_hj_flag  china"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="zb_font"&gt;
+&lt;span&gt;中国 6月 进口总额-人民币计价(亿元)&lt;/span&gt;
+&lt;div class="history_btn"&gt;&lt;img src="/Public/images/history.png" onclick="layerPrevious('102016021510000247','2018-07-13','中国 6月 进口总额-人民币计价(亿元)')" style="cursor: pointer;" title='历史指标'/&gt;&lt;/div&gt;
+&lt;br/&gt;
+&lt;span class="nom_bg"&gt;前值：&lt;span&gt;11900&lt;/span&gt;&lt;/span&gt; &lt;span class="nom_bg"&gt;&amp;nbsp;预期：&lt;span&gt;-&lt;/span&gt; &lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="zb_star zb_low"&gt;
+&lt;span&gt;实际值&lt;em class="star_back"&gt;11158&lt;/em&gt;&lt;/span&gt;
+&lt;div class="star_xz star_2"&gt;</value>
+  </data>
+</root>
