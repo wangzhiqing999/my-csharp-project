@@ -20,7 +20,7 @@ namespace MyWebCrawler.Service
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        string ReadHtmlText(string url);
+        string ReadHtmlText(string url, string encoding = "utf-8");
 
 
         /// <summary>

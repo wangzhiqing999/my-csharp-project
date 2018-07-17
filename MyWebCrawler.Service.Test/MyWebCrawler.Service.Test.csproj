@@ -74,6 +74,24 @@
     <Compile Include="UI\FormReadCffexList.Designer.cs">
       <DependentUpon>FormReadCffexList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormReadCzceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadCzceList.Designer.cs">
+      <DependentUpon>FormReadCzceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormReadDceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadDceDetail.Designer.cs">
+      <DependentUpon>FormReadDceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormReadDceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadDceList.Designer.cs">
+      <DependentUpon>FormReadDceList.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormReadHtmlText.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +145,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadCffexList.resx">
       <DependentUpon>FormReadCffexList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadCzceList.resx">
+      <DependentUpon>FormReadCzceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadDceDetail.resx">
+      <DependentUpon>FormReadDceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadDceList.resx">
+      <DependentUpon>FormReadDceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadHtmlText.resx">
       <DependentUpon>FormReadHtmlText.cs</DependentUpon>

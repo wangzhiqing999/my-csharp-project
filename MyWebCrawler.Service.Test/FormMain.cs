@@ -102,6 +102,48 @@ namespace MyWebCrawler.Service.Test
 
 
 
+        #region 大连商品期货交易所 通知
+
+
+
+        private void readDceListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadDceList();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+
+        private void readDceDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadDceDetail();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+        #endregion
+
+
+
+
+        #region 郑州商品期货交易所
+
+
+
+        private void readCzceListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadCzceList();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+
+        #endregion
+
+        
 
     }
 }

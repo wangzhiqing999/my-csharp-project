@@ -26,14 +26,14 @@ namespace MyWebCrawler.ServiceImpl
 
 
 
-        string IHtmlDataReader<T>.ReadHtmlText(string url)
+        string IHtmlDataReader<T>.ReadHtmlText(string url, string encoding)
         {
             using (WebClient webClient = new WebClient())
             {
                 webClient.Headers.Add("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.0.3705;)");
                 using (Stream s = webClient.OpenRead(url))
                 {
-                    using (StreamReader sr = new StreamReader(s, Encoding.UTF8))
+                    using (StreamReader sr = new StreamReader(s, Encoding.GetEncoding(encoding)))
                     {
                         string result = sr.ReadToEnd();
                         return result;
