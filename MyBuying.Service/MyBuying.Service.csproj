@@ -55,8 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImpl\DefaultBuyingServiceImpl.cs" />
     <Compile Include="ServiceImpl\DefaultCommodityServiceImpl.cs" />
+    <Compile Include="ServiceModel\BuyingData.cs" />
     <Compile Include="Service\IBuyingService.cs" />
     <Compile Include="Service\ICommodityService.cs" />
+    <Compile Include="Util\BuyerQueueManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

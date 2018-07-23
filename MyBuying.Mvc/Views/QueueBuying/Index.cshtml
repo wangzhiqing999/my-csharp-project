@@ -1,0 +1,251 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>测试购买线下活动商品流程</h2>
+
+<table class="table">
+    <tr>
+        <td>测试线下活动商品主表代码</td>
+        <td>
+            <input id="txtCommodityMasterCode" type="text" value="TEST" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>测试批次代码(单次的活动这里为空)</td>
+        <td>
+            <input id="txtBatchCode" type="text" value="@(DateTime.Today.ToString("MMdd"))" />
+        </td>
+    </tr>
+
+    <tr>
+        <td>测试UserID</td>
+        <td>
+            <input id="txtUserID" type="text" value="1234567890" />
+        </td>
+    </tr>
+
+
+    <tr>
+        <td>操作到的具体商品（活动入场券）代码</td>
+        <td>
+            <input id="txtGoodsID" type="text" readonly="readonly" />
+        </td>
+    </tr>
+
+</table>
+
+
+<p>
+    运行 MyBuying.Service.Test 项目，创建测试活动商品数据。
+    <br />
+    可以通过按了按钮之后， 刷新页面，来从头开始进行测试。
+</p>
+
+
+
+
+<div id="step1">
+
+    <h3>步骤一. 加入购物车</h3>
+
+    <button id="btnGetBuyableDetail"> 加入购物车 </button>
+
+    <p id="step1Result">
+
+    </p>
+</div>
+
+
+
+<div id="step2">
+
+    <h3>步骤二. 创建订单</h3>
+
+    <button id="btnCreateOrder"> 创建订单 </button>
+
+    <p id="step2Result">
+
+    </p>
+
+</div>
+
+
+
+<div id="step3">
+
+    <h3>步骤三. 完成支付</h3>
+
+    <button id="btnOrderPayed"> 完成支付 </button>
+
+    <p id="step3Result">
+
+    </p>
+
+</div>
+
+
+
+<div id="step4">
+
+    <h3>步骤四. 活动现场出示代码</h3>
+
+
+    用户的活动入场券代码： <input id="txtUserCode" type="text" />
+
+
+    <button id="btnCodeUsed"> 现场使用代码 </button>
+
+    <p id="step4Result">
+
+    </p>
+
+</div>
+
+
+
+@*
+    本页面特殊的 js 代码.
+*@
+@section scripts
+{
+
+    
+    <script src="~/script/myQueueBuyingService.js"></script>
+    <script src="~/script/myBuyingService.js"></script>
+
+
+    <script>
+
+
+    // 加入购物车
+    $("#btnGetBuyableDetail").click(function () {
+
+        var _this = $(this);
+        _this.attr("disabled", "disabled");
+
+        myQueueBuyingService.commodityMasterCode = $("#txtCommodityMasterCode").val();
+        myQueueBuyingService.batchCode = $("#txtBatchCode").val();
+        myQueueBuyingService.userID = $("#txtUserID").val();
+
+        myQueueBuyingService.getBuyableDetail(function (data) {
+
+            
+
+            if (data.IsSuccess) {
+                $("#step1Result").html("排队处理中");
+
+                setTimeout("waiting()", 500);
+
+            } else {
+                alert(data.ResultMessage);
+            }
+        });
+    });
+
+
+
+    // 等待处理.
+    function waiting() {
+
+        myQueueBuyingService.isInQueue(function (data) {
+            if (data.IsSuccess) {
+                // 还在队列里.
+                var html = $("#step1Result").html();
+                html = html + ".";
+                $("#step1Result").html(html);
+
+                setTimeout("waiting()", 500);
+                return;
+            }
+
+            // 如果执行到这里， 说明数据已经不在队列中了。
+            // 尝试获取执行结果.
+            getServiceResult();           
+        });
+    }
+
+
+    // 获取执行结果.
+    function getServiceResult() {
+
+        myQueueBuyingService.getServiceResult(function (data) {
+            if (data.IsSuccess) {
+
+                $("#txtGoodsID").val(data.ResultData);
+
+                $("#btnGetBuyableDetail").removeAttr("disabled");
+
+
+            } else {
+                alert(data.ResultMessage);
+            }
+
+        });
+    }
+
+
+
+    // 创建订单
+    $("#btnCreateOrder").click(function () {
+
+        var goodsID = $("#txtGoodsID").val();
+
+        myBuyingService.userID = $("#txtUserID").val();
+
+        myBuyingService.createOrder(goodsID, function (data) {
+            if (data.IsSuccess) {
+                $("#step2Result").html("OK");
+            } else {
+                alert(data.ResultMessage);
+            }
+        });
+
+    });
+
+
+    // 完成支付
+    $("#btnOrderPayed").click(function () {
+
+        var goodsID = $("#txtGoodsID").val();
+
+        myBuyingService.orderPayed(goodsID, function (data) {
+            if (data.IsSuccess) {
+                $("#step3Result").html("OK");
+
+                var userCode = data.ResultData.CommodityDetailCode;
+
+                $("#txtUserCode").val(userCode);
+
+            } else {
+                alert(data.ResultMessage);
+            }
+        });
+
+    });
+
+
+
+    // 现场使用代码
+    $("#btnCodeUsed").click(function () {
+
+        var userCode = $("#txtUserCode").val();
+
+        myBuyingService.commodityMasterCode = $("#txtCommodityMasterCode").val();
+        myBuyingService.batchCode = $("#txtBatchCode").val();
+
+        myBuyingService.codeUsed(userCode, function (data) {
+            if (data.IsSuccess) {
+                $("#step4Result").html("OK");
+
+            } else {
+                alert(data.ResultMessage);
+            }
+        });
+
+    });
+
+    </script>
+
+}
