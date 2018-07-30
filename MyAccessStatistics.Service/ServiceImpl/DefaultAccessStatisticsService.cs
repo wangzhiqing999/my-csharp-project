@@ -113,13 +113,14 @@ namespace MyAccessStatistics.ServiceImpl
         /// <param name="accessTypeCode"></param>
         /// <param name="accessDetailCode"></param>
         /// <param name="expInfo"></param>
-        private void NewAccessDetailLog(MyAccessStatisticsContext context, string accessTypeCode, string accessDetailCode, string expInfo = null)
+        private void NewAccessDetailLog(MyAccessStatisticsContext context, string accessTypeCode, string accessDetailCode, long? userID, string expInfo = null)
         {
             AccessDetailLog log = new AccessDetailLog()
             {
                 AccessTypeCode = accessTypeCode,
                 DetailCode = accessDetailCode,
                 AccessTime = DateTime.Now,
+                UserID = userID,
                 ExpInfo = expInfo,
             };
 
@@ -131,7 +132,7 @@ namespace MyAccessStatistics.ServiceImpl
 
 
 
-        public bool NewAccess(string accessTypeCode, string accessDetailCode, bool isSaveDetailLog, ref string resultMsg)
+        public bool NewAccess(string accessTypeCode, string accessDetailCode, bool isSaveDetailLog, long? userID, ref string resultMsg)
         {
 
             using (MyAccessStatisticsContext context = new MyAccessStatisticsContext())
@@ -161,7 +162,7 @@ namespace MyAccessStatistics.ServiceImpl
                 if (isSaveDetailLog)
                 {
                     // 新增访问类型明细日志
-                    this.NewAccessDetailLog(context, accessTypeCode, accessDetailCode);
+                    this.NewAccessDetailLog(context, accessTypeCode, accessDetailCode, userID);
                 }
 
 

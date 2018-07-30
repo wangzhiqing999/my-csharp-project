@@ -94,7 +94,7 @@ namespace MyAccessStatistics.ServiceImpl
 
 
 
-        public List<AccessDetailLog> GetAccessDetailLog(string accessTypeCode = null, string accessDetailCode = null, DateTime? startDate = null, DateTime? finishDate = null)
+        public List<AccessDetailLog> GetAccessDetailLog(string accessTypeCode = null, string accessDetailCode = null, DateTime? startDate = null, DateTime? finishDate = null, long? userID = null)
         {
             using (MyAccessStatisticsContext context = new MyAccessStatisticsContext())
             {
@@ -125,6 +125,13 @@ namespace MyAccessStatistics.ServiceImpl
                 if (finishDate != null)
                 {
                     query = query.Where(p => p.AccessTime < finishDate.Value.AddDays(1));
+                }
+
+
+                // 指定了 特定的用户.
+                if (userID != null)
+                {
+                    query = query.Where(p => p.UserID == userID.Value);
                 }
 
                 var resultList = query.ToList();

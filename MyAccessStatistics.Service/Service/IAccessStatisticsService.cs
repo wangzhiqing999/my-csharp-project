@@ -18,12 +18,14 @@ namespace MyAccessStatistics.Service
         /// <summary>
         /// 新的访问.
         /// </summary>
-        /// <param name="accessTypeCode"></param>
-        /// <param name="accessDetailCode"></param>
-        /// <param name="isSaveDetailLog"></param>
-        /// <param name="resultMsg"></param>
+        /// <param name="accessTypeCode">访问类型代码</param>
+        /// <param name="accessDetailCode">访问明细代码</param>
+        /// <param name="isSaveDetailLog">是否存储明细日志</param>
+        /// <param name="userID">用户代码</param>
+        /// <param name="resultMsg">返回消息</param>
         /// <returns></returns>
-        bool NewAccess(string accessTypeCode, string accessDetailCode, bool isSaveDetailLog, ref string resultMsg);
+        bool NewAccess(string accessTypeCode, string accessDetailCode, bool isSaveDetailLog, long? userID,  ref string resultMsg);
+
 
     }
 
