@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MySystemConfig.Model.SystemConfigProperty>
+
+@foreach (var item in Model) {
+
+    if (item.IsSearchAble)
+    {
+        <div>
+            <span>
+                @item.PropertyDesc
+            </span>
+
+            @if (item.PropertyDataType == "System.Boolean")
+            {
+                <select name="@(item.PropertyName)">
+                    <option value="">全部</option>
+                    <option value="true"  @(Request[item.PropertyName] == "true" ? "selected=selected" : "")>是</option>
+                    <option value="false" @(Request[item.PropertyName] == "false" ? "selected=selected" : "")>否</option>
+                </select>
+                
+            }
+            else
+            {
+                <input type="text" name="@(item.PropertyName)" value='@Request[item.PropertyName]'/>
+            }
+            
+        </div>
+    }
+}

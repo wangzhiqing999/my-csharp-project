@@ -1,0 +1,167 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+## Model类的命名空间， 例如: MyTest.Model
+#set($myModelNamespace = $Model.Namespace)
+## 项目的命名空间， 例如: MyTest
+#set($myNamespace = $myModelNamespace.Replace(".Model",""))
+## 模块的名称，例如: HelloWorld
+#set($myClassName = $Model.Name)
+## 模块主键的 数据类型.
+#set($keyType = "long")
+## 模块主键的 属性名称.
+#set($keyName = "KeyName")
+## 获取模块的所有属性.
+#set($propArray = $Model.GetProperties())
+## 遍历每一个属性.
+#foreach($prop in $propArray)
+## 获取属性上面的所有自定义属性标签.
+#set($attrArray = $prop.GetCustomAttributes(true))
+#foreach($attr in $attrArray)
+#if ($attr.ToString() == "System.ComponentModel.DataAnnotations.KeyAttribute")
+## 当前属性上面，有 KeyAttribute 标签。
+## 设置主键的数据类型.
+#set($keyType = $prop.PropertyType.Name)
+## 设置主键的属性名称.
+#set($keyName = $prop.Name)
+#end
+#end
+#end
+
+using $myModelNamespace;
+using ${myNamespace}.DataAccess;
+using ${myNamespace}.Service;
+
+namespace ${myNamespace}.ServiceImpl
+{
+
+	/// <summary>
+	/// ${myClassName} 服务默认实现.
+	/// </summary>
+    public class Default${myClassName}ServiceImpl : I${myClassName}Service
+    {
+
+        /// <summary>
+        /// 创建 ${myClassName}
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        public bool Add${myClassName}(${myClassName} data, ref string resultMsg) {
+			try
+            {
+				using (${myNamespace}Context context = new ${myNamespace}Context())
+				{
+					// 插入数据.
+					context.${myClassName}s.Add(data);
+					// 物理保存.
+					context.SaveChanges();
+				}
+				resultMsg = "success";
+				return true;
+			}
+			catch(Exception ex)
+            {
+				resultMsg = ex.Message;
+				return false;
+			}
+		}
+
+        /// <summary>
+        /// 编辑 ${myClassName}.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        public bool Edit${myClassName}(${myClassName} data, ref string resultMsg) {
+			try
+            {
+				using (${myNamespace}Context context = new ${myNamespace}Context())
+				{
+					${myClassName} dbData = context.${myClassName}s.Find(data.${keyName});
+					if (dbData == null)
+					{
+						resultMsg = "data not found.";
+						return false;
+					}
+					// 先从上下文中的旧实体获取跟踪
+					DbEntityEntry entry = context.Entry(dbData);
+					// 把新值设置到旧实体上
+					entry.CurrentValues.SetValues(data);
+					// 物理保存.
+					context.SaveChanges();
+				}
+				resultMsg = "success";
+				return true;
+			}
+			catch(Exception ex)
+            {
+				resultMsg = ex.Message;
+				return false;
+			}
+		}
+
+        /// <summary>
+        /// 删除 ${myClassName}.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        public bool Remove${myClassName}($keyType id, ref string resultMsg) {
+			try
+            {
+				using (${myNamespace}Context context = new ${myNamespace}Context())
+				{
+					${myClassName} dbData = context.${myClassName}s.Find(id);
+					if (dbData == null)
+					{
+						resultMsg = "data not found.";
+						return false;
+					}
+					// 删除.
+					context.${myClassName}s.Remove(dbData);
+					// 物理保存.
+					context.SaveChanges();
+				}
+				resultMsg = "success";
+				return true;
+			}
+			catch(Exception ex)
+            {
+				resultMsg = ex.Message;
+				return false;
+			}
+		}
+
+		/// <summary>
+        /// 获取 ${myClassName}.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+		public ${myClassName} Get${myClassName}($keyType id, ref string resultMsg) {
+			try
+            {
+				using (${myNamespace}Context context = new ${myNamespace}Context())
+				{
+					${myClassName} data = context.${myClassName}s.Find(id);
+					if (data == null)
+					{
+						resultMsg = "data not found.";
+						return null;
+					}
+					resultMsg = "success";
+					return data;
+				}
+			}
+			catch(Exception ex)
+            {
+				resultMsg = ex.Message;
+				return null;
+			}
+		}
+
+    }
+}

@@ -81,7 +81,9 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.ConfigValue, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBox(name: "ConfigValue", value: Model.ConfigValueObject, htmlAttributes: new { @class = "form-control" })
+                    @*@Html.TextBox(name: "ConfigValue", value: Model.ConfigValueObject, htmlAttributes: new { @class = "form-control" })*@
+
+                    <input type="text" id="ConfigValue" name="ConfigValue" class="form-control" value="@(Model.ConfigValueObject)" />
                     @Html.ValidationMessageFor(model => model.ConfigValue, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -111,7 +113,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.ConfigTypeCode})
 </div>
 
 @section Scripts {

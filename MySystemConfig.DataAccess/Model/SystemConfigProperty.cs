@@ -87,6 +87,17 @@ namespace MySystemConfig.Model
         [Display(Name = "显示顺序")]
         public int DisplayOrder { set; get; }
 
+
+
+        /// <summary>
+        /// 是否可检索.
+        /// </summary>
+        [DataMember]
+        [Column("is_search_able")]
+        [Display(Name = "是否可检索")]
+        public bool IsSearchAble { set; get; }
+
+
     }
 
 

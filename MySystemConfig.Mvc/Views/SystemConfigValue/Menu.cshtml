@@ -1,0 +1,6 @@
+﻿@model IEnumerable<MySystemConfig.Model.SystemConfigType>
+@foreach (var item in Model) {
+    <li>
+        <a href="/SystemConfigValue/Index/@(item.ConfigTypeCode)">@(item.ConfigTypeName)</a>
+    </li>
+}

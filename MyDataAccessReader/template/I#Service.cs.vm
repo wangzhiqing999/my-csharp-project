@@ -1,0 +1,78 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+## Model类的命名空间， 例如: MyTest.Model
+#set($myModelNamespace = $Model.Namespace)
+## 项目的命名空间， 例如: MyTest
+#set($myNamespace = $myModelNamespace.Replace(".Model",""))
+## 模块的名称，例如: HelloWorld
+#set($myClassName = $Model.Name)
+## 模块主键的 数据类型.
+#set($keyType = "long")
+## 模块主键的 属性名称.
+#set($keyName = "KeyName")
+## 获取模块的所有属性.
+#set($propArray = $Model.GetProperties())
+## 遍历每一个属性.
+#foreach($prop in $propArray)
+## 获取属性上面的所有自定义属性标签.
+#set($attrArray = $prop.GetCustomAttributes(true))
+#foreach($attr in $attrArray)
+#if ($attr.ToString() == "System.ComponentModel.DataAnnotations.KeyAttribute")
+## 当前属性上面，有 KeyAttribute 标签。
+## 设置主键的数据类型.
+#set($keyType = $prop.PropertyType.Name)
+## 设置主键的属性名称.
+#set($keyName = $prop.Name)
+#end
+#end
+#end
+
+
+using $myModelNamespace;
+
+namespace ${myNamespace}.Service
+{
+
+	/// <summary>
+	/// ${myClassName} Service.
+	/// </summary>
+    public interface I${myClassName}Service
+    {
+
+        /// <summary>
+        /// 创建 ${myClassName}
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        bool Add${myClassName}(${myClassName} data, ref string resultMsg);
+
+        /// <summary>
+        /// 编辑 ${myClassName}.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        bool Edit${myClassName}(${myClassName} data, ref string resultMsg);
+
+        /// <summary>
+        /// 删除 ${myClassName}.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+        bool Remove${myClassName}($keyType id, ref string resultMsg);
+
+		/// <summary>
+        /// 获取 ${myClassName}.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="resultMsg"></param>
+        /// <returns></returns>
+		${myClassName} Get${myClassName}($keyType id, ref string resultMsg);
+
+    }
+}

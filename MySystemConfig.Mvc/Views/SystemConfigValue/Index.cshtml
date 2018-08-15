@@ -1,10 +1,33 @@
-﻿@model IEnumerable<MySystemConfig.Model.SystemConfigValue>
+﻿@using MySystemConfig.Model
+
+@model IEnumerable<SystemConfigValue>
 
 @{
     ViewBag.Title = "Index";
+    SystemConfigType typeData = ViewBag.SystemConfigType;
 }
 
 <h2>Index</h2>
+
+@if (typeData.ConfigClassName == SystemConfigType.SimpleDictionary)
+{
+    <a href="/SystemConfigValue/Create/@(typeData.ConfigTypeCode)"> Create </a>
+}
+
+
+
+
+<form action="/SystemConfigValue/Index/@(typeData.ConfigTypeCode)" method="post">
+
+    @if (typeData.ConfigClassName == SystemConfigType.SimpleDictionary)
+    {
+        @Html.Action(actionName: "Search", routeValues: new { id = typeData.ConfigTypeCode })
+    }
+
+    <input type="submit" value="Query" />
+</form>
+
+
 
 
 <table class="table">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Newtonsoft.Json;
 
 using MySystemConfig.Model;
 using MySystemConfig.DataAccess;
@@ -24,9 +25,34 @@ namespace MySystemConfig.Mvc.Controllers
 
 
 
-        // GET: SystemConfigValue
-        public ActionResult Index(string queryConfigTypeCode)
+
+        public ActionResult Menu()
         {
+            List<SystemConfigType> typeList = this.systemConfigService.GetAllSystemConfigType();
+            return PartialView(model: typeList);
+        }
+
+
+        public ActionResult Search(string id)
+        {
+            // 配置属性
+            List<SystemConfigProperty> scp = this.systemConfigService.GetSystemConfigPropertyByType(id);
+            return PartialView(model: scp);
+        }
+
+
+
+        // GET: SystemConfigValue
+        public ActionResult Index(string id)
+        {
+
+            SystemConfigType typeData = this.systemConfigService.GetSystemConfigType(id);
+            if (typeData == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.SystemConfigType = typeData;
+
 
             List<SystemConfigValue> dataList = null;
 
@@ -37,9 +63,9 @@ namespace MySystemConfig.Mvc.Controllers
                     select data;
 
 
-                if (!String.IsNullOrEmpty(queryConfigTypeCode))
+                if (!String.IsNullOrEmpty(id))
                 {
-                    query = query.Where(p => p.ConfigCode == queryConfigTypeCode);
+                    query = query.Where(p => p.ConfigTypeCode == id);
                 }
 
 
@@ -47,6 +73,66 @@ namespace MySystemConfig.Mvc.Controllers
                 dataList = query.ToList();
             }
 
+
+            
+
+            if (typeData.ConfigClassName == SystemConfigType.SimpleDictionary)
+            {
+                // 如果是简单 Key-Value。
+                // 还需要额外处理查询条件。
+
+                
+
+                foreach (var data in dataList)
+                {
+                    data.ConfigValueObject = JsonConvert.DeserializeObject(data.ConfigValue, Type.GetType(typeData.ConfigClassName));
+                }
+
+                var dataQuery =
+                    from data in dataList
+                    select
+                        data;
+
+                // 配置属性
+                List<SystemConfigProperty> scpList = this.systemConfigService.GetSystemConfigPropertyByType(id);
+                foreach (var scp in scpList)
+                {
+                    if (scp.IsSearchAble)
+                    {
+                        string queryString = Request[scp.PropertyName];
+                        if (!String.IsNullOrEmpty(queryString))
+                        {
+                            switch (scp.PropertyDataType)
+                            {
+                                case "System.Boolean":
+                                    bool boolValue = Convert.ToBoolean(queryString);
+                                    dataQuery = dataQuery.Where(p => p.ConfigValueObject[scp.PropertyName] == boolValue);
+                                    break;
+
+                                case "System.String":
+                                    dataQuery = dataQuery.Where(p => p.ConfigValueObject[scp.PropertyName].Contains(queryString));
+                                    break;
+
+                                case "System.Int32":
+                                case "System.Int64":
+                                    long intValue = 0;
+                                    if (Int64.TryParse(queryString, out intValue))
+                                    {
+                                        dataQuery = dataQuery.Where(p => p.ConfigValueObject[scp.PropertyName] == intValue);
+                                    }                                    
+                                    break;
+                            }
+
+                            
+                        }
+                    }
+                }
+
+
+                List<SystemConfigValue> resultList = dataQuery.ToList();
+
+                return View(model: resultList);
+            }
 
             return View(model:dataList);
         }
@@ -105,6 +191,80 @@ namespace MySystemConfig.Mvc.Controllers
 
 
 
+
+        public ActionResult Create(string id)
+        {
+            // 配置类型.
+            SystemConfigType sct = this.systemConfigService.GetSystemConfigType(id);
+            ViewBag.SystemConfigType = sct;
+
+            // 配置属性
+            List<SystemConfigProperty> scp = this.systemConfigService.GetSystemConfigPropertyByType(id);
+            ViewBag.SystemConfigPropertys = scp;
+
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Create(string id, string configCode, FormCollection collection)
+        {
+            SystemConfigValue data = null;
+
+            try
+            {
+                // 配置类型.
+                SystemConfigType sct = this.systemConfigService.GetSystemConfigType(id);
+                ViewBag.SystemConfigType = sct;
+
+                // 配置属性
+                List<SystemConfigProperty> scp = this.systemConfigService.GetSystemConfigPropertyByType(id);
+                ViewBag.SystemConfigPropertys = scp;
+
+
+                data = this.systemConfigService.GetSystemConfigValue(id, configCode);
+
+                if (data != null)
+                {
+
+                    // 数据已存在.
+                    return View(model: data);
+                }
+
+
+                data = new SystemConfigValue()
+                {
+                    ConfigTypeCode = id,
+                    ConfigCode = configCode,
+                    ConfigName = collection["ConfigName"],
+                };
+
+
+                Dictionary<string, Object> configObj = new Dictionary<string, object>();
+                foreach (var prop in scp)
+                {
+                    String value = collection[prop.PropertyName];
+                    configObj.Add(prop.PropertyName, BasicDataConvert(prop.PropertyDataType, value));
+                }
+
+                data.ConfigValueObject = configObj;
+
+
+                string resultMsg = null;
+                bool result = this.systemConfigService.UpdateSystemConfigValue(data, ref resultMsg);
+
+                if (!result)
+                {
+                    return View(model: data);
+                }
+
+                return RedirectToAction("Index", new { id = data.ConfigTypeCode });
+            }
+            catch
+            {
+                return View(model: data);
+            }
+        }
 
 
 
@@ -188,7 +348,7 @@ namespace MySystemConfig.Mvc.Controllers
                     return View(model: data);
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id= data.ConfigTypeCode });
             }
             catch
             {

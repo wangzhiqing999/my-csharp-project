@@ -164,6 +164,9 @@
     <Content Include="Views\SystemConfigValue\Index.cshtml" />
     <Content Include="Views\SystemConfigValue\Details.cshtml" />
     <Content Include="Views\SystemConfigValue\Edit.cshtml" />
+    <Content Include="Views\SystemConfigValue\Menu.cshtml" />
+    <Content Include="Views\SystemConfigValue\Search.cshtml" />
+    <Content Include="Views\SystemConfigValue\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -87,7 +87,7 @@ namespace MySystemConfig.Model
         /// 配置对象.
         /// </summary>
         [NotMapped]
-        public object ConfigValueObject { set; get; }
+        public dynamic ConfigValueObject { set; get; }
 
 
     }

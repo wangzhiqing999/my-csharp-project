@@ -75,5 +75,5 @@ else
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { configTypeCode = Model.ConfigTypeCode, configCode = Model.ConfigCode }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { id = Model.ConfigTypeCode })
 </p>

@@ -1,0 +1,97 @@
+﻿@model MySystemConfig.Model.SystemConfigValue
+
+@using MySystemConfig.Model
+
+@{
+    ViewBag.Title = "Create";
+
+    SystemConfigType sct = ViewBag.SystemConfigType;
+    List<SystemConfigProperty> scp = ViewBag.SystemConfigPropertys;    
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+ 
+    
+    <div class="form-horizontal">
+        <h4>SystemConfigValue</h4>
+        <hr />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="ConfigTypeCode">系统配置类型代码</label>
+            <div class="col-md-10">
+                <label class="control-label">
+                    @(sct.ConfigTypeCode)
+                </label>
+                @Html.Hidden(name: "ConfigTypeCode", value: sct.ConfigTypeCode)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigCode, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigCode, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigCode, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfigName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfigName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ConfigName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+
+        @if (sct.ConfigClassName == MySystemConfig.Model.SystemConfigType.SimpleDictionary)
+        {
+            foreach (var prop in scp)
+            {
+                if (prop.PropertyDataType == "System.Boolean")
+                {
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="@(prop.PropertyName)">@(prop.PropertyDesc)</label>
+                        <div class="col-md-10">
+                            <input data-val="true" id="@(prop.PropertyName)" name="@(prop.PropertyName)" type="checkbox" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="form-group">
+                        <label class="control-label col-md-2" for="@(prop.PropertyName)">@(prop.PropertyDesc)</label>
+                        <div class="col-md-10">
+                            <input class="form-control text-box single-line" data-val="true" id="@(prop.PropertyName)" name="@(prop.PropertyName)" type="text" value="@(Request[prop.PropertyName])" />
+                            <span class="field-validation-valid text-danger" data-valmsg-for="@(prop.PropertyName)" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                }
+            }
+        }
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = sct.ConfigTypeCode })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

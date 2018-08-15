@@ -14,6 +14,10 @@
 （这里只有线上购买的操作， 线下扫码的，需要 App 来处理的。）
 
 
+### MyDataAccessReader
+通过反射，读取 dll 类，  通过 NVelocity 生成 C# 代码的处理.
+
+
 ### MyDatabaseDoc
 读取数据库表结构，生成数据库表结构文档信息.
 
