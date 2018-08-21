@@ -20,7 +20,7 @@ namespace MyToken.Model
     [Serializable]
     [DataContract(Namespace = "")]
     [Table("mt_token_access_log")]
-    [ToString]
+    //[ToString]
     public class TokenAccessLog
     {
 
@@ -53,7 +53,7 @@ namespace MyToken.Model
         /// <summary>
         /// 令牌数据
         /// </summary>
-        [IgnoreDuringToString]
+        //[IgnoreDuringToString]
         public virtual TokenData TokenData { set; get; }
 
 
@@ -90,6 +90,11 @@ namespace MyToken.Model
         public string UserData { set; get; }
 
 
+        /// <summary>
+        /// 用户数据对象.
+        /// </summary>
+        [NotMapped]
+        public Dictionary<string, object> UserDataObject { set; get; }
 
 
 

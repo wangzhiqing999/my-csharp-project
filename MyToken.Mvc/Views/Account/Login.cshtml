@@ -1,0 +1,192 @@
+﻿@model MyToken.Mvc.Models.LoginModel
+
+@{
+
+    ViewBag.Title = "登录";
+
+    string returnUrl = ViewBag.ReturnUrl;
+}
+
+<h2>登录</h2>
+
+
+@using (Html.BeginForm("Login", "Account", FormMethod.Post,
+        new { role = "form", @class = "form-horizontal" }))
+{
+    @Html.Hidden(name: "ReturnUrl", value: returnUrl)
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="form-group form-group-sm">
+        <label for="searchActionCode" class="col-sm-2 control-label"> @Html.DisplayNameFor(model => model.UserName)</label>
+        <div class="col-sm-3">
+            @Html.TextBoxFor(m => m.UserName, null, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(m => m.UserName)
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        <label for="searchActionCode" class="col-sm-2 control-label"> @Html.DisplayNameFor(model => model.Password)</label>
+        <div class="col-sm-3">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+        <div class="col-sm-3">
+            @Html.ValidationMessageFor(m => m.Password)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-9">
+            @Html.EditorFor(model => model.RememberMe)
+            @Html.LabelFor(model => model.RememberMe)
+        </div>
+    </div>
+
+
+    <div class="form-group form-group-sm">
+        <div class="col-sm-offset-2 col-sm-9">
+            <button id="btnLogin" type="submit" class="btn btn-default">
+                <span class="glyphicon glyphicon-star"></span>
+                登录
+            </button>
+        </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+        <div class="col-sm-offset-2 col-sm-9 form-message">
+            @ViewBag.Message
+        </div>
+    </div>
+
+}
+
+
+
+<button onclick="startQrLogin()"> 二维码登录 </button>
+
+
+<div id="qrcode">
+
+</div>
+<div id="qrcodeMessage">
+
+</div>
+
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script src="~/Scripts/qrcode.js"></script>
+    <script src="~/Scripts/myLoginService.js"></script>
+
+    <script>
+
+        // 开始二维码登录
+        function startQrLogin() {
+            myLoginService.getLoginCode(showGetLoginCodeResult);
+        }
+
+        // 显示二维码
+        function showGetLoginCodeResult(data) {
+            if (data.ResultCode != "0") {
+                alert(data.ResultMessage);
+                return;
+            }
+
+            var code = data.ResultData;
+            $("#qrcodeMessage").html(code);
+
+            var qrcode = new QRCode('qrcode', {
+                text: code,
+                width: 256,
+                height: 256,
+                colorDark: '#000000',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            setTimeout("checkIsScan()", 1000);
+        }
+
+
+        var numOfWaiting = 0;
+
+        // 是否扫码.
+        function checkIsScan() {
+            numOfWaiting++;
+            myLoginService.isScan(showIsScanResult);
+        }
+
+        // 显示是否扫码.
+        function showIsScanResult(data) {
+            if (data.ResultCode != "0") {
+                alert(data.ResultMessage);
+                return;
+            }
+
+            if (numOfWaiting > 60) {
+                $("#qrcodeMessage").html("二维码超时.");
+                return;
+            }
+
+            var num = data.ResultData;
+            if (num == 0) {
+                // 未扫码. 继续等待.
+                setTimeout("checkIsScan()", 1000);
+                return;
+            }
+            
+            $("#qrcodeMessage").html("已扫码，等待客户端确认.");
+
+            // 扫码后未确认. 继续等待.
+            setTimeout("checkIsLogin()", 1000);
+        }
+
+
+
+        // 是否登录.
+        function checkIsLogin() {
+            numOfWaiting++;
+            myLoginService.isLogin(showIsLoginResult);
+        }
+
+
+        // 显示是否登录.
+        function showIsLoginResult(data) {
+
+            if (data.ResultCode === "LOGIN_CODE_WAITING") {
+                // 扫码后未确认. 继续等待.
+                setTimeout("checkIsLogin()", 1000);
+                return;
+            }
+
+            if (data.ResultCode != "0") {
+                alert(data.ResultMessage);
+                return;
+            }
+
+            if (numOfWaiting > 120) {
+                $("#qrcodeMessage").html("二维码超时.");
+                return;
+            }
+
+            $("#qrcodeMessage").html("登录成功，即将跳转页面.");
+            setTimeout("gotoLoginSuccessPage()", 3000);
+        }
+
+
+
+        function gotoLoginSuccessPage() {
+            location.href = "@(returnUrl)";
+        }
+
+    </script>
+
+
+
+}

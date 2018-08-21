@@ -42,7 +42,7 @@ namespace MyToken.ServiceImpl
         /// <param name="userData">用户数据</param>
         /// <param name="resultMsg">结果消息</param>
         /// <returns>Token ID</returns>
-        public Guid NewToken(string typeCode, object userData, ref string resultMsg)
+        public Guid NewToken(string typeCode, Dictionary<string, object> userData, ref string resultMsg)
         {
             if(logger.IsDebugEnabled) {
                 logger.DebugFormat(@"NewToken(typeCode = {0}, userData = {1}) Start!", typeCode, userData);
@@ -109,7 +109,7 @@ namespace MyToken.ServiceImpl
         /// <param name="userData">用户数据</param>
         /// <param name="resultMsg">结果消息</param>
         /// <returns></returns>
-        public TokenData AccessToken(Guid tokenID, object userData, ref string resultMsg)
+        public TokenData AccessToken(Guid tokenID, Dictionary<string, object> userData, ref string resultMsg)
         {
             if (logger.IsDebugEnabled)
             {
@@ -161,6 +161,14 @@ namespace MyToken.ServiceImpl
                 SaveTokenData(result);
 
                 resultMsg = SUCCESS_MESSAGE;
+
+
+                if(!String.IsNullOrEmpty(result.UserData))
+                {
+                    result.UserDataObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.UserData);
+                }
+
+
                 return result;
             }
             catch (Exception ex)
@@ -224,7 +232,18 @@ namespace MyToken.ServiceImpl
         /// </summary>
         /// <param name="tokenID"></param>
         /// <returns></returns>
-        public abstract List<TokenAccessLog> GetTokenAccessLog(Guid tokenID);
+        public List<TokenAccessLog> GetTokenAccessLog(Guid tokenID)
+        {
+            List<TokenAccessLog> resultList = this.GetTokenAccessLogList(tokenID);
+            foreach(var result in resultList)
+            {
+                if(!String.IsNullOrEmpty(result.UserData))
+                {
+                    result.UserDataObject = JsonConvert.DeserializeObject<Dictionary<string, object>>(result.UserData);
+                }
+            }
+            return resultList;
+        }
 
 
 
@@ -239,7 +258,6 @@ namespace MyToken.ServiceImpl
         /// 取得 令牌类型.
         /// </summary>
         /// <param name="typeCode"></param>
-        /// <param name="?"></param>
         /// <returns></returns>
         protected abstract TokenType GetTokenType(string typeCode);
 
@@ -262,6 +280,16 @@ namespace MyToken.ServiceImpl
         /// </summary>
         /// <param name="log"></param>
         protected abstract void SaveTokenAccessLog(TokenAccessLog log);
+
+
+        /// <summary>
+        /// 获取访问日志.
+        /// </summary>
+        /// <param name="tokenID"></param>
+        /// <returns></returns>
+        protected abstract List<TokenAccessLog> GetTokenAccessLogList(Guid tokenID);
+
+
 
     }
 

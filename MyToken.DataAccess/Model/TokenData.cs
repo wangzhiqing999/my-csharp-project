@@ -19,7 +19,7 @@ namespace MyToken.Model
     [Serializable]
     [DataContract(Namespace = "")]
     [Table("mt_token_data")]
-    [ToString]
+    //[ToString]
     public class TokenData
     {
 
@@ -53,7 +53,7 @@ namespace MyToken.Model
         /// <summary>
         /// 令牌类型.
         /// </summary>
-        [IgnoreDuringToString]
+        //[IgnoreDuringToString]
         public virtual TokenType TokenTypeData { set; get; }
 
 
@@ -68,6 +68,13 @@ namespace MyToken.Model
         [DataMember]
         [Column("user_data")]
         public string UserData { set; get; }
+
+
+        /// <summary>
+        /// 用户数据对象.
+        /// </summary>
+        [NotMapped]
+        public Dictionary<string, object> UserDataObject { set; get; }
 
 
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -58,7 +60,10 @@ namespace MyToken.Service.Test
             // ########## 这里目的是测试 允许多次使用 ##########
             for (int i = 0; i < 5; i++)
             {
-                TokenData tokenData = this.tokenManager.AccessToken(token, i, ref resultMsg);
+                Dictionary<string, object> userData = new Dictionary<string, object>();
+                userData.Add("UserSecondData", i);
+
+                TokenData tokenData = this.tokenManager.AccessToken(token, userData, ref resultMsg);
                 // 结果非 Null
                 Assert.IsNotNull(tokenData);
             }
@@ -68,8 +73,12 @@ namespace MyToken.Service.Test
             // ########## 这里目的是测试  10秒有效 ##########
             // 休眠11秒. 让 Token 过期.
             System.Threading.Thread.Sleep(11000);
+
+            Dictionary<string, object> userData11 = new Dictionary<string, object>();
+            userData11.Add("UserSecondData", 11);
+
             // 再次调用.
-            TokenData tokenData2 = this.tokenManager.AccessToken(token, "11 Second", ref resultMsg);
+            TokenData tokenData2 = this.tokenManager.AccessToken(token, userData11, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData2);
 
@@ -95,29 +104,42 @@ namespace MyToken.Service.Test
 
 
             // ########## 这里目的是测试 最多次使用1次 ##########
+
+            Dictionary<string, object> userData = new Dictionary<string, object>();
+            userData.Add("UserData", "TEST_CASE_2_CREATE");
+
             // 创建 Token.
-            Guid token1 = this.tokenManager.NewToken("TEST_CASE_2", "token1", ref resultMsg);
+            Guid token1 = this.tokenManager.NewToken("TEST_CASE_2", userData, ref resultMsg);
             // 结果非 Guid.Empty.
-            Assert.AreNotEqual(Guid.Empty, token1);            
+            Assert.AreNotEqual(Guid.Empty, token1);
+
+
+
             // 首次调用.
-            TokenData tokenData = this.tokenManager.AccessToken(token1, "1St", ref resultMsg);
+            TokenData tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果非 Null
             Assert.IsNotNull(tokenData);
+
             // 二次调用.
-            tokenData = this.tokenManager.AccessToken(token1, "2nd", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 
 
             // ########## 这里目的是测试  10秒有效 ##########
+
+            Dictionary<string, object> userData2 = new Dictionary<string, object>();
+            userData2.Add("UserData", "TEST_CASE_2_TIMEOUT");
+
             // 创建 Token.
-            Guid token2 = this.tokenManager.NewToken("TEST_CASE_2", "token2", ref resultMsg);
+            Guid token2 = this.tokenManager.NewToken("TEST_CASE_2", userData2, ref resultMsg);
             // 结果非 Guid.Empty.
             Assert.AreNotEqual(Guid.Empty, token2);
+
             // 休眠11秒. 让 Token 过期.
             System.Threading.Thread.Sleep(11000);
             // 首次调用.
-            tokenData = this.tokenManager.AccessToken(token2, "11 Second", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token2, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 
@@ -150,35 +172,42 @@ namespace MyToken.Service.Test
             // TEST_CASE_3，测试案例3， 10秒有效，最多次使用2次，无日志
             string resultMsg = null;
 
+            Dictionary<string, object> userData = new Dictionary<string, object>();
+            userData.Add("UserData", "TEST_CASE_3_CREATE");
+
 
             // ########## 这里目的是测试 最多次使用2次 ##########
             // 创建 Token.
-            Guid token1 = this.tokenManager.NewToken("TEST_CASE_3", "token1", ref resultMsg);
+            Guid token1 = this.tokenManager.NewToken("TEST_CASE_3", userData, ref resultMsg);
             // 结果非 Guid.Empty.
             Assert.AreNotEqual(Guid.Empty, token1);
             // 首次调用.
-            TokenData tokenData = this.tokenManager.AccessToken(token1, "1St", ref resultMsg);
+            TokenData tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果非 Null
             Assert.IsNotNull(tokenData);
             // 二次调用.
-            tokenData = this.tokenManager.AccessToken(token1, "2nd", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果非 Null
             Assert.IsNotNull(tokenData);
             // 三次调用.
-            tokenData = this.tokenManager.AccessToken(token1, "3rd", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 
 
             // ########## 这里目的是测试  10秒有效 ##########
+
+            Dictionary<string, object> userData2 = new Dictionary<string, object>();
+            userData2.Add("UserData", "TEST_CASE_3_TIMEOUT");
+
             // 创建 Token.
-            Guid token2 = this.tokenManager.NewToken("TEST_CASE_3", "token2", ref resultMsg);
+            Guid token2 = this.tokenManager.NewToken("TEST_CASE_3", userData2, ref resultMsg);
             // 结果非 Guid.Empty.
             Assert.AreNotEqual(Guid.Empty, token2);
             // 休眠11秒. 让 Token 过期.
             System.Threading.Thread.Sleep(11000);
             // 首次调用.
-            tokenData = this.tokenManager.AccessToken(token2, "11 Second", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token2, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 
@@ -223,7 +252,10 @@ namespace MyToken.Service.Test
             // ########## 这里目的是测试 允许多次使用 ##########
             for (int i = 0; i < 5; i++)
             {
-                TokenData tokenData = this.tokenManager.AccessToken(token, i, ref resultMsg);
+                Dictionary<string, object> userData = new Dictionary<string, object>();
+                userData.Add("UserData", "TEST_CASE_4_USER_" + i);
+
+                TokenData tokenData = this.tokenManager.AccessToken(token, userData, ref resultMsg);
                 // 结果非 Null
                 Assert.IsNotNull(tokenData);
             }
@@ -234,7 +266,7 @@ namespace MyToken.Service.Test
             // 休眠11秒. 让 Token 过期.
             System.Threading.Thread.Sleep(11000);
             // 再次调用.
-            TokenData tokenData2 = this.tokenManager.AccessToken(token, "11 Second", ref resultMsg);
+            TokenData tokenData2 = this.tokenManager.AccessToken(token, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData2);
 
@@ -266,28 +298,28 @@ namespace MyToken.Service.Test
 
             // ########## 这里目的是测试 最多次使用1次 ##########
             // 创建 Token.
-            Guid token1 = this.tokenManager.NewToken("TEST_CASE_5", "token1", ref resultMsg);
+            Guid token1 = this.tokenManager.NewToken("TEST_CASE_5", null, ref resultMsg);
             // 结果非 Guid.Empty.
             Assert.AreNotEqual(Guid.Empty, token1);
             // 首次调用.
-            TokenData tokenData = this.tokenManager.AccessToken(token1, "1St", ref resultMsg);
+            TokenData tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果非 Null
             Assert.IsNotNull(tokenData);
             // 二次调用.
-            tokenData = this.tokenManager.AccessToken(token1, "2nd", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token1, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 
 
             // ########## 这里目的是测试  10秒有效 ##########
             // 创建 Token.
-            Guid token2 = this.tokenManager.NewToken("TEST_CASE_5", "token2", ref resultMsg);
+            Guid token2 = this.tokenManager.NewToken("TEST_CASE_5", null, ref resultMsg);
             // 结果非 Guid.Empty.
             Assert.AreNotEqual(Guid.Empty, token2);
             // 休眠11秒. 让 Token 过期.
             System.Threading.Thread.Sleep(11000);
             // 首次调用.
-            tokenData = this.tokenManager.AccessToken(token2, "11 Second", ref resultMsg);
+            tokenData = this.tokenManager.AccessToken(token2, null, ref resultMsg);
             // 结果为 Null
             Assert.IsNull(tokenData);
 

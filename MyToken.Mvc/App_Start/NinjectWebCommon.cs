@@ -55,21 +55,14 @@ namespace MyToken.Mvc.App_Start
             }
         }
 
-
-
-
         /// <summary>
         /// Load your modules or register your services here!
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-
             // Token π‹¿Ì∆˜.
             kernel.Bind<MyToken.Service.ITokenManager>().To<MyToken.ServiceImpl.DefaultTokenManager>();
-                
-                
-
-        }        
+        }
     }
 }

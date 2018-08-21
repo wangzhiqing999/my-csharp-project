@@ -23,7 +23,7 @@ namespace MyToken.Service
         /// <param name="userData">用户数据</param>
         /// <param name="resultMsg">结果消息</param>
         /// <returns>Token ID</returns>
-        Guid NewToken(string typeCode, object userData, ref string resultMsg);
+        Guid NewToken(string typeCode, Dictionary<string, object> userData, ref string resultMsg);
 
 
 
@@ -34,7 +34,7 @@ namespace MyToken.Service
         /// <param name="userData">用户数据</param>
         /// <param name="resultMsg">结果消息</param>
         /// <returns></returns>
-        TokenData AccessToken(Guid tokenID, object userData, ref string resultMsg);
+        TokenData AccessToken(Guid tokenID, Dictionary<string, object> userData, ref string resultMsg);
 
 
 

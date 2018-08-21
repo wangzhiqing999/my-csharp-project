@@ -19,7 +19,7 @@ namespace MyToken.Model
     [Serializable]
     [DataContract(Namespace = "")]
     [Table("mt_token_type")]
-    [ToString]
+    //[ToString]
     public class TokenType
     {
 

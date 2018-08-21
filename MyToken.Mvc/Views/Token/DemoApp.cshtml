@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "模拟的 App 页面";
+}
+
+<h2>模拟的 App 页面</h2>
+
+
+
+<table>
+    <tr>
+        <td> 模拟扫码登录操作 </td>
+        <td>
+            <input type="text" id="code" />
+        </td>
+    </tr>
+
+    <tr id="step1">
+        <td colspan="2">
+            <button onclick="tryScan()"> 首次扫码操作 </button>
+        </td>
+    </tr>
+
+    <tr id="step2" style="display:none">
+        <td colspan="2">
+            <button onclick="tryMakesure()"> 扫码操作后确认登录 </button>
+        </td>
+    </tr>
+
+</table>
+
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/myAppService.js"></script>
+
+
+    <script>
+
+        // 尝试扫码操作.
+        function tryScan() {
+            var code = $("#code").val();
+            myAppService.doScan(code, showDoScanResult);
+        }
+
+        function showDoScanResult(data) {
+            if (data.ResultCode != "0") {
+                alert(data.ResultMessage);
+                return;
+            }
+
+            $("#code").hide();
+            $("#step1").hide();
+
+            $("#step2").show();
+        }
+
+
+
+        // 尝试扫码后的 确认登录操作.
+        function tryMakesure() {
+            var code = $("#code").val();
+            myAppService.makesure(code, showMakesurenResult);
+        }
+
+
+        function showMakesurenResult(data) {
+            if (data.ResultCode != "0") {
+                alert(data.ResultMessage);
+                return;
+            }
+
+            $("#step2").hide();
+        }
+
+    </script>
+}

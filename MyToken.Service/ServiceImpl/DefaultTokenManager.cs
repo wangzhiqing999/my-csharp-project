@@ -56,7 +56,7 @@ namespace MyToken.ServiceImpl
         /// </summary>
         /// <param name="tokenID"></param>
         /// <returns></returns>
-        public override List<TokenAccessLog> GetTokenAccessLog(Guid tokenID)
+        protected override List<TokenAccessLog> GetTokenAccessLogList(Guid tokenID)
         {
             using (MyTokenContext context = new MyTokenContext())
             {
