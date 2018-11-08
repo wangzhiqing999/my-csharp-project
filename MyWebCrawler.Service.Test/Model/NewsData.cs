@@ -22,6 +22,13 @@ namespace MyWebCrawler.Service.Test.Model
 
 
         /// <summary>
+        /// Logo 图片.
+        /// </summary>
+        public string Logo { set; get; }
+
+
+
+        /// <summary>
         /// 日期.
         /// </summary>
         public string Date { set; get; }

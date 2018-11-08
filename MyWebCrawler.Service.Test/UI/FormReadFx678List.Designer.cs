@@ -1,6 +1,6 @@
 ﻿namespace MyWebCrawler.Service.Test.UI
 {
-    partial class FormReadCffexList
+    partial class FormReadFx678List
     {
         /// <summary>
         /// Required designer variable.
@@ -60,53 +60,54 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMain.Size = new System.Drawing.Size(810, 459);
-            this.tlpMain.TabIndex = 2;
+            this.tlpMain.Size = new System.Drawing.Size(703, 305);
+            this.tlpMain.TabIndex = 4;
             // 
             // txtResult
             // 
             this.tlpMain.SetColumnSpan(this.txtResult, 2);
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(3, 277);
+            this.txtResult.Location = new System.Drawing.Point(3, 200);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(804, 179);
+            this.txtResult.Size = new System.Drawing.Size(697, 102);
             this.txtResult.TabIndex = 7;
             // 
             // txtPropertyName
             // 
             this.txtPropertyName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPropertyName.Location = new System.Drawing.Point(3, 247);
+            this.txtPropertyName.Location = new System.Drawing.Point(3, 170);
             this.txtPropertyName.Name = "txtPropertyName";
-            this.txtPropertyName.Size = new System.Drawing.Size(399, 21);
+            this.txtPropertyName.Size = new System.Drawing.Size(345, 21);
             this.txtPropertyName.TabIndex = 5;
-            this.txtPropertyName.Text = "Url,Title,Date";
+            this.txtPropertyName.Text = "Url,Logo,Title,Html,Date";
             // 
             // txtReg
             // 
             this.tlpMain.SetColumnSpan(this.txtReg, 2);
             this.txtReg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtReg.Location = new System.Drawing.Point(3, 217);
+            this.txtReg.Location = new System.Drawing.Point(3, 140);
             this.txtReg.Name = "txtReg";
-            this.txtReg.Size = new System.Drawing.Size(804, 21);
+            this.txtReg.Size = new System.Drawing.Size(697, 21);
             this.txtReg.TabIndex = 4;
-            this.txtReg.Text = "<li><span></span><a[\\w\\W]+? href=\"([\\w\\W]+?)\" title=\"([\\w\\W]+?)\" >[\\s\\n\\r\\w\\W]+?\"" +
-    "time comparetime\">([\\w\\W]+?)</a></li>";
+            this.txtReg.Text = "<li class=\"item[\\s\\n\\r\\w\\W]+? href=\"([\\w\\W]+?)\"[\\s\\n\\r\\w\\W]+? data-original=\"([\\w" +
+    "\\W]+?)\"[\\s\\n\\r\\w\\W]+? <h3>([\\w\\W]+?)</h3>[\\s\\n\\r]+?<p>([\\w\\W]+?)</p>[\\s\\n\\r\\w\\W]" +
+    "+?<i class=\"recent\">([\\w\\W]+?)</i>";
             // 
             // txtUrl
             // 
             this.txtUrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUrl.Location = new System.Drawing.Point(3, 3);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(399, 21);
+            this.txtUrl.Size = new System.Drawing.Size(345, 21);
             this.txtUrl.TabIndex = 0;
-            this.txtUrl.Text = "http://www.cffex.com.cn/jysgg/";
+            this.txtUrl.Text = "https://news.fx678.com/column/pmetal";
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(408, 3);
+            this.btnGo.Location = new System.Drawing.Point(354, 3);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 1;
@@ -122,12 +123,12 @@
             this.txtHtml.Multiline = true;
             this.txtHtml.Name = "txtHtml";
             this.txtHtml.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtHtml.Size = new System.Drawing.Size(804, 178);
+            this.txtHtml.Size = new System.Drawing.Size(697, 101);
             this.txtHtml.TabIndex = 2;
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(408, 247);
+            this.btnProcess.Location = new System.Drawing.Point(354, 170);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 6;
@@ -135,14 +136,14 @@
             this.btnProcess.UseVisualStyleBackColor = true;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
-            // FormReadCffexList
+            // FormReadFx678List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 459);
+            this.ClientSize = new System.Drawing.Size(703, 305);
             this.Controls.Add(this.tlpMain);
-            this.Name = "FormReadCffexList";
-            this.Text = "读取中国金额期货交易所交易公告列表";
+            this.Name = "FormReadFx678List";
+            this.Text = "FormReadFx678List";
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

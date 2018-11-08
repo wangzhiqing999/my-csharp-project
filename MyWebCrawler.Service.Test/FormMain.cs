@@ -143,7 +143,56 @@ namespace MyWebCrawler.Service.Test
 
         #endregion
 
-        
+
+
+
+        #region 上海黄金交易所.
+
+
+
+
+        private void readSgeListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadSgeList();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+
+        private void readSgeDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadSgeDetail();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
+        #endregion
+
+
+
+
+
+        #region Fx678
+
+
+        private void readFx678ListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadFx678List();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        private void readFx678DetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadFx678Detail();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+        #endregion Fx678
+
 
     }
 }

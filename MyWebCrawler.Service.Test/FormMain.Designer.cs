@@ -43,9 +43,15 @@
             this.readShfeDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readDceDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.czceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readCzceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readDceDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readSgeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readSgeDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fx678ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readFx678ListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readFx678DetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,10 +63,12 @@
             this.cffexToolStripMenuItem,
             this.shfeToolStripMenuItem,
             this.dceToolStripMenuItem,
-            this.czceToolStripMenuItem});
+            this.czceToolStripMenuItem,
+            this.sgeToolStripMenuItem,
+            this.fx678ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(812, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -145,14 +153,14 @@
             // readShfeListToolStripMenuItem
             // 
             this.readShfeListToolStripMenuItem.Name = "readShfeListToolStripMenuItem";
-            this.readShfeListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.readShfeListToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.readShfeListToolStripMenuItem.Text = "公告列表";
             this.readShfeListToolStripMenuItem.Click += new System.EventHandler(this.readShfeListToolStripMenuItem_Click);
             // 
             // readShfeDetailToolStripMenuItem
             // 
             this.readShfeDetailToolStripMenuItem.Name = "readShfeDetailToolStripMenuItem";
-            this.readShfeDetailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.readShfeDetailToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.readShfeDetailToolStripMenuItem.Text = "公告明细";
             this.readShfeDetailToolStripMenuItem.Click += new System.EventHandler(this.readShfeDetailToolStripMenuItem_Click);
             // 
@@ -168,9 +176,16 @@
             // readDceListToolStripMenuItem
             // 
             this.readDceListToolStripMenuItem.Name = "readDceListToolStripMenuItem";
-            this.readDceListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.readDceListToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.readDceListToolStripMenuItem.Text = "通知列表";
             this.readDceListToolStripMenuItem.Click += new System.EventHandler(this.readDceListToolStripMenuItem_Click);
+            // 
+            // readDceDetailToolStripMenuItem
+            // 
+            this.readDceDetailToolStripMenuItem.Name = "readDceDetailToolStripMenuItem";
+            this.readDceDetailToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.readDceDetailToolStripMenuItem.Text = "通知明细";
+            this.readDceDetailToolStripMenuItem.Click += new System.EventHandler(this.readDceDetailToolStripMenuItem_Click);
             // 
             // czceToolStripMenuItem
             // 
@@ -187,18 +202,57 @@
             this.readCzceListToolStripMenuItem.Text = "公告与通知列表";
             this.readCzceListToolStripMenuItem.Click += new System.EventHandler(this.readCzceListToolStripMenuItem_Click);
             // 
-            // readDceDetailToolStripMenuItem
+            // sgeToolStripMenuItem
             // 
-            this.readDceDetailToolStripMenuItem.Name = "readDceDetailToolStripMenuItem";
-            this.readDceDetailToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.readDceDetailToolStripMenuItem.Text = "通知明细";
-            this.readDceDetailToolStripMenuItem.Click += new System.EventHandler(this.readDceDetailToolStripMenuItem_Click);
+            this.sgeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readSgeListToolStripMenuItem,
+            this.readSgeDetailToolStripMenuItem});
+            this.sgeToolStripMenuItem.Name = "sgeToolStripMenuItem";
+            this.sgeToolStripMenuItem.Size = new System.Drawing.Size(104, 21);
+            this.sgeToolStripMenuItem.Text = "上海黄金交易所";
+            // 
+            // readSgeListToolStripMenuItem
+            // 
+            this.readSgeListToolStripMenuItem.Name = "readSgeListToolStripMenuItem";
+            this.readSgeListToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.readSgeListToolStripMenuItem.Text = "公告列表";
+            this.readSgeListToolStripMenuItem.Click += new System.EventHandler(this.readSgeListToolStripMenuItem_Click);
+            // 
+            // readSgeDetailToolStripMenuItem
+            // 
+            this.readSgeDetailToolStripMenuItem.Name = "readSgeDetailToolStripMenuItem";
+            this.readSgeDetailToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.readSgeDetailToolStripMenuItem.Text = "公告明细";
+            this.readSgeDetailToolStripMenuItem.Click += new System.EventHandler(this.readSgeDetailToolStripMenuItem_Click);
+            // 
+            // fx678ToolStripMenuItem
+            // 
+            this.fx678ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.readFx678ListToolStripMenuItem,
+            this.readFx678DetailToolStripMenuItem});
+            this.fx678ToolStripMenuItem.Name = "fx678ToolStripMenuItem";
+            this.fx678ToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
+            this.fx678ToolStripMenuItem.Text = "Fx678";
+            // 
+            // readFx678ListToolStripMenuItem
+            // 
+            this.readFx678ListToolStripMenuItem.Name = "readFx678ListToolStripMenuItem";
+            this.readFx678ListToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.readFx678ListToolStripMenuItem.Text = "ReadFx678List";
+            this.readFx678ListToolStripMenuItem.Click += new System.EventHandler(this.readFx678ListToolStripMenuItem_Click);
+            // 
+            // readFx678DetailToolStripMenuItem
+            // 
+            this.readFx678DetailToolStripMenuItem.Name = "readFx678DetailToolStripMenuItem";
+            this.readFx678DetailToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.readFx678DetailToolStripMenuItem.Text = "ReadFx678Detail";
+            this.readFx678DetailToolStripMenuItem.Click += new System.EventHandler(this.readFx678DetailToolStripMenuItem_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(812, 561);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -231,6 +285,12 @@
         private System.Windows.Forms.ToolStripMenuItem czceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readCzceListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readDceDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sgeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readSgeListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readSgeDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fx678ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readFx678ListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readFx678DetailToolStripMenuItem;
     }
 }
 
