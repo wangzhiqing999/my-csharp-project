@@ -46,6 +46,7 @@
     <Compile Include="Model\HtmlReaderConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceImpl\DefaultHtmlDataReader.cs" />
+    <Compile Include="Service\IHtmlDataProcesser.cs" />
     <Compile Include="Service\IHtmlDataReader.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -35,8 +35,19 @@ namespace MyWebCrawler.Service.Test
         }
 
 
+        private void readHtmlImgToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadImg();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
 
-
+        private void readHtmlKeywordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadKeyword ();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
 
 
         private void readListToolStripMenuItem_Click(object sender, EventArgs e)
@@ -192,6 +203,9 @@ namespace MyWebCrawler.Service.Test
         }
 
         #endregion Fx678
+
+
+
 
 
     }

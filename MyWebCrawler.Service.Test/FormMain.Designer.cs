@@ -32,6 +32,7 @@
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readHtmlTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readMultiDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readHtmlImgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,7 @@
             this.fx678ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readFx678ListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readFx678DetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readHtmlKeywordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,7 +78,9 @@
             // 
             this.testToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.readHtmlTextToolStripMenuItem,
-            this.readMultiDataToolStripMenuItem});
+            this.readMultiDataToolStripMenuItem,
+            this.readHtmlImgToolStripMenuItem,
+            this.readHtmlKeywordToolStripMenuItem});
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
             this.testToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.testToolStripMenuItem.Text = "Test";
@@ -84,16 +88,23 @@
             // readHtmlTextToolStripMenuItem
             // 
             this.readHtmlTextToolStripMenuItem.Name = "readHtmlTextToolStripMenuItem";
-            this.readHtmlTextToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.readHtmlTextToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.readHtmlTextToolStripMenuItem.Text = "ReadHtmlText";
             this.readHtmlTextToolStripMenuItem.Click += new System.EventHandler(this.readHtmlTextToolStripMenuItem_Click);
             // 
             // readMultiDataToolStripMenuItem
             // 
             this.readMultiDataToolStripMenuItem.Name = "readMultiDataToolStripMenuItem";
-            this.readMultiDataToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.readMultiDataToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.readMultiDataToolStripMenuItem.Text = "ReadMultiData";
             this.readMultiDataToolStripMenuItem.Click += new System.EventHandler(this.readMultiDataToolStripMenuItem_Click);
+            // 
+            // readHtmlImgToolStripMenuItem
+            // 
+            this.readHtmlImgToolStripMenuItem.Name = "readHtmlImgToolStripMenuItem";
+            this.readHtmlImgToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.readHtmlImgToolStripMenuItem.Text = "ReadHtmlImg";
+            this.readHtmlImgToolStripMenuItem.Click += new System.EventHandler(this.readHtmlImgToolStripMenuItem_Click);
             // 
             // pToolStripMenuItem
             // 
@@ -248,6 +259,13 @@
             this.readFx678DetailToolStripMenuItem.Text = "ReadFx678Detail";
             this.readFx678DetailToolStripMenuItem.Click += new System.EventHandler(this.readFx678DetailToolStripMenuItem_Click);
             // 
+            // readHtmlKeywordToolStripMenuItem
+            // 
+            this.readHtmlKeywordToolStripMenuItem.Name = "readHtmlKeywordToolStripMenuItem";
+            this.readHtmlKeywordToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.readHtmlKeywordToolStripMenuItem.Text = "ReadHtmlKeyword";
+            this.readHtmlKeywordToolStripMenuItem.Click += new System.EventHandler(this.readHtmlKeywordToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -291,6 +309,8 @@
         private System.Windows.Forms.ToolStripMenuItem fx678ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readFx678ListToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readFx678DetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readHtmlImgToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readHtmlKeywordToolStripMenuItem;
     }
 }
 

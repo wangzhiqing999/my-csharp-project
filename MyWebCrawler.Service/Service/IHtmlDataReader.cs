@@ -12,6 +12,10 @@ namespace MyWebCrawler.Service
 {
 
 
+    /// <summary>
+    /// HTML 数据读取.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public interface IHtmlDataReader<T> where T : new()
     {
 

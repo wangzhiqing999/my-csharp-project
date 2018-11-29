@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="txtHtml.Text" xml:space="preserve">
+    <value>&lt;div class="foreword"&gt;
+                            &lt;b&gt;汇通网讯——&lt;/b&gt;11月8日亚洲时段，美元指数窄幅震荡，中期选举硝烟散尽，市场开始关注美联储利率决议，多空方向仍存较大变数；现货黄金震荡微跌，由于全球股市回暖，削弱了黄金的避险需求，短线下行风险有所增加；原油市场，油价受到库存持续增加和美国产量再创纪录新高的压制，短线仍存下探风险，但也需要继续短线空头的获利了结。
+                        &lt;/div&gt;
+                                        &lt;div class="content" id="content"&gt;
+
+                        周四(11月8日)亚洲时段，&lt;span class='popup-keyword' onmouseenter="showHq('USD',this)" onmouseleave='closeHq(this)'&gt;&lt;a  class="keywords" href='http://news.fx678.com/column/usd' target='_blank'&gt;美元&lt;/a&gt;指数&lt;/span&gt;窄幅震荡，中期选举硝烟散尽，市场开始关注&lt;a  class="keywords" href='http://news.fx678.com/column/fed' target='_blank'&gt;美联储&lt;/a&gt;利率决议，多空方向仍存较大变数；&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;震荡微跌，由于全球&lt;a  class="keywords" href='http://news.fx678.com/column/stock' target='_blank'&gt;股市&lt;/a&gt;回暖，削弱了黄金的避险需求，短线下行风险有所增加；&lt;a  class="keywords" href='http://news.fx678.com/column/oil' target='_blank'&gt;原油&lt;/a&gt;市场，油价受到库存持续增加和&lt;a  class="keywords" href='http://news.fx678.com/keyword/100930' target='_blank'&gt;美国&lt;/a&gt;产量再创纪录新高的压制，短线仍存下探风险，但也需要继续短线空头的获利了结。&lt;br&gt;&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110811070080.jpg onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;&lt;br&gt;&lt;B&gt;★11月8日金融市场热点：&lt;/B&gt;&lt;br&gt;&lt;br&gt;1、美联储利率决议；&lt;br&gt;2、全球股市表现和避险情绪变化；&lt;br&gt;3、&lt;a  class="keywords" href='http://news.fx678.com/column/ecb' target='_blank'&gt;欧洲央行&lt;/a&gt;发布经济报告；&lt;br&gt;4、欧洲央行行长德拉基等官员讲话；&lt;br&gt;5、其他。&lt;br&gt;&lt;br&gt;注1：市场热点相关详情请看【&lt;a target=_blank href=http://news.fx678.com/&gt;汇通要闻&lt;/a&gt;】的文章解读及【&lt;a target=_blank href=http://kx.fx678.com/&gt;汇通快讯&lt;/a&gt;】的实时报道。&lt;br&gt;&lt;br&gt;注2：本策略偏向技术面分析，基本面方面读者还需留意汇通网要闻关于市场热点的解析文章；任何时候行情都会有多种变数，本策略主要是描述概率相对较大的情况。&lt;br&gt;&lt;br&gt;&lt;B&gt;★11月8日&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;、白银、原油、&lt;a  class="keywords" href='http://news.fx678.com/column/forex' target='_blank'&gt;外汇&lt;/a&gt;短线走势分析&lt;/B&gt;&lt;br&gt;&lt;br&gt;&lt;B&gt;1、&lt;span class='popup-keyword' onmouseenter="showHq('USD',this)" onmouseleave='closeHq(this)'&gt;美元指数&lt;/span&gt;：&lt;/B&gt;&lt;br&gt;&lt;br&gt;&lt;B&gt;解析：&lt;/B&gt;分析师认为美国国会分属两党有助于美国的长期发展，美元重新获得支撑，美联储利率决议偏向中性或者鹰派的可能性也比较好，这有望帮助&lt;span class='popup-keyword' onmouseenter="showHq('USD',this)" onmouseleave='closeHq(this)'&gt;美元指数&lt;/span&gt;重拾涨势；不过多数非美货币仍存一定的上涨动能，需要予以警惕。&lt;br&gt;&lt;br&gt;&lt;B&gt;日线级别&lt;/B&gt;：震荡；尽管日线级别MACD和KDJ死叉运行，但上一交易日初步完成了对93.79以来的上涨趋势线的确认，留下了较长的下影线，暗示下方支撑较强，如果本交易日能够顶破10日均线96.48附近阻力，则有望重拾涨势，短线目标可以看向上周高点97.20附近，进一步较强的阻力在2017年6月20日高点97.87附近，2017年6月27日高点97.45附近也存在一些阻力。&lt;br&gt;&lt;br&gt;如果本交易日意外录得阴线，则削弱短线看涨信号，下方继续关注10月23日低点和上涨趋势线95.78附近的双重支撑，若失守该位位置，则增加看空信号。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110811080768.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('USD',this)" onmouseleave='closeHq(this)'&gt;美元指数&lt;/span&gt;日线图)&lt;br&gt;&lt;br&gt;&lt;B&gt;4小时级别：&lt;/B&gt;震荡下跌后反弹；汇价在前期涨势的61.8%回撤位附近获得支撑并展开反弹，KDJ金叉运行，MACD也初步结成金叉，汇价有望重拾涨势，初步阻力在布林线中轨96.27附近，若升破该位置，则有望进一步涨向布林线上轨96.70附近。&lt;br&gt;&lt;br&gt;下方留意96.00整数关口附近支撑，若回落至该位置下方，则削弱短线看涨信号。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110811091161.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('USD',this)" onmouseleave='closeHq(this)'&gt;美元指数&lt;/span&gt;4小时图)&lt;br&gt;&lt;br&gt;&lt;B&gt;阻力&lt;/B&gt;：96.27；96.48；96.70；97.00；97.20；&lt;br&gt;&lt;B&gt;支撑：&lt;/B&gt;96.00；95.78；95.45；95.22；95.02。&lt;br&gt;&lt;br&gt;&lt;B&gt;结论：&lt;/B&gt;失守96关口前，偏向上行。&lt;br&gt;&lt;br&gt;&lt;B&gt;2、&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;&lt;/B&gt;：&lt;br&gt;&lt;br&gt;&lt;B&gt;解析&lt;/B&gt;：周四(11月8日)亚市盘初&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;震荡微跌，隔夜&lt;a  class="keywords" href='http://news.fx678.com/column/stock' target='_blank'&gt;美国股市&lt;/a&gt;大涨，带动亚洲股市上涨，削弱了市场的避险需求，而且本交易日还将迎来美联储决议，偏向鸽派的可能性相对较低，有望给美元提供支撑，金价短线面临的下行风险有所增加。&lt;br&gt;&lt;br&gt;日线级别：震荡，区间参考1212-1243；目前MACD初步形成死叉，KDJ信号模糊，金价持续承压上周高点1237.40附近阻力，上一交易日录得了较长的上影线，暗示上方卖压较强，短期均线有向下拐头的迹象，短线下行风险有所增加，关注布林线中轨1220.59附近支撑，若失守该位置，则金价可能会重新试探上周低点1211.87附近支撑；而如果进一步下破1211.87附近支撑，则金价可能会重新跌向布林线下轨1292.87附近，1200整数关口也存在一些支撑。&lt;br&gt;&lt;br&gt;上方初步阻力在5日均线1228.50附近，在收复该位置前，后市偏向下行；进一步阻力在1237.40附近，若意外升破该位置，则增加看涨信号，10月26日高点阻力在1243.40附近，布林线上轨阻力在1248.31附近。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110811094369.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;日线图)&lt;br&gt;&lt;br&gt;&lt;B&gt;4小时级别&lt;/B&gt;：震荡；MACD和KDJ死叉运行，布林线轻微开口，短线偏向下行，可能会试探1211.87附近支撑。&lt;br&gt;&lt;br&gt;上方留意布林线中轨1230.26附近阻力，若意外收复该位置，则削弱短线看空信号。&lt;br&gt;&lt;br&gt;进一步阻力在布林线上轨1235.88附近，若上破该阻力，则增加看涨信号。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110811100150.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('XAU',this)" onmouseleave='closeHq(this)'&gt;现货黄金&lt;/span&gt;4小时图)&lt;br&gt;&lt;br&gt;&lt;B&gt;阻力&lt;/B&gt;：1228.40；1230.26；1237.40；1243.40；1248.27；&lt;br&gt;&lt;B&gt;支撑：&lt;/B&gt;1220.59；1215.60；1211.87；1204.40；1200.00。&lt;br&gt;&lt;br&gt;&lt;B&gt;结论：&lt;/B&gt;升破1230前，震荡偏空。保守的逢高做空；激进的还可以择机顺势谨慎做空。&lt;br&gt;&lt;br&gt;&lt;B&gt;3、&lt;span class='popup-keyword' onmouseenter="showHq('XAG',this)" onmouseleave='closeHq(this)'&gt;现货白银&lt;/span&gt;：&lt;/B&gt;&lt;br&gt;&lt;br&gt;&lt;B&gt;日线级别&lt;/B&gt;：震荡；MACD和KDJ指标信号模糊，汇价在布林线中轨附近徘徊，上一交易日上行受阻，留下了较长的上影线，暗示上方卖压较强，短线偏向震荡下探布林线下轨14.29附近支撑；能否进一步下破还有待观察。&lt;br&gt;&lt;br&gt;若意外顶破隔夜高点14.72附近阻力，则增加短线看涨信号；进一步阻力在布林线上轨14.83附近，上周高点阻力在14.91附近。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110814015295.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('XAG',this)" onmouseleave='closeHq(this)'&gt;现货白银&lt;/span&gt;日线图)&lt;br&gt;&lt;br&gt;&lt;B&gt;4小时级别&lt;/B&gt;：震荡；MACD和KDJ死叉，布林线初步开口，关注14.46附近支撑，若失守该位置，银价可能会延布林线下轨下行运行，进一步较强的支撑在14.21附近。&lt;br&gt;&lt;br&gt;上方留意布林线中轨14.65附近注，若回升至该位置上方，则削弱短线看空信号。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110814030085.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(&lt;span class='popup-keyword' onmouseenter="showHq('XAG',this)" onmouseleave='closeHq(this)'&gt;现货白银&lt;/span&gt;4小时图)&lt;br&gt;&lt;br&gt;&lt;B&gt;阻力：&lt;/B&gt;14.64；14.72；14.83；14.91；15.00；15.22；&lt;br&gt;&lt;B&gt;支撑：&lt;/B&gt;14.46；14.29；14.21；14.14；14.00；13.92。&lt;br&gt;&lt;B&gt;&lt;br&gt;结论：&lt;/B&gt;关注14.46-14.72区域突破情况，略微偏空。&lt;br&gt;&lt;br&gt;&lt;B&gt;4、美国原油：&lt;br&gt;&lt;/B&gt;&lt;br&gt;&lt;B&gt;解析&lt;/B&gt;：&lt;a  class="keywords" href='http://news.fx678.com/keyword/100414' target='_blank'&gt;EIA&lt;/a&gt;原油库存连续增加，美国原油产量再创历史及新高，令油价持续承压；不过上一交易日有关&lt;a  class="keywords" href='http://news.fx678.com/keyword/100968' target='_blank'&gt;俄罗斯&lt;/a&gt;和沙特正在讨论明年是否减产的消息令空头有些顾忌，另外，中国10月份原油进口创纪录新高，在加上全球股市回暖，需要继续警惕空头回补情况出现。&lt;br&gt;&lt;B&gt;&lt;br&gt;日线级别：&lt;/B&gt;单边下跌；MACD死叉延续，但有轻微底背离，均线空头排列，，不过上一交易日录得类十字星，而且油价在3月初的密集成交区附近获得了一些支撑，短线进一步下行空间受到限制；KDJ也持续严重超买，如果本交易日录得阳线，将增加短线反弹信号，初步阻力在5日均线62.14附近，隔夜高点阻力在63.18附近，10日均线和下行趋势线阻力63.97附近。&lt;br&gt;&lt;br&gt;但上一交易日K线的上影线较长，暗示上方还有较强的卖压，下方关注隔夜低点61.20附近支撑，若失守该位置，则可能会进一步跌向60美元整数关口附近，3月8日低点支撑也在该位置附近。&lt;br&gt;&lt;img src=https://upload.fx678.com/upload/ht/20181108/sy_2018110815200359.png onload=imgresize(this); style=cursor:pointer; alt=图片点击可在新窗口打开查看 onclick=javascript:window.open(this.src); /&gt;&lt;br&gt;(美原油主力合约日线图)&lt;br&gt;&lt;br&gt;4小时级别和1小时级别还没有出现明显的见底信号，但下行动能也明显减弱，油价短线偏向震荡筑底或者低位震荡调整。&lt;br&gt;&lt;br&gt;&lt;B&gt;阻力&lt;/B&gt;：62.14；63.18；63.98；64.43；65.74；&lt;br&gt;&lt;B&gt;支撑&lt;/B&gt;：61.21；60.81；59.95；59.47；58.35。&lt;br&gt;&lt;br&gt;&lt;B&gt;结论：&lt;/B&gt;低位震荡调整或温和反弹。&lt;br&gt;&lt;br&gt;&lt;B&gt;特别提醒1：&lt;/B&gt;投资者需要认清一点，对于普通投资者来说，大部分时间应该以观望为主，耐心等待最好的机会出手，避免频繁交易是公认的致胜法宝之一。不要企图抓住全部的波动，也不要奢望对每一段行情都判断正确。&lt;br&gt;&lt;br&gt;&lt;B&gt;特别提醒2：&lt;/B&gt;本策略偏向短线和日内交易，对于隔夜未触及盈利目标的单子，投资者若有把握，则继续持有，止盈止损微调或不变；若没有把握，则直接平仓观望。喜欢和尚策略的读者可以在评论区点赞，也可以提一些建议，小编会综合参考，因策略中包含价位过多，个别编辑错误和不足之处还请多多包涵。&lt;br&gt;&lt;br&gt;文中观点仅供参考，经济数据请参考&lt;a target=_blank href=http://rl.fx678.com/&gt;【财经日历】&lt;/a&gt;。&lt;br&gt;&lt;br&gt;基本面消息请参考汇通网：(&lt;a target=_blank href=http://kx.fx678.com/&gt;汇通快讯&lt;/a&gt;——为您带来最详尽的金融市场资讯)。
+                                            &lt;/div&gt;</value>
+  </data>
+</root>
