@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "TestModule1";
+}
+
+<h2>TestModule1</h2>
+
+
+
+
+@section Scripts {
+
+    @Html.Action(actionName: "Require", controllerName: "CustomAction", routeValues: new { moduleCode = "TestModule1" })
+
+}

@@ -1,0 +1,20 @@
+﻿@{
+    // 模块代码.
+    string moduleCode = ViewBag.ModuleCode;
+
+    // 附加数据.
+    string expData = ViewBag.ExpData;
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <script src="~/Scripts/myCustomActionService.js"></script>
+    <script>
+        myCustomActionService.moduleCode = '@moduleCode';
+        myCustomActionService.expData = '@expData';
+        myCustomActionService.newAction();
+    </script>
+}
+
+

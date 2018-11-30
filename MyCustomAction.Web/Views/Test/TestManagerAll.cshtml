@@ -1,0 +1,111 @@
+﻿@using MyCustomAction.Web.Controllers
+
+@{
+    ViewBag.Title = "TestManagerAll";
+
+    List<TestUser> userList = ViewBag.Users;
+}
+
+<h2>TestManagerAll</h2>
+
+
+
+<div id="CustomAction">
+
+    <ul>
+        <li v-for="user in userList">
+
+            <h3> {{ user.UserName }}  </h3>
+
+
+            <table border="1" style="width:100%">
+                <tr>
+                    <th>时间</th>
+                    <th>访问模块</th>
+                    <th>持续分钟</th>
+                </tr>
+
+                <tr v-for="(item, index) in user.actionList">
+                    <td> {{ item.EnterTime }} </td>
+                    <td> {{ item.ModuleName }} </td>
+                    <td> {{ item.AccessMinutes }} </td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+
+    
+
+</div>
+
+
+
+@section Scripts {
+
+
+    <script src="~/Scripts/vue.js"></script>
+    <script src="~/Scripts/myCustomActionManager.js"></script>
+
+
+
+    <script>
+
+    var app = new Vue({
+
+        el: '#CustomAction',
+
+        data: {
+            userList:[]
+        },
+
+        created: function () {
+            @foreach (var user in userList)
+            {
+                string line = "this.userList.push({ \"CustomID\": \"" + 
+                    user.UserID +
+                    "\",  \"UserName\": \"" +
+                    user.UserName + 
+                    "\", \"actionList\" : [] }); \r\n ";
+                
+                @Html.Raw(line);
+            }
+        },
+
+        // 方法.
+        methods: {
+
+        }
+
+    });
+
+
+    myCustomActionManager.showOneCustomAction = function (data) {
+        var userCount = app.userList.length;
+
+
+        for (var i = 0; i < userCount; i++) {
+            var user = app.userList[i];
+            if (user.CustomID == data.CustomID) {
+                var actionCount = user.actionList.length;
+                for (var j = 0; j < actionCount; j++) {
+                    var item = user.actionList[j];
+                    if (item.ID == data.ID) {
+                        item.AccessMinutes = data.AccessMinutes;
+                        item.LastAccessTime = data.LastAccessTime;
+                        return;
+                    }
+                }
+                user.actionList.push(data);
+            }
+        }        
+    }
+
+
+    $(document).ready(function () {
+        myCustomActionManager.queryCustomAction();
+    });
+
+
+    </script>
+
+}

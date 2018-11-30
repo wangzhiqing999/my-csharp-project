@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    
+    
+    <h3> @User.Identity.Name </h3>
+
+    <a href="/Test/LogOff"> 登出 </a>
+
+
+    <hr/>
+    
+
+    <ul>
+
+        <li>
+            <a href="/Test/TestModule1"> 测试模块1 </a>
+        </li>
+
+        <li>
+            <a href="/Test/TestModule2"> 测试模块2 </a>
+        </li>
+
+        <li>
+            <a href="/Test/TestModule3"> 测试模块3 </a>
+        </li>
+
+    </ul>
+
+
+}
+else
+{
+
+    <ul>
+
+        <li>
+            <a href="/Test/LoginAs/Zhang3"> 以张三的身份登录 </a>
+        </li>
+
+        <li>
+            <a href="/Test/LoginAs/Li4"> 以李四的身份登录 </a>
+        </li>
+
+        <li>
+            <a href="/Test/LoginAs/Wang5"> 以王五的身份登录 </a>
+        </li>
+
+        <li>
+            <a href="/Test/LoginAs/Zhao6"> 以赵六的身份登录 </a>
+        </li>
+        
+
+    </ul>
+
+}
+
+
+
+
+<hr />
+
+
+
+<h3> 测试管理页 </h3>
+
+
+<ul>
+
+    <li>
+        <a href="/Test/TestManager/Zhang3"> 查看张三的相关操作 </a>
+    </li>
+
+    <li>
+        <a href="/Test/TestManager/Li4"> 查看李四的相关操作 </a>
+    </li>
+
+    <li>
+        <a href="/Test/TestManager/Wang5"> 查看王五的相关操作 </a>
+    </li>
+
+    <li>
+        <a href="/Test/TestManager/Zhao6"> 查看赵六的相关操作 </a>
+    </li>
+
+    <li>
+        <a href="/Test/TestManagerAll"> 查看所有人员的相关操作 </a>
+    </li>
+
+
+</ul>

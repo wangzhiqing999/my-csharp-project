@@ -1,0 +1,89 @@
+﻿@using MyCustomAction.Web.Controllers
+@{
+    ViewBag.Title = "TestManager";
+
+
+    TestUser user = ViewBag.User;
+    
+}
+
+<h2>TestManager</h2>
+
+
+<h3>
+    @user.UserName
+</h3>
+
+
+<div id="CustomAction">
+
+    <table border="1" style="width:100%">
+        <tr>
+            <th>时间</th>
+            <th>访问模块</th>
+            <th>持续分钟</th>
+        </tr>
+
+        <tr v-for="(item, index) in actionList">
+            <td> {{ item.EnterTime }} </td>
+            <td> {{ item.ModuleName }} </td>
+            <td> {{ item.AccessMinutes }} </td>
+        </tr>
+    </table>
+
+</div>
+
+
+
+
+@section Scripts {
+
+    
+<script src="~/Scripts/vue.js"></script>
+<script src="~/Scripts/myCustomActionManager.js"></script>
+
+
+
+<script>
+
+    var app = new Vue({
+
+        el: '#CustomAction',
+
+        data: {
+            actionList: []
+        },
+
+        // 方法.
+        methods: {
+
+        }
+
+    });
+
+
+    myCustomActionManager.showOneCustomAction = function (data) {
+        var count = app.actionList.length;
+        for (var i = 0; i < count; i++) {
+            var item = app.actionList[i];
+            if (item.ID == data.ID) {
+
+                item.AccessMinutes = data.AccessMinutes;
+                item.LastAccessTime = data.LastAccessTime;
+
+                return;
+            }
+        }
+        app.actionList.push(data);
+    }
+
+
+    $(document).ready(function () {
+        myCustomActionManager.id = '@user.UserID';
+        myCustomActionManager.queryCustomAction();
+    });
+
+
+</script>
+
+}
