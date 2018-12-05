@@ -12,12 +12,15 @@
 
 <div id="CustomAction">
 
-    <ul>
-        <li v-for="user in userList">
+    <ul class="nav nav-tabs" role="tablist">
 
-            <h3> {{ user.UserName }}  </h3>
+        <li v-for="user in userList" role="presentation">
+            <a v-bind:href='"#" + user.UserName' v-bind:aria-controls="user.UserName" role="tab" data-toggle="tab" >{{ user.UserName }}</a>
+        </li>
+    </ul>
 
-
+    <div class="tab-content">
+        <div v-for="user in userList" role="tabpanel" class="tab-pane" v-bind:id="user.UserName">
             <table border="1" style="width:100%">
                 <tr>
                     <th>时间</th>
@@ -31,11 +34,8 @@
                     <td> {{ item.AccessMinutes }} </td>
                 </tr>
             </table>
-        </li>
-    </ul>
-
-    
-
+        </div>
+    </div>
 </div>
 
 

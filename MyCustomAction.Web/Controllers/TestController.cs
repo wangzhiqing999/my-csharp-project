@@ -114,7 +114,21 @@ namespace MyCustomAction.Web.Controllers
         /// <returns></returns>
         public ActionResult TestManagerAll()
         {
-            ViewBag.Users = testUserList;
+            List<TestUser> userList = new List<TestUser>();
+            userList.AddRange(testUserList);
+
+            // 这里加一堆测试数据， 是为了观察对前端页面布局会有啥影响.
+            for (int i = 0; i < 20; i++)
+            {
+                TestUser t = new TestUser()
+                {
+                    UserID = 100 + i,
+                    UserName = "测试用户100" + i
+                };
+                userList.Add(t);
+            }
+
+            ViewBag.Users = userList;
 
             return View();
         }
