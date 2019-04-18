@@ -42,7 +42,7 @@
 
 
 ### MyJob
-定时作业处理的代码. 
+定时作业处理的代码.
 
 
 ### MyLoggerReader
@@ -81,6 +81,11 @@
 
 ### MyWeb
 网站模块-页面-菜单处理的代码.
+
+
+### MyWebApiClientBuilder
+读取 swagger 的 web api 定义
+通过 T4 的 运行时文本模板， 生成 js 客户端调用方法的代码.
 
 
 ### MyWebCrawler

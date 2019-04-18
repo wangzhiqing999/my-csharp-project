@@ -1,0 +1,188 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="MyWebApiClientBuilder.Model" #>
+<#@ import namespace="MyWebApiClientBuilder.Util" #>
+<#
+Dictionary<string, SwaggerPath> paths = DocInfo.Paths;
+#>
+"use strict";
+
+
+var MyJavaScriptService = {
+
+	// 登录后的 Token.
+	accessToken : "",
+
+
+<#
+foreach(var key in paths.Keys) 
+{
+	SwaggerPath pathData = paths[key];
+
+	string[] apiPaths = key.Split('/');
+	string lastPath = apiPaths[apiPaths.Length - 1];
+
+	// url 地址.
+	string url = key;
+
+	// 是否是动态的 url.
+	bool isDynamic = false;
+
+	// 检查地址的最后一个
+	if(lastPath.StartsWith("{") && lastPath.EndsWith("}")) {
+		// 最后一个是动态地址.
+		isDynamic = true;
+		
+		// 变更 url.
+		url = url.Replace(lastPath, "");
+
+		// 变更 js 方法的路径.
+		lastPath = apiPaths[apiPaths.Length - 2];
+	}
+#>
+
+<#
+	// ---------- GET 处理.
+	if(pathData.Get != null) 
+	{
+		// 路径的参数.
+		List<string> pathParameterNameList = pathData.Get.GetParameterNameList("path");
+		// 查询的参数.
+		List<string> queryParameterNameList = pathData.Get.GetParameterNameList("query");
+		// hearder 的参数.
+		List<string> headerParameterNameList = pathData.Get.GetParameterNameList("header");
+
+		// js 的方法名.
+		string jsFuncName = lastPath;
+		if(isDynamic) {
+			// 动态路径的情况下. 变更方法名.
+			jsFuncName = "get" + jsFuncName;
+		} 
+
+		jsFuncName = Renamer.RenameJavaScriptFunctionName(jsFuncName);
+
+
+		// js 方法的参数.
+		string jsFuncParam = "";
+		if(isDynamic) {
+			// 动态路径的情况下. 参数 = 路径的参数
+			jsFuncParam = string.Join(",", pathParameterNameList);
+		} else {
+			// 非动态路径的情况下. 参数 = 查询的参数
+			jsFuncParam = string.Join(",", queryParameterNameList);
+		}
+
+#>
+
+<# if(!String.IsNullOrEmpty(pathData.Get.Summary)) { #> 
+	// <#= pathData.Get.Summary #>
+<# } #>
+	<#= jsFuncName #>: function(<#= jsFuncParam #>) {
+		return axios({
+			method : 'get',
+<# if(isDynamic) { #>
+			url: '<#= url #>' + <#= jsFuncParam #>, 
+<# } else { #>
+			url: '<#= url #>', 
+<# } #>
+<# if(headerParameterNameList.Count() > 0) { #>
+			headers:{
+				'Authorization': 'Bearer ' + this.accessToken
+			},
+<# } #>
+            params: {
+<# foreach(string param in queryParameterNameList) { #>
+                <#= param #>: <#= param #>,
+<# } #>
+            },
+			responseType: 'json',
+        });
+	},
+
+<#	
+	}
+
+	// ---------- POST 处理.
+	if(pathData.Post != null) 
+	{
+		// Post 的参数.
+		List<SwaggerActionParameter> bodyParameterList = pathData.Post.GetParameterList("body");
+		// 取得唯一的参数.
+		SwaggerActionParameter bodyParameter = bodyParameterList.FirstOrDefault();
+
+		// 取得引用的属性.
+		string refName = null;
+		
+		if(bodyParameter != null) 
+		{
+			refName = bodyParameter.SchemaRefName;
+		}
+		
+		// 模型的属性定义.
+		SwaggerDefinition modelDefinition = null;
+
+		if(!string.IsNullOrEmpty(refName))
+		{
+			modelDefinition = DocInfo.GetSwaggerDefinition(refName);
+		}
+
+
+
+		// hearder 的参数.
+		List<string> headerParameterNameList = pathData.Post.GetParameterNameList("header");
+
+		// js 的方法名.
+		string jsFuncName = lastPath;
+		jsFuncName = Renamer.RenameJavaScriptFunctionName(jsFuncName);
+
+		List<string> propertyNameList = new List<string>();
+
+		if(modelDefinition != null) {
+			propertyNameList = modelDefinition.PropertyNameList;
+		}
+
+		// js 方法的参数.
+		string jsFuncParam =  string.Join(",", propertyNameList);
+
+#>
+
+<# if(!String.IsNullOrEmpty(pathData.Post.Summary)) { #> 
+	// <#= pathData.Post.Summary #>
+<# } #>
+	<#= jsFuncName #>: function(<#= jsFuncParam #>) {
+		return axios({
+			method : 'post',
+<# if(isDynamic) { #>
+			url: '<#= url #>' + <#= jsFuncParam #>, 
+<# } else { #>
+			url: '<#= url #>', 
+<# } #>
+<# if(headerParameterNameList.Count() > 0) { #>
+			headers:{
+				'Authorization': 'Bearer ' + this.accessToken
+			},
+<# } #>
+<# if(propertyNameList != null && propertyNameList.Count() > 0) { #>
+            data: {
+<# foreach(string param in propertyNameList) { #>
+                <#= param #>: <#= param #>,
+<# } #>
+            },
+<# } #>
+			responseType: 'json',
+        });
+	},
+
+<#
+	}
+#>
+
+
+<#
+}
+#>
+
+}
