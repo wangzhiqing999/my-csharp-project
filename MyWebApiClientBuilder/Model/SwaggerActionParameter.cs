@@ -64,7 +64,7 @@ namespace MyWebApiClientBuilder.Model
         /// Schema
         /// </summary>
         [JsonProperty("schema")]
-        public Dictionary<string, string> Schema { set; get; }
+        public Dictionary<string, Object> Schema { set; get; }
 
 
 
@@ -86,16 +86,22 @@ namespace MyWebApiClientBuilder.Model
                     return null;
                 }
 
-                string refString = this.Schema["ref"];
-                if (String.IsNullOrEmpty(refString))
+
+                if (this.Schema.ContainsKey("ref"))
                 {
-                    // 数据为空白.
-                    return null;
+                    string refString = this.Schema["ref"].ToString();
+                    if (String.IsNullOrEmpty(refString))
+                    {
+                        // 数据为空白.
+                        return null;
+                    }
+
+                    string[] refArray = refString.Split('/');
+
+                    return refArray.Last();
                 }
 
-                string [] refArray = refString.Split('/');
-
-                return refArray.Last();
+                return null;
             }
         }
 

@@ -33,6 +33,7 @@
             this.readHtmlTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readMultiDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readHtmlImgToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readHtmlKeywordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,13 +48,14 @@
             this.readDceDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.czceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readCzceListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readCzceDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sgeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readSgeListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readSgeDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fx678ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readFx678ListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.readFx678DetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.readHtmlKeywordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.readFx678RLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +107,13 @@
             this.readHtmlImgToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.readHtmlImgToolStripMenuItem.Text = "ReadHtmlImg";
             this.readHtmlImgToolStripMenuItem.Click += new System.EventHandler(this.readHtmlImgToolStripMenuItem_Click);
+            // 
+            // readHtmlKeywordToolStripMenuItem
+            // 
+            this.readHtmlKeywordToolStripMenuItem.Name = "readHtmlKeywordToolStripMenuItem";
+            this.readHtmlKeywordToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.readHtmlKeywordToolStripMenuItem.Text = "ReadHtmlKeyword";
+            this.readHtmlKeywordToolStripMenuItem.Click += new System.EventHandler(this.readHtmlKeywordToolStripMenuItem_Click);
             // 
             // pToolStripMenuItem
             // 
@@ -201,7 +210,8 @@
             // czceToolStripMenuItem
             // 
             this.czceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.readCzceListToolStripMenuItem});
+            this.readCzceListToolStripMenuItem,
+            this.readCzceDetailToolStripMenuItem});
             this.czceToolStripMenuItem.Name = "czceToolStripMenuItem";
             this.czceToolStripMenuItem.Size = new System.Drawing.Size(128, 21);
             this.czceToolStripMenuItem.Text = "郑州商品期货交易所";
@@ -212,6 +222,13 @@
             this.readCzceListToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.readCzceListToolStripMenuItem.Text = "公告与通知列表";
             this.readCzceListToolStripMenuItem.Click += new System.EventHandler(this.readCzceListToolStripMenuItem_Click);
+            // 
+            // readCzceDetailToolStripMenuItem
+            // 
+            this.readCzceDetailToolStripMenuItem.Name = "readCzceDetailToolStripMenuItem";
+            this.readCzceDetailToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.readCzceDetailToolStripMenuItem.Text = "明细";
+            this.readCzceDetailToolStripMenuItem.Click += new System.EventHandler(this.readCzceDetailToolStripMenuItem_Click);
             // 
             // sgeToolStripMenuItem
             // 
@@ -240,7 +257,8 @@
             // 
             this.fx678ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.readFx678ListToolStripMenuItem,
-            this.readFx678DetailToolStripMenuItem});
+            this.readFx678DetailToolStripMenuItem,
+            this.readFx678RLToolStripMenuItem});
             this.fx678ToolStripMenuItem.Name = "fx678ToolStripMenuItem";
             this.fx678ToolStripMenuItem.Size = new System.Drawing.Size(53, 21);
             this.fx678ToolStripMenuItem.Text = "Fx678";
@@ -248,23 +266,23 @@
             // readFx678ListToolStripMenuItem
             // 
             this.readFx678ListToolStripMenuItem.Name = "readFx678ListToolStripMenuItem";
-            this.readFx678ListToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.readFx678ListToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.readFx678ListToolStripMenuItem.Text = "ReadFx678List";
             this.readFx678ListToolStripMenuItem.Click += new System.EventHandler(this.readFx678ListToolStripMenuItem_Click);
             // 
             // readFx678DetailToolStripMenuItem
             // 
             this.readFx678DetailToolStripMenuItem.Name = "readFx678DetailToolStripMenuItem";
-            this.readFx678DetailToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.readFx678DetailToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.readFx678DetailToolStripMenuItem.Text = "ReadFx678Detail";
             this.readFx678DetailToolStripMenuItem.Click += new System.EventHandler(this.readFx678DetailToolStripMenuItem_Click);
             // 
-            // readHtmlKeywordToolStripMenuItem
+            // readFx678RLToolStripMenuItem
             // 
-            this.readHtmlKeywordToolStripMenuItem.Name = "readHtmlKeywordToolStripMenuItem";
-            this.readHtmlKeywordToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.readHtmlKeywordToolStripMenuItem.Text = "ReadHtmlKeyword";
-            this.readHtmlKeywordToolStripMenuItem.Click += new System.EventHandler(this.readHtmlKeywordToolStripMenuItem_Click);
+            this.readFx678RLToolStripMenuItem.Name = "readFx678RLToolStripMenuItem";
+            this.readFx678RLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.readFx678RLToolStripMenuItem.Text = "ReadFx678RL";
+            this.readFx678RLToolStripMenuItem.Click += new System.EventHandler(this.readFx678RLToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -311,6 +329,8 @@
         private System.Windows.Forms.ToolStripMenuItem readFx678DetailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readHtmlImgToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem readHtmlKeywordToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readCzceDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem readFx678RLToolStripMenuItem;
     }
 }
 

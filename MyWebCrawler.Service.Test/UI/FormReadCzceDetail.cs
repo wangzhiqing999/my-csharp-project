@@ -21,11 +21,12 @@ using MyWebCrawler.Service.Test.Model;
 
 
 
+
 namespace MyWebCrawler.Service.Test.UI
 {
-    public partial class FormReadCzceList : Form
+    public partial class FormReadCzceDetail : Form
     {
-        public FormReadCzceList()
+        public FormReadCzceDetail()
         {
             InitializeComponent();
         }
@@ -33,7 +34,6 @@ namespace MyWebCrawler.Service.Test.UI
 
 
         private IHtmlDataReader<NewsData> reader = new DefaultHtmlDataReader<NewsData>();
-
 
 
 
@@ -48,24 +48,24 @@ namespace MyWebCrawler.Service.Test.UI
             this.txtHtml.Text = reader.RemoveRemarkText(this.txtHtml.Text);
         }
 
-
-
-
         private void btnProcess_Click(object sender, EventArgs e)
         {
             string[] propNames = this.txtPropertyName.Text.Split(',');
 
             HtmlReaderConfig config = new HtmlReaderConfig();
+
+            config.StartFlag = "<DIV id=BodyLabel>";
+            config.FinishFlag = "</DIV>";
+
             config.RegexText = this.txtReg.Text;
             config.PropertyNameList = new List<string>(propNames);
 
 
 
-            var result = reader.ReadMultiData(this.txtHtml.Text, config);
+            var result = reader.ReadSingleData(this.txtHtml.Text, config);
 
             string jsonString = JsonConvert.SerializeObject(result);
             this.txtResult.Text = jsonString;
         }
-
     }
 }

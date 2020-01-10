@@ -1,6 +1,6 @@
 ﻿namespace MyWebCrawler.Service.Test.UI
 {
-    partial class FormReadCzceList
+    partial class FormReadCzceDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -60,53 +60,52 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpMain.Size = new System.Drawing.Size(788, 510);
-            this.tlpMain.TabIndex = 3;
+            this.tlpMain.Size = new System.Drawing.Size(800, 450);
+            this.tlpMain.TabIndex = 4;
             // 
             // txtResult
             // 
             this.tlpMain.SetColumnSpan(this.txtResult, 2);
             this.txtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtResult.Location = new System.Drawing.Point(3, 303);
+            this.txtResult.Location = new System.Drawing.Point(3, 273);
             this.txtResult.Multiline = true;
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
             this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtResult.Size = new System.Drawing.Size(782, 204);
+            this.txtResult.Size = new System.Drawing.Size(794, 174);
             this.txtResult.TabIndex = 7;
             // 
             // txtPropertyName
             // 
             this.txtPropertyName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPropertyName.Location = new System.Drawing.Point(3, 273);
+            this.txtPropertyName.Location = new System.Drawing.Point(3, 243);
             this.txtPropertyName.Name = "txtPropertyName";
-            this.txtPropertyName.Size = new System.Drawing.Size(388, 21);
+            this.txtPropertyName.Size = new System.Drawing.Size(394, 21);
             this.txtPropertyName.TabIndex = 5;
-            this.txtPropertyName.Text = "Url,Title,Date";
+            this.txtPropertyName.Text = "Html";
             // 
             // txtReg
             // 
             this.tlpMain.SetColumnSpan(this.txtReg, 2);
             this.txtReg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtReg.Location = new System.Drawing.Point(3, 243);
+            this.txtReg.Location = new System.Drawing.Point(3, 213);
             this.txtReg.Name = "txtReg";
-            this.txtReg.Size = new System.Drawing.Size(782, 21);
+            this.txtReg.Size = new System.Drawing.Size(794, 21);
             this.txtReg.TabIndex = 4;
-            this.txtReg.Text = "<td><a href=\'([\\w\\W]+?)\' target=_blank>([\\w\\W]+?)</a>[\\s\\n\\r\\w\\W]+?<td>([\\w\\W]+?)" +
-    "</td>";
+            this.txtReg.Text = "([\\w\\W]+?)<div";
             // 
             // txtUrl
             // 
             this.txtUrl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUrl.Location = new System.Drawing.Point(3, 3);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(388, 21);
+            this.txtUrl.Size = new System.Drawing.Size(394, 21);
             this.txtUrl.TabIndex = 0;
-            this.txtUrl.Text = "http://app.czce.com.cn/cms/pub/search/searchdt.jsp";
+            this.txtUrl.Text = "http://www.czce.com.cn/cn/gyjys/jysdt/ggytz/webinfo/2019/12/1572881337749078.htm";
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(397, 3);
+            this.btnGo.Location = new System.Drawing.Point(403, 3);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 1;
@@ -122,12 +121,12 @@
             this.txtHtml.Multiline = true;
             this.txtHtml.Name = "txtHtml";
             this.txtHtml.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtHtml.Size = new System.Drawing.Size(782, 204);
+            this.txtHtml.Size = new System.Drawing.Size(794, 174);
             this.txtHtml.TabIndex = 2;
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(397, 273);
+            this.btnProcess.Location = new System.Drawing.Point(403, 243);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 6;
@@ -135,14 +134,14 @@
             this.btnProcess.UseVisualStyleBackColor = true;
             this.btnProcess.Click += new System.EventHandler(this.btnProcess_Click);
             // 
-            // FormReadCzceList
+            // FormReadCzceDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(788, 510);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tlpMain);
-            this.Name = "FormReadCzceList";
-            this.Text = "郑州商品交易所公告与通知列表";
+            this.Name = "FormReadCzceDetail";
+            this.Text = "FormReadCzceDetail";
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

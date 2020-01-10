@@ -58,6 +58,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\RlData.cs" />
     <Compile Include="Model\KxData.cs" />
     <Compile Include="Model\NewsData.cs" />
     <Compile Include="Program.cs" />
@@ -73,6 +74,12 @@
     </Compile>
     <Compile Include="UI\FormReadCffexList.Designer.cs">
       <DependentUpon>FormReadCffexList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormReadCzceDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadCzceDetail.Designer.cs">
+      <DependentUpon>FormReadCzceDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormReadCzceList.cs">
       <SubType>Form</SubType>
@@ -140,6 +147,12 @@
     <Compile Include="UI\FormReadPinganList.Designer.cs">
       <DependentUpon>FormReadPinganList.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\FormReadRl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadRl.Designer.cs">
+      <DependentUpon>FormReadRl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\FormReadSgeDetail.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +195,9 @@
     <EmbeddedResource Include="UI\FormReadCffexList.resx">
       <DependentUpon>FormReadCffexList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadCzceDetail.resx">
+      <DependentUpon>FormReadCzceDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadCzceList.resx">
       <DependentUpon>FormReadCzceList.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadPinganList.resx">
       <DependentUpon>FormReadPinganList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadRl.resx">
+      <DependentUpon>FormReadRl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadSgeDetail.resx">
       <DependentUpon>FormReadSgeDetail.cs</DependentUpon>

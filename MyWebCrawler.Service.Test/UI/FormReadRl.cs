@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
@@ -21,20 +20,18 @@ using MyWebCrawler.Service.Test.Model;
 
 
 
+
 namespace MyWebCrawler.Service.Test.UI
 {
-    public partial class FormReadCzceList : Form
+    public partial class FormReadRl : Form
     {
-        public FormReadCzceList()
+        public FormReadRl()
         {
             InitializeComponent();
         }
 
 
-
-        private IHtmlDataReader<NewsData> reader = new DefaultHtmlDataReader<NewsData>();
-
-
+        private IHtmlDataReader<RlData> reader = new DefaultHtmlDataReader<RlData>();
 
 
         private void btnGo_Click(object sender, EventArgs e)
@@ -48,14 +45,16 @@ namespace MyWebCrawler.Service.Test.UI
             this.txtHtml.Text = reader.RemoveRemarkText(this.txtHtml.Text);
         }
 
-
-
-
         private void btnProcess_Click(object sender, EventArgs e)
         {
             string[] propNames = this.txtPropertyName.Text.Split(',');
 
             HtmlReaderConfig config = new HtmlReaderConfig();
+
+            // 起始标志.
+            config.StartFlag = "<ul class=\"common_data\">";
+
+
             config.RegexText = this.txtReg.Text;
             config.PropertyNameList = new List<string>(propNames);
 
@@ -66,6 +65,5 @@ namespace MyWebCrawler.Service.Test.UI
             string jsonString = JsonConvert.SerializeObject(result);
             this.txtResult.Text = jsonString;
         }
-
     }
 }

@@ -152,6 +152,14 @@ namespace MyWebCrawler.Service.Test
 
 
 
+        private void readCzceDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadCzceDetail();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
         #endregion
 
 
@@ -202,10 +210,18 @@ namespace MyWebCrawler.Service.Test
             subForm.Show();
         }
 
+
+
+
+        private void readFx678RLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadRl();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
         #endregion Fx678
-
-
-
 
 
     }
