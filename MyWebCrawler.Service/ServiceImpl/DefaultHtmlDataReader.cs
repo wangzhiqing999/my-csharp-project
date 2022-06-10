@@ -26,6 +26,15 @@ namespace MyWebCrawler.ServiceImpl
 
 
 
+
+
+
+        // 2022-06-10
+        // 访问网站时，目标网站的策略，是进来，检测有没有 cookie
+        // 有的话，就允许访问.
+        // 没有的话，设置 Cookie， 然后返回 重定向。
+        // WebClient 不加 Cookie 的话， 最终会导致， 尝试自动重定向的次数太多 的错误.
+        /*
         string IHtmlDataReader<T>.ReadHtmlText(string url, string encoding)
         {
             using (WebClient webClient = new WebClient())
@@ -41,6 +50,44 @@ namespace MyWebCrawler.ServiceImpl
                 }
             }
         }
+        */
+
+
+
+        
+        string IHtmlDataReader<T>.ReadHtmlText(string url, string encoding)
+        {
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+
+
+            request.Accept = "text/html";
+            request.AllowAutoRedirect = true;
+            request.Timeout = 60 * 1000;
+            request.MaximumAutomaticRedirections = 50;
+            request.KeepAlive = true;
+
+            // 自动将返回的结果，进行 GZip 或者 Deflate 解压缩.
+            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
+            // 这一行用于解决：尝试自动重定向的次数太多 的问题.
+            request.CookieContainer = new CookieContainer();
+
+            // Get the response.
+            using (WebResponse response = request.GetResponse())
+            {
+                // 从 Internet 资源返回数据流。
+                using (Stream s = response.GetResponseStream())
+                {
+                    using (StreamReader sr = new StreamReader(s, Encoding.UTF8))
+                    {
+                        string result = sr.ReadToEnd();
+                        return result;
+                    }
+                }
+            }
+        }
+
 
 
 
