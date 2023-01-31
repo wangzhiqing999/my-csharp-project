@@ -58,6 +58,7 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ItemPriceData.cs" />
     <Compile Include="Model\RlData.cs" />
     <Compile Include="Model\KxData.cs" />
     <Compile Include="Model\NewsData.cs" />
@@ -134,6 +135,12 @@
     </Compile>
     <Compile Include="UI\FormReadMultiData.Designer.cs">
       <DependentUpon>FormReadMultiData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FormReadOneData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormReadOneData.Designer.cs">
+      <DependentUpon>FormReadOneData.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\FormReadPinganDetail.cs">
       <SubType>Form</SubType>
@@ -224,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadMultiData.resx">
       <DependentUpon>FormReadMultiData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FormReadOneData.resx">
+      <DependentUpon>FormReadOneData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FormReadPinganDetail.resx">
       <DependentUpon>FormReadPinganDetail.cs</DependentUpon>

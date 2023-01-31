@@ -27,6 +27,15 @@ namespace MyWebCrawler.Service.Test
             subForm.Show();
         }
 
+
+        private void readOneDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var subForm = new FormReadOneData();
+            subForm.MdiParent = this;
+            subForm.Show();
+        }
+
+
         private void readMultiDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var subForm = new FormReadMultiData();
@@ -219,6 +228,7 @@ namespace MyWebCrawler.Service.Test
             subForm.MdiParent = this;
             subForm.Show();
         }
+
 
 
         #endregion Fx678
