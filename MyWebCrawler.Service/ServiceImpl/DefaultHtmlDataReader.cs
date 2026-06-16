@@ -1,17 +1,16 @@
-﻿using System;
+﻿using log4net;
+using MyWebCrawler.Model;
+using MyWebCrawler.Service;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Net;
-using System.IO;
-using System.Reflection;
-
-using log4net;
-
-using MyWebCrawler.Model;
-using MyWebCrawler.Service;
 
 
 namespace MyWebCrawler.ServiceImpl
@@ -88,6 +87,71 @@ namespace MyWebCrawler.ServiceImpl
             }
         }
 
+
+
+
+
+        /// <summary>
+        /// 极端情况下，使用 curl 的备选方案.
+        /// 某些情况下，遇到访问服务器的时候，返回 “请求被中止: 未能创建 SSL/TLS 安全通道。”
+        /// 也就是在目标机器上，浏览器能够访问，但是C#访问则报错。
+        /// 如果测试 curl 可以访问的情况下， 可以尝试用下面的代码，来替代处理。
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="timeoutMs"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public static string CallCurlGetHtml(string url, int timeoutMs = 10000)
+        {
+            var psi = new ProcessStartInfo
+            {
+                // 调用curl.exe，若不在环境变量里写绝对路径 @"D:\tools\curl.exe"
+                FileName = "curl.exe",
+                Arguments = $"-L -s {url}", // -L跟随重定向 -s静默模式
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true, // 不弹出黑窗口
+                StandardOutputEncoding = Encoding.UTF8,
+                StandardErrorEncoding = Encoding.UTF8
+            };
+
+            var process = new Process { StartInfo = psi };
+            var outputBuilder = new StringBuilder();
+            var errorBuilder = new StringBuilder();
+
+            // 异步读取输出，避免缓冲区卡死
+            process.OutputDataReceived += (s, e) =>
+            {
+                if (e.Data != null) outputBuilder.AppendLine(e.Data);
+            };
+            process.ErrorDataReceived += (s, e) =>
+            {
+                if (e.Data != null) errorBuilder.AppendLine(e.Data);
+            };
+
+            process.Start();
+            process.BeginOutputReadLine();
+            process.BeginErrorReadLine();
+
+            // 等待执行+超时保护
+            bool exited = process.WaitForExit(timeoutMs);
+            if (!exited)
+            {
+                process.Kill();
+                throw new Exception($"curl执行超时({timeoutMs}ms)，已终止进程");
+            }
+
+            string html = outputBuilder.ToString();
+            string err = errorBuilder.ToString();
+
+            if (process.ExitCode != 0)
+            {
+                throw new Exception($"curl执行失败，退出码：{process.ExitCode}，错误信息：{err}");
+            }
+
+            return html;
+        }
 
 
 
